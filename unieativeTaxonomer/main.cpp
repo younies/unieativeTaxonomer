@@ -16,9 +16,11 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     
     YRJObject *yrj = new YRJObject(pathe);
-    YRJObject *yrj2 = new YRJObject(pathe);
     
     delete yrj;
+
+    YRJObject *yrj2 = new YRJObject(pathe);
+    
     delete yrj2;
     
     
