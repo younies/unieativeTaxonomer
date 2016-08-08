@@ -11,9 +11,9 @@
 
 YRJObject::YRJObject(string path)
 {
-    this->path_to_file = path_to_file;
+    this->path_to_file = path;
     ifstream fileStream(path_to_file);
-    if(!fileStream.good())
+    if(!fileStream.is_open())
     {
         cerr<< "file not found!!!!\n" + path;
         return;
@@ -22,6 +22,13 @@ YRJObject::YRJObject(string path)
     fileStream.read( (char *) &this->numOfKmers , sizeof(LONG));
     this->kmersVector.resize(this->numOfKmers);
     
-    fileStream.read((char *)kmersVector[0], this->numOfKmers * sizeof(LONG));
+    fileStream.read((char *)&kmersVector[0], this->numOfKmers * sizeof(LONG));
     fileStream.close();
+}
+
+
+YRJObject::~YRJObject()
+{
+    cout << "my class destroyed\n";
+    this->kmersVector.clear();
 }

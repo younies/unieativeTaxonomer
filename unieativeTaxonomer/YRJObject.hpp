@@ -22,6 +22,7 @@ class YRJObject
     
 public:
     YRJObject(string path);
+    ~YRJObject();
 };
 
 #endif /* YRJObject_hpp */
