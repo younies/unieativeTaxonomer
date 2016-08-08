@@ -61,17 +61,20 @@ typedef long LONGS;
 
 
 
+
+//abstracting the new hashed kmer
 struct HashedNode{
     short index;
     unsigned int rawKmer; //the non hashed part in the kmer
     unsigned int hashedKmer; // the part that is hashed in the kmer
     
-    bool operator< (const HashedNode& x, const HashedNode& y) {
-        return false;
+    bool operator< ( const HashedNode& y) {
+        return std::tie(this->rawKmer, this->index , this->hashedKmer ) < std::tie(y.rawKmer, y.index , y.hashedKmer);
     }
-
 };
 
+bool hashedNodeCompare(HashedNode &lhs, HashedNode &rhs) { return lhs < rhs; } // for the binartysearch or the sorting algorithms
+//end of the hasehd kmer implementation
 
 
 struct Node {
