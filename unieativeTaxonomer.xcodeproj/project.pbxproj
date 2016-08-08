@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F351007B1D58EF5700C294D7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F351007A1D58EF5700C294D7 /* main.cpp */; };
+		F35100861D591C8100C294D7 /* YRJObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35100841D591C8100C294D7 /* YRJObject.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,8 @@
 		F351007A1D58EF5700C294D7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F35100811D58F21800C294D7 /* headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = headers.h; sourceTree = "<group>"; };
 		F35100821D5903DC00C294D7 /* Configurations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configurations.h; sourceTree = "<group>"; };
+		F35100841D591C8100C294D7 /* YRJObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YRJObject.cpp; sourceTree = "<group>"; };
+		F35100851D591C8100C294D7 /* YRJObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = YRJObject.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +62,21 @@
 		F35100791D58EF5700C294D7 /* unieativeTaxonomer */ = {
 			isa = PBXGroup;
 			children = (
+				F35100831D591BB800C294D7 /* YRJReader */,
 				F35100811D58F21800C294D7 /* headers.h */,
 				F351007A1D58EF5700C294D7 /* main.cpp */,
 				F35100821D5903DC00C294D7 /* Configurations.h */,
 			);
 			path = unieativeTaxonomer;
+			sourceTree = "<group>";
+		};
+		F35100831D591BB800C294D7 /* YRJReader */ = {
+			isa = PBXGroup;
+			children = (
+				F35100841D591C8100C294D7 /* YRJObject.cpp */,
+				F35100851D591C8100C294D7 /* YRJObject.hpp */,
+			);
+			name = YRJReader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35100861D591C8100C294D7 /* YRJObject.cpp in Sources */,
 				F351007B1D58EF5700C294D7 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

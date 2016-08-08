@@ -77,15 +77,14 @@ bool hashedNodeCompare(HashedNode &lhs, HashedNode &rhs) { return lhs < rhs; } /
 //end of the hasehd kmer implementation
 
 
-struct Node {
+struct Node
+{
     LONG uid;
     LONG parentUID;
     LONGS parentIndex;
     LONGS myselfIndex;
     vector<LONG> children;
 };
-
-
 
 struct G_Statistics
 {
@@ -98,12 +97,9 @@ struct G_Statistics
     
 };
 
-
-
 struct Uid_Value {
     LONGS uid;
     LONGS value;
 };
-
 
 #endif /* headers_h */
