@@ -12,22 +12,28 @@
 
 YRJUnieative::YRJUnieative(string path , string hash): YRJObject(path)
 {
-    this->hash = hash;
+    vector<char> newHash;
+    
+    for(int i = 0 , n = (int)hash.size() ; i < n ; ++i)
+    {
+        newHash.push_back(hash[i]);
+        newHash.push_back(hash[i]);
+    }
+    string newStringHash( newHash.begin() , newHash.end());
+    this->hash = newStringHash;
 }
 
 
 //building the converter
 
 
-unsigned int 
+
 
 HashedNode YRJUnieative::convetToHashed(LONG kmer)
 {
     HashedNode node;
     
     node.index = this->getIndex();
-    
-    
     
     
     return node;
