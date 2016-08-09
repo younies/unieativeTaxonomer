@@ -22,7 +22,7 @@ struct HashedNode{
     }
 };
 
-bool hashedNodeCompare(HashedNode &lhs, HashedNode &rhs) { return lhs < rhs; } // for the binartysearch or the sorting algorithms
+bool hashedNodeCompare(HashedNode &lhs, HashedNode &rhs);
 //end of the hasehd kmer implementation
 
 #endif /* HashedNode_hpp */
