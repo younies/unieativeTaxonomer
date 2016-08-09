@@ -18,6 +18,7 @@ int main(int argc, const char * argv[])
     // insert code here...
     
     YRJUnieative *node =new YRJUnieative(pathe , pattern);
+    node->fillTheHashedNodesVector();
     
     delete node;
     
