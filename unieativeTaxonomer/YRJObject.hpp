@@ -18,11 +18,13 @@ class YRJObject
     LONG numOfKmers;
     string path_to_file;
     vector<LONG>  kmersVector;
-    
+    short index;
     
 public:
     YRJObject(string path);
     ~YRJObject();
+    
+    short getIndex();
 };
 
 #endif /* YRJObject_hpp */

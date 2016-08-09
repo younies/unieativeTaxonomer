@@ -32,3 +32,14 @@ YRJObject::~YRJObject()
     this->kmersVector.clear();
     cout << "YRJ object is destroyed\n";
 }
+
+
+
+
+
+short YRJObject::getIndex()
+{
+    return this->index;
+}
+
+

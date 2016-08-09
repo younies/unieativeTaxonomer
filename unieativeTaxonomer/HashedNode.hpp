@@ -13,9 +13,9 @@
 
 //abstracting the new hashed kmer
 struct HashedNode{
-    short index;
-    unsigned int rawKmer; //the non hashed part in the kmer
-    unsigned int hashedKmer; // the part that is hashed in the kmer
+    short index = 0;
+    unsigned int rawKmer = 0; //the non hashed part in the kmer
+    unsigned int hashedKmer = 0 ; // the part that is hashed in the kmer
     
     bool operator< ( const HashedNode& y) {
         return std::tie(this->rawKmer, this->index , this->hashedKmer ) < std::tie(y.rawKmer, y.index , y.hashedKmer);

@@ -8,7 +8,7 @@
 
 #ifndef CoreTaxonomer_hpp
 #define CoreTaxonomer_hpp
-
+#include "HashedNode.hpp"
 #include "headers.h"
 
 class CoreTaxonomer
