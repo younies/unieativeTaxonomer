@@ -6,20 +6,20 @@
 //  Copyright © 2016 Younies Mahmoud. All rights reserved.
 //
 
-#ifndef CorseTaxonomer_hpp
-#define CorseTaxonomer_hpp
+#ifndef CoreTaxonomer_hpp
+#define CoreTaxonomer_hpp
 
 #include "headers.h"
 
-class CorseTaxonomer
+class CoreTaxonomer
 {
     vector<HashedNode> coreHashedNodes;
     
     
     
 public:
-    CorseTaxonomer();
-    ~CorseTaxonomer();
+    CoreTaxonomer();
+    ~CoreTaxonomer();
     
     
 };

@@ -10,7 +10,7 @@
 		F351007B1D58EF5700C294D7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F351007A1D58EF5700C294D7 /* main.cpp */; };
 		F35100861D591C8100C294D7 /* YRJObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35100841D591C8100C294D7 /* YRJObject.cpp */; };
 		F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3B433931D592375002D83B5 /* HashedNode.cpp */; };
-		F3B4339A1D592B5F002D83B5 /* CorseTaxonomer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3B433981D592B5F002D83B5 /* CorseTaxonomer.cpp */; };
+		F3B4339D1D5A48BB002D83B5 /* CoreTaxonomer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3B4339B1D5A48BB002D83B5 /* CoreTaxonomer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,8 +34,8 @@
 		F35100851D591C8100C294D7 /* YRJObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = YRJObject.hpp; sourceTree = "<group>"; };
 		F3B433931D592375002D83B5 /* HashedNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashedNode.cpp; sourceTree = "<group>"; };
 		F3B433941D592375002D83B5 /* HashedNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HashedNode.hpp; sourceTree = "<group>"; };
-		F3B433981D592B5F002D83B5 /* CorseTaxonomer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CorseTaxonomer.cpp; sourceTree = "<group>"; };
-		F3B433991D592B5F002D83B5 /* CorseTaxonomer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CorseTaxonomer.hpp; sourceTree = "<group>"; };
+		F3B4339B1D5A48BB002D83B5 /* CoreTaxonomer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreTaxonomer.cpp; sourceTree = "<group>"; };
+		F3B4339C1D5A48BB002D83B5 /* CoreTaxonomer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CoreTaxonomer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,6 @@
 		F351006E1D58EF5700C294D7 = {
 			isa = PBXGroup;
 			children = (
-				F3B433971D592B42002D83B5 /* CoreTaxonomer */,
 				F35100791D58EF5700C294D7 /* unieativeTaxonomer */,
 				F35100781D58EF5700C294D7 /* Products */,
 			);
@@ -69,6 +68,8 @@
 		F35100791D58EF5700C294D7 /* unieativeTaxonomer */ = {
 			isa = PBXGroup;
 			children = (
+				F3B4339B1D5A48BB002D83B5 /* CoreTaxonomer.cpp */,
+				F3B4339C1D5A48BB002D83B5 /* CoreTaxonomer.hpp */,
 				F35100831D591BB800C294D7 /* YRJReader */,
 				F35100811D58F21800C294D7 /* headers.h */,
 				F351007A1D58EF5700C294D7 /* main.cpp */,
@@ -86,15 +87,6 @@
 				F35100851D591C8100C294D7 /* YRJObject.hpp */,
 			);
 			name = YRJReader;
-			sourceTree = "<group>";
-		};
-		F3B433971D592B42002D83B5 /* CoreTaxonomer */ = {
-			isa = PBXGroup;
-			children = (
-				F3B433981D592B5F002D83B5 /* CorseTaxonomer.cpp */,
-				F3B433991D592B5F002D83B5 /* CorseTaxonomer.hpp */,
-			);
-			name = CoreTaxonomer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3B4339A1D592B5F002D83B5 /* CorseTaxonomer.cpp in Sources */,
+				F3B4339D1D5A48BB002D83B5 /* CoreTaxonomer.cpp in Sources */,
 				F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */,
 				F35100861D591C8100C294D7 /* YRJObject.cpp in Sources */,
 				F351007B1D58EF5700C294D7 /* main.cpp in Sources */,

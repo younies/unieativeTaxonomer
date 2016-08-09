@@ -6,15 +6,15 @@
 //  Copyright © 2016 Younies Mahmoud. All rights reserved.
 //
 
-#include "CorseTaxonomer.hpp"
+#include "CoreTaxonomer.hpp"
 
 
-CorseTaxonomer::CorseTaxonomer()
+CoreTaxonomer::CoreTaxonomer()
 {
     
 }
 
-CorseTaxonomer::~CorseTaxonomer()
+CoreTaxonomer::~CoreTaxonomer()
 {
     
     
