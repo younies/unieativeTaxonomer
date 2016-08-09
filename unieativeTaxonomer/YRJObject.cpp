@@ -20,9 +20,6 @@ YRJObject::YRJObject(string path)
     }
     fileStream.read( (char *)&this->kmerLength  , sizeof(LONG));
     fileStream.read( (char *) &this->numOfKmers , sizeof(LONG));
-    this->kmersVector.resize(this->numOfKmers);
-    
-    fileStream.read((char *)&kmersVector[0], this->numOfKmers * sizeof(LONG));
     fileStream.close();
 }
 
@@ -42,4 +39,36 @@ short YRJObject::getIndex()
     return this->index;
 }
 
+
+
+LONGS YRJObject::getNumOfKmers()
+{
+    return this->numOfKmers;
+}
+
+
+void YRJObject::clearTheCompleteKmers()
+{
+    this->kmersVector.clear();
+    this->numOfKmers = 0;
+}
+
+
+
+void YRJObject::fillTheKmersVector()
+{
+    ifstream fileStream(path_to_file);
+    if(!fileStream.is_open())
+    {
+        cerr<< "file not found!!!! from filling \n" + this->path_to_file;
+        return;
+    }
+    fileStream.read( (char *)&this->kmerLength  , sizeof(LONG));
+    fileStream.read( (char *) &this->numOfKmers , sizeof(LONG));
+    this->kmersVector.resize(this->numOfKmers);
+    
+    fileStream.read((char *)&kmersVector[0], this->numOfKmers * sizeof(LONG));
+    fileStream.close();
+
+}
 

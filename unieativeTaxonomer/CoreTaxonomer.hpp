@@ -10,15 +10,17 @@
 #define CoreTaxonomer_hpp
 #include "HashedNode.hpp"
 #include "headers.h"
+#include "YRJUnieative.hpp"
 
 class CoreTaxonomer
 {
+    LONGS coreHashNodesSize = 0;
     vector<HashedNode> coreHashedNodes;
     
     
     
 public:
-    CoreTaxonomer();
+    CoreTaxonomer( vector<YRJUnieative> yrjUnieativeVector);
     ~CoreTaxonomer();
     
     
