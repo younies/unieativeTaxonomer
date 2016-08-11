@@ -23,7 +23,6 @@
 
 class YRJUnieative: YRJObject
 {
-    vector< HashedNode > hashedKmers;
     string hash;
     HashedNode convetToHashed(LONG kmer);
     void extractKeys( HashedNode &node , LONG & kmer);
@@ -32,8 +31,10 @@ public:
     ~YRJUnieative();
     
     LONGS hashedKmersSize;
-    
+    vector< HashedNode > hashedKmers;
+
     void fillTheHashedNodesVector();
+    void clearAllTheData();
 
 };
 

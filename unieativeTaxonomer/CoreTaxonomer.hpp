@@ -16,12 +16,19 @@ class CoreTaxonomer
 {
     LONGS coreHashNodesSize = 0;
     vector<HashedNode> coreHashedNodes;
-    
-    
+    vector<YRJUnieative *> yrjUnieativeVector;
+    LONGS startIndex = 0;
+    void copyYRJUnieativeInside(YRJUnieative &yrjUnieative);
     
 public:
-    CoreTaxonomer( vector<YRJUnieative> yrjUnieativeVector);
+    CoreTaxonomer( vector<YRJUnieative *>  &yrjUnieativeVector);
     ~CoreTaxonomer();
+    
+    pair<LONGS, LONGS> getThePlaceOfKmer(INT rawKmer);
+    void fillAllTheCoreData();
+    
+    pair<INT, INT> getTheHashedKmer(LONG kmer);// return the rawKmer and the hashedKmer from a kmer
+    
     
     
 };

@@ -59,7 +59,7 @@ using namespace std;
 typedef unsigned long LONG;
 typedef long LONGS;
 
-
+typedef unsigned int  INT;
 
 
 

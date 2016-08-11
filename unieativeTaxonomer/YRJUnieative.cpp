@@ -93,4 +93,11 @@ void YRJUnieative::fillTheHashedNodesVector()
 
 
 
+//delete all the data in the objects
+void YRJUnieative::clearAllTheData()
+{
+    this->hashedKmers.clear();
+    this->kmersVector.clear();
+}
+
 
