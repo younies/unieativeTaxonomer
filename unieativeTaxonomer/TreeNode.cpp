@@ -7,3 +7,13 @@
 //
 
 #include "TreeNode.hpp"
+
+
+TreeNode::TreeNode(LONG uid , LONG parentUid , short shortName , bool tagged)
+{
+    this->uid           = uid;
+    this-> parentUid    = parentUid;
+    this->shortName     = shortName;
+    this->tagged        = tagged;
+}
+

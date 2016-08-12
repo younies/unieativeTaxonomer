@@ -9,6 +9,17 @@
 #ifndef Tree_hpp
 #define Tree_hpp
 
-#include <stdio.h>
+#include "headers.h"
+#include "TreeNode.hpp"
 
+class Tree {
+    vector< TreeNode * > treeNodesVector;
+    vector<LONGS> fromShortNameToUid;
+    
+public:
+    Tree(string pathToTheTree);
+    
+    void setChildrenForTheNodes();
+    
+};
 #endif /* Tree_hpp */

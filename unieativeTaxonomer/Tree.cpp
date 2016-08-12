@@ -8,10 +8,35 @@
 
 #include "Tree.hpp"
 
-
-class Tree {
-    <#instance variables#>
+Tree::Tree(string path)
+{
+    ifstream inputStream(path);
+    string line;
     
-public:
-    <#member functions#>
-};
+    while (getline(inputStream, line))
+    {
+        stringstream liness(line);
+        short shortName;
+        bool tagged;
+        LONG uid, parentUid;
+        
+        liness >> uid;
+        liness >> parentUid;
+        liness >> shortName;
+        liness >> tagged;
+        
+        this->treeNodesVector.push_back( new TreeNode( uid ,  parentUid ,  shortName ,  tagged) );
+        
+    }
+    
+    inputStream.close();
+    
+    
+    
+    
+    //set the mapper between the short names and uids
+    this->fromShortNameToUid.resize(this->treeNodesVector.size() + 1000 , -1);
+    for(LONGS i = 0 , n = this->treeNodesVector.size() ; i < n ; ++i )
+        this->fromShortNameToUid[this->treeNodesVector[i]->shortName] = this->treeNodesVector[i]->uid;
+    
+}

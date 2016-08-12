@@ -20,14 +20,17 @@
 
 class TreeNode
 {
+
+public:
     TreeNode * parent;
     list<TreeNode* > children;
     short shortName;
     bool tagged;
+    LONG uid, parentUid;
     
     
-public:
-    <#member functions#>
+
+    TreeNode(LONG uid , LONG parentUid , short shortName , bool tagged);
 };
 
 #endif /* TreeNode_hpp */

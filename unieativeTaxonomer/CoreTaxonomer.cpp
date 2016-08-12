@@ -9,8 +9,11 @@
 #include "CoreTaxonomer.hpp"
 
 
-CoreTaxonomer::CoreTaxonomer(vector<YRJUnieative *> & yrjUnieativeVector)
+CoreTaxonomer::CoreTaxonomer(vector<YRJUnieative *> & yrjUnieativeVector , string hash)
 {
+    //setting up the hash
+    this->hash = hash;
+    
     this->yrjUnieativeVector = yrjUnieativeVector;
     //to calculate the size of the whole database hashed kmers
     this->coreHashNodesSize = 0;
@@ -26,7 +29,6 @@ CoreTaxonomer::CoreTaxonomer(vector<YRJUnieative *> & yrjUnieativeVector)
     
     //sort all the core data
     sort(this->coreHashedNodes.begin(), this->coreHashedNodes.end());
-    
 }
 
 
@@ -84,8 +86,9 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(INT rawKmer)
     LONGS newEndStart =  mid ,  newEndEnd  = mid;
     
     //for setting the start
-    while ( newEndStart > start )
+    while ( this->coreHashedNodes[start].rawKmer  != rawKmer)
     {
+        ++start; // take a step to the goal
         mid = (start + newEndStart) / 2;
         
         if(this->coreHashedNodes[mid].rawKmer == rawKmer)
@@ -96,14 +99,14 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(INT rawKmer)
     
     //for setting the end
     
-    while (end > newEndEnd)
+    while (this->coreHashedNodes[end].rawKmer != rawKmer)
     {
+        --end; //take one step to the goal and prevent the infinity loop!
         mid = (end + newEndEnd)/2;
         if(this->coreHashedNodes[mid].rawKmer == rawKmer)
             newEndEnd = mid;
         else
             end = mid  - 1;
-        
     }
     
     return make_pair(start, end);
