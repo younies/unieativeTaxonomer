@@ -28,7 +28,7 @@ CoreTaxonomer::CoreTaxonomer(vector<YRJUnieative *> & yrjUnieativeVector , strin
     
     
     //sort all the core data
-    sort(this->coreHashedNodes.begin(), this->coreHashedNodes.end());
+   // sort(this->coreHashedNodes.begin(), this->coreHashedNodes.end());
 }
 
 
