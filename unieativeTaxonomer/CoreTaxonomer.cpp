@@ -182,3 +182,27 @@ void CoreTaxonomer::updateHashValue(string hash)
 
 
 
+
+//reversing the bits of all the variable
+LONG CoreTaxonomer::reverseKmer(LONG kmer)
+{
+    int size = sizeof(LONG) * 8;
+    
+    LONG ret = 0;
+    int kmerLastBit = kmer%2;
+    kmer /= 2;
+    ret |= kmerLastBit;
+    
+    
+    while (--size)
+    {
+        ret <<= 1;
+        kmerLastBit = kmer%2;
+        kmer /= 2;
+        ret |= kmerLastBit;
+    }
+    
+    
+    return  ret;
+}
+
