@@ -14,13 +14,14 @@ Tree::Tree(string path)
     ifstream inputStream(path);
     
     
-    this->treeNodesVector.resize(this->treeSize);
+    this->treeNodesVector.resize(this->treeSize , NULL);
     string line;
     
     while (getline(inputStream, line))
     {
         stringstream liness(line);
         short shortName;
+        short parentShortName;
         bool tagged;
         LONG uid, parentUid;
         
@@ -29,20 +30,25 @@ Tree::Tree(string path)
         liness >> shortName;
         liness >> tagged;
         
-        this->treeNodesVector[shortName]  = new TreeNode( uid ,  parentUid ,  shortName ,  tagged);
+        this->treeNodesVector[shortName]  = new TreeNode( uid ,  parentUid ,  shortName , parentShortName,  tagged);
         
     }
     
     inputStream.close();
     
-    /**
-    //set the mapper between the short names and uids
-    this->fromShortNameToUid.resize(this->treeNodesVector.size() + 1000 , -1);
-    for(LONGS i = 0 , n = this->treeNodesVector.size() ; i < n ; ++i )
-        this->fromShortNameToUid[this->treeNodesVector[i]->shortName] = this->treeNodesVector[i]->uid;
-    */
+    //connect parents
+    this->connectChildren();
 }
 
+
+void Tree::connectChildren()
+{
+    for (LONGS i = 0 , n = this->treeNodesVector.size(); i < n ; ++i)
+    {
+        if(this->treeNodesVector[i] != NULL && this->treeNodesVector[i]->parentShortName != this->treeNodesVector[i]->shortName)//to avoid the loop in the root
+            this->treeNodesVector[ this->treeNodesVector[i]->parentShortName ]->children.push_back(this->treeNodesVector[i]);
+    }
+}
 
 
 
@@ -52,6 +58,60 @@ short Tree::getParentShortName(short shortName)
 {
     return this->treeNodesVector[shortName]->parentShortName;
 }
+
+
+
+LONGS Tree::setNumberOfLeaves(TreeNode * node)
+{
+    LONGS numOfLeaves = 0;
+    if(node->tagged)
+        numOfLeaves += 1;
+    
+    for (LONGS i = 0 , n = node->children.size(); i < n ; ++i)
+    {
+        numOfLeaves += setNumberOfLeaves(node->children[i]);
+    }
+    
+    this->numberOfLeaves[node->shortName] = numOfLeaves;
+    
+    return numOfLeaves;
+    
+}
+
+
+
+void Tree::buildTheNumberOfLeaves( )
+{
+    this->numberOfLeaves.resize(this->treeNodesVector.size() , 0);
+    
+    setNumberOfLeaves(this->treeNodesVector[0]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -17,12 +17,16 @@ class Tree
     vector< TreeNode * > treeNodesVector;
     vector<LONGS> fromShortNameToUid;
     LONGS treeSize = 11000;
-    
+    vector<LONGS> numberOfLeaves;
+    void connectChildren();
+    LONGS setNumberOfLeaves(TreeNode * node);
+
 public:
     Tree(string pathToTheTree);
     
-    
     short getParentShortName(short shortName);
+    
+    void buildTheNumberOfLeaves( );
     
 };
 #endif /* Tree_hpp */

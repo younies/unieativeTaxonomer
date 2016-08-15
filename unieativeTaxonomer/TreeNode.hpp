@@ -23,7 +23,7 @@ class TreeNode
 
 public:
     TreeNode * parent;
-    list<TreeNode* > children;
+    vector<TreeNode* > children;
     short shortName;
     short parentShortName;
     bool tagged;
@@ -31,7 +31,7 @@ public:
     
     
 
-    TreeNode(LONG uid , LONG parentUid , short shortName , bool tagged);
+    TreeNode(LONG uid , LONG parentUid , short shortName , short parentShortName , bool tagged);
 };
 
 #endif /* TreeNode_hpp */

@@ -9,11 +9,11 @@
 #include "TreeNode.hpp"
 
 
-TreeNode::TreeNode(LONG uid , LONG parentUid , short shortName , bool tagged)
+TreeNode::TreeNode(LONG uid , LONG parentUid , short shortName , short parentShortName , bool tagged)
 {
     this->uid           = uid;
     this-> parentUid    = parentUid;
     this->shortName     = shortName;
+    this->parentShortName = parentShortName;
     this->tagged        = tagged;
 }
-

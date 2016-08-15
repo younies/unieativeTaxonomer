@@ -284,3 +284,33 @@ short CoreTaxonomer::getTowLCA(short first , short second)
     
     return first;
 }
+
+
+
+
+
+
+
+short CoreTaxonomer::getGlobalLCA( vector<pair< short , short> > vectorOfResults)
+{
+    LONGS vecSize = vectorOfResults.size();
+    
+    if(vecSize == 0)
+    {
+        cout << "error in the get Global LCA\n";
+        return  -1;
+    }
+    else if(vecSize == 1)
+        return vectorOfResults[0].first; // return the index of that element
+    
+    
+    short ret =  vectorOfResults[0].first;
+    for(LONGS i = 1 ; i < vecSize  ; ++i )
+        ret = getTowLCA(ret, vectorOfResults[i].first);
+    
+    return ret;
+    
+}
+
+
+

@@ -46,6 +46,8 @@ public:
     
     short getTowLCA(short first , short second);
     
+    short getGlobalLCA( vector<pair< short , short> > vectorOfResults);// take vector of pairs of indices and differences
+    
 };
 
 #endif /* CorseTaxonomer_hpp */
