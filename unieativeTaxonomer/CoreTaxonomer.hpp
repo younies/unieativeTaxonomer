@@ -11,14 +11,17 @@
 #include "HashedNode.hpp"
 #include "headers.h"
 #include "YRJUnieative.hpp"
+#include "helpers.hpp"
 
 class CoreTaxonomer
 {
     LONGS coreHashNodesSize = 0;
     vector<HashedNode> coreHashedNodes;
     vector<YRJUnieative *> yrjUnieativeVector;
+    
     LONGS startIndex = 0;
     string hash;
+    LONG reverseHashBits;
     void copyYRJUnieativeInside(YRJUnieative &yrjUnieative);
     
 public:
@@ -30,6 +33,9 @@ public:
     
     pair<INT, INT> getTheHashedKmer(LONG kmer);// return the rawKmer and the hashedKmer from a kmer
     
+    void updateHashValue(string hash);
+    
+    LONG reverseKmer(LONG kmer);
 };
 
 #endif /* CorseTaxonomer_hpp */

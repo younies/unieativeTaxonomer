@@ -12,7 +12,7 @@
 CoreTaxonomer::CoreTaxonomer(vector<YRJUnieative *> & yrjUnieativeVector , string hash)
 {
     //setting up the hash
-    this->hash = hash;
+    updateHashValue(hash);
     
     this->yrjUnieativeVector = yrjUnieativeVector;
     //to calculate the size of the whole database hashed kmers
@@ -97,6 +97,8 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(INT rawKmer)
             start = mid + 1;
     }
     
+    
+    
     //for setting the end
     
     while (this->coreHashedNodes[end].rawKmer != rawKmer)
@@ -112,6 +114,71 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(INT rawKmer)
     return make_pair(start, end);
     
 }
+
+
+
+
+/**
+ Implementing the function that convert the kmer from LONGS kmer to the corresponding rawKmer and hashedPart which is the hidden part
+ */
+
+pair<INT, INT> CoreTaxonomer::getTheHashedKmer(LONG kmer)
+{
+    pair<INT, INT> ret;
+    ret.first = 0 ;
+    ret.second = 0;
+    
+    LONG tempHash = this->reverseHashBits;
+    kmer = reverseKmer(kmer);
+    
+    while(tempHash > 0)
+    {
+        int indicator = tempHash % 2; // take the last bit from the temp reversed hash
+        int kmerBit = kmer%2; // take the last bit from the reversed kmer
+        tempHash /= 2;
+        kmer /= 2;
+        if (indicator == 1)
+        {
+            ret.first <<= 1;
+            ret.first |= kmerBit;
+        }
+        else
+        {
+            ret.second <<= 1;
+            ret.second |= kmerBit;
+        }
+    }
+    
+    return ret;
+}
+
+
+
+void CoreTaxonomer::updateHashValue(string hash)
+{
+    vector<char> charHash;
+    for(LONGS i = 0 , n = hash.size() ; i < n ; ++ i)
+    {
+        charHash.push_back(hash[i]);
+        charHash.push_back(hash[i]);
+    }
+    string newHash(charHash.begin() , charHash.end());
+        this->hash = newHash;
+    
+    this->reverseHashBits = 0;
+    
+    string reverseHash = newHash;
+    reverse(reverseHash.begin(), reverseHash.end());
+    
+    
+    for(LONGS i = 0 , n = reverseHash.size() ; i < n  ; ++i)
+    {
+        this->reverseHashBits <<= 1;
+        if(reverseHash[i] == '#')
+            this->reverseHashBits |= 1;
+    }
+}
+
 
 
 

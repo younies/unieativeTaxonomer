@@ -12,9 +12,11 @@
 #include "headers.h"
 #include "TreeNode.hpp"
 
-class Tree {
+class Tree
+{
     vector< TreeNode * > treeNodesVector;
     vector<LONGS> fromShortNameToUid;
+    LONGS treeSize = 11000;
     
 public:
     Tree(string pathToTheTree);

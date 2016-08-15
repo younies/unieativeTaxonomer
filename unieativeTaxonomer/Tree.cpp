@@ -10,7 +10,11 @@
 
 Tree::Tree(string path)
 {
+    
     ifstream inputStream(path);
+    
+    
+    this->treeNodesVector.resize(this->treeSize);
     string line;
     
     while (getline(inputStream, line))
@@ -25,18 +29,16 @@ Tree::Tree(string path)
         liness >> shortName;
         liness >> tagged;
         
-        this->treeNodesVector.push_back( new TreeNode( uid ,  parentUid ,  shortName ,  tagged) );
+        this->treeNodesVector[shortName]  = new TreeNode( uid ,  parentUid ,  shortName ,  tagged);
         
     }
     
     inputStream.close();
     
-    
-    
-    
+    /**
     //set the mapper between the short names and uids
     this->fromShortNameToUid.resize(this->treeNodesVector.size() + 1000 , -1);
     for(LONGS i = 0 , n = this->treeNodesVector.size() ; i < n ; ++i )
         this->fromShortNameToUid[this->treeNodesVector[i]->shortName] = this->treeNodesVector[i]->uid;
-    
+    */
 }
