@@ -25,6 +25,7 @@ public:
     TreeNode * parent;
     list<TreeNode* > children;
     short shortName;
+    short parentShortName;
     bool tagged;
     LONG uid, parentUid;
     

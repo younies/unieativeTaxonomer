@@ -12,6 +12,7 @@
 #include "headers.h"
 #include "YRJUnieative.hpp"
 #include "helpers.hpp"
+#include "Tree.hpp"
 
 class CoreTaxonomer
 {
@@ -23,6 +24,8 @@ class CoreTaxonomer
     string hash;
     LONG reverseHashBits;
     void copyYRJUnieativeInside(YRJUnieative &yrjUnieative);
+    
+    Tree * globalTree;
     
 public:
     CoreTaxonomer( vector<YRJUnieative *>  &yrjUnieativeVector , string hash);
@@ -36,6 +39,13 @@ public:
     void updateHashValue(string hash);
     
     LONG reverseKmer(LONG kmer);
+    
+    vector<pair< short , short> > getShortNameFromKmer(LONG kmer); // return the short names associated with the number of differences
+    
+    pair<short, short> scanAtIndex(LONGS index ,INT hashed); //returns the short name and
+    
+    short getTowLCA(short first , short second);
+    
 };
 
 #endif /* CorseTaxonomer_hpp */

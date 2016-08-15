@@ -42,3 +42,18 @@ Tree::Tree(string path)
         this->fromShortNameToUid[this->treeNodesVector[i]->shortName] = this->treeNodesVector[i]->uid;
     */
 }
+
+
+
+
+
+
+short Tree::getParentShortName(short shortName)
+{
+    return this->treeNodesVector[shortName]->parentShortName;
+}
+
+
+
+
+

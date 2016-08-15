@@ -180,9 +180,6 @@ void CoreTaxonomer::updateHashValue(string hash)
 }
 
 
-
-
-
 //reversing the bits of all the variable
 LONG CoreTaxonomer::reverseKmer(LONG kmer)
 {
@@ -206,3 +203,84 @@ LONG CoreTaxonomer::reverseKmer(LONG kmer)
     return  ret;
 }
 
+
+
+/**
+ getting the short name from the the database
+ */
+
+
+vector<pair< short , short> > CoreTaxonomer::getShortNameFromKmer(LONG kmer)
+{
+    pair<INT, INT> hashedKmer = getTheHashedKmer(kmer);
+    
+    pair<LONGS, LONGS> startEnd = getThePlaceOfKmer(hashedKmer.first);
+    
+
+    vector< pair<short, short> > ret;
+    ret.push_back(scanAtIndex(  startEnd.first , hashedKmer.second));
+
+    LONGS curr = 0;
+    for(LONGS i = startEnd.first + 1 ; i <= startEnd.second ; ++i)
+    {
+        pair<short, short> temp = scanAtIndex(i, hashedKmer.second);
+        
+        if( temp.first == ret[curr].first)
+            ret[curr].second = min(ret[curr].second , temp.second );
+        else
+        {
+            ++curr;
+            ret.push_back(temp);
+        }
+        
+    }
+    
+    return ret;
+}
+
+
+
+/**
+ scanning the kmers
+
+ */
+
+
+pair<short, short>  CoreTaxonomer::scanAtIndex( LONGS index , INT hashed)
+{
+    pair<short, short> ret;
+    ret.first = this->coreHashedNodes[index].index;
+    ret.second = 0;
+    
+    INT comparedHash = this->coreHashedNodes[index].hashedKmer;
+    
+    int iterations = sizeof(INT) * 8;
+    
+    while (iterations --)
+    {
+        if(comparedHash%2 != hashed %2)
+            ++ret.second;
+        comparedHash /= 2;
+        hashed /= 2;
+    }
+    
+    return ret;
+}
+
+
+
+
+
+
+short CoreTaxonomer::getTowLCA(short first , short second)
+{
+    while(first != second)
+    {
+        if(first > second)
+            first = this->globalTree->getParentShortName(first);
+        else
+            second = this->globalTree->getParentShortName(second);
+    }
+    
+    return first;
+}

@@ -21,7 +21,8 @@ class Tree
 public:
     Tree(string pathToTheTree);
     
-    void setChildrenForTheNodes();
+    
+    short getParentShortName(short shortName);
     
 };
 #endif /* Tree_hpp */
