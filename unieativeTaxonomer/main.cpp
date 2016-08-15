@@ -28,6 +28,11 @@ int main(int argc, const char * argv[])
      */
     
     
+    
+    vector<HashedNode> vec;
+    
+    
+    
     return 0;
 }
 
