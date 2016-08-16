@@ -17,12 +17,12 @@ struct HashedNode{
     unsigned int rawKmer = 0; //the non hashed part in the kmer
     unsigned int hashedKmer = 0 ; // the part that is hashed in the kmer
     
-    bool operator< ( const HashedNode & y) {
+    bool operator< (  HashedNode& y) {
         return std::tie(this->rawKmer, this->index , this->hashedKmer ) < std::tie(y.rawKmer, y.index , y.hashedKmer);
     }
 };
 
-bool * hashedNodeCompare( HashedNode &lhs, const HashedNode &rhs);
+bool hashedNodeCompare(HashedNode &lhs, HashedNode &rhs);
 //end of the hasehd kmer implementation
 
 #endif /* HashedNode_hpp */
