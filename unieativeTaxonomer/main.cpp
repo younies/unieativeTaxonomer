@@ -40,9 +40,6 @@ int main(int argc, const char * argv[])
     cout << tree->getNumberOfLeaves(0) << endl;
     
     
-    
-    
-    
     return 0;
 }
 

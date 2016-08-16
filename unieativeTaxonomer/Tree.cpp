@@ -39,6 +39,9 @@ Tree::Tree(string path)
     
     //connect parents
     this->connectChildren();
+    
+    //build the leaves numbers
+    this->buildTheNumberOfLeaves();
 }
 
 
