@@ -13,7 +13,7 @@
 //pathes to important files
 
 string path_to_the_tree = "/export1/project/hondius/newKrakenResearch/finalNewTree.txt";
-
+string path_to_the_yrj_databases = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/";
 
 
 #endif /* Configurations_h */

@@ -20,6 +20,9 @@ class YRJObject
     short index;
     
 public:
+    
+    
+    
     YRJObject(string path);
     ~YRJObject();
     

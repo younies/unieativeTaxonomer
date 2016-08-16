@@ -29,15 +29,18 @@ int main(int argc, const char * argv[])
      */
     
     
-    
-   //vector<YRJUnieative *>  yrjUnieativeVector ; string hash;
-    
-    //CoreTaxonomer * core = new CoreTaxonomer(yrjUnieativeVector , hash);
-    
-    
     Tree * tree = new Tree(path_to_the_tree);
-    
     cout << tree->getNumberOfLeaves(0) << endl;
+
+   
+    vector<YRJUnieative *>  yrjUnieativeVector  = tree->getYRJUnieariveVector(path_to_the_yrj_databases, pattern);
+    
+    CoreTaxonomer * core = new CoreTaxonomer(yrjUnieativeVector , pattern);
+    
+    pair<INT, INT> p =  core->getTheHashedKmer(1);
+    
+    cout << p.first << endl;
+    
     
     
     return 0;

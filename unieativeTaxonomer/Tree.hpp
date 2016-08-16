@@ -11,6 +11,7 @@
 
 #include "headers.h"
 #include "TreeNode.hpp"
+#include "YRJUnieative.hpp"
 
 class Tree
 {
@@ -39,5 +40,7 @@ public:
     short getLCA_for_child_node( TreeNode * node , vector<short> & hitted_nodes );
     
     G_Statistics calculateG_Statistics(LONG kmer , short nodeShortName  , vector<short> & hitted_nodes );
+    
+    vector<YRJUnieative *> getYRJUnieariveVector(string path ,string hash);
 };
 #endif /* Tree_hpp */

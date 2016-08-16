@@ -132,10 +132,6 @@ short Tree::getLCA_for_child_node( TreeNode * node , vector<short> & hitted_node
 
 
 
-
-
-
-
 G_Statistics Tree::calculateG_Statistics(LONG kmer , short nodeShortName , vector<short> & hitted_nodes  )
 {
     G_Statistics gStat;
@@ -164,10 +160,6 @@ G_Statistics Tree::calculateG_Statistics(LONG kmer , short nodeShortName , vecto
  
     return gStat;
 }
-
-
-
-
 
 
 
@@ -212,14 +204,26 @@ short Tree::getGlobalLCA( vector<pair< short , short> > & vectorOfResults)
 
 
 
-
-
-
-
-
-
 LONGS Tree::getNumberOfLeaves(short shortName)
 {
     return this->numberOfLeaves[shortName];
+}
+
+
+vector<YRJUnieative *> Tree::getYRJUnieariveVector(string path ,string hash)
+{
+    vector<YRJUnieative *> ret;
+    
+    for ( TreeNode * node : this->treeNodesVector)
+    {
+        if(node != NULL && node->tagged)
+        {
+            ostringstream ss;
+            ss << node->uid;
+            ret.push_back( (new YRJUnieative(path + ss.str() + ".yrj" , hash)) );
+        }
+    }
+    
+    return ret;
 }
 
