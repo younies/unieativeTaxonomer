@@ -15,18 +15,11 @@
 #include "Tree.hpp"
 
 string pattern = "##-#--###---#-#-#-#-#--#-##--##";
-string pathe  = "/Users/youniesmahmoud/Desktop/903893.yrj";// = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/all.yrj";
+//string pathe  = "/Users/youniesmahmoud/Desktop/903893.yrj";// = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/all.yrj";
 
 int main(int argc, const char * argv[])
 {
     // insert code here...
-    /**
-    YRJUnieative *node =new YRJUnieative(pathe , pattern);
-    
-    node->fillTheHashedNodesVector();
-    delete node;
-    
-     */
     
     
     Tree * tree = new Tree(path_to_the_tree);
@@ -35,7 +28,12 @@ int main(int argc, const char * argv[])
    
     vector<YRJUnieative *>  yrjUnieativeVector  = tree->getYRJUnieariveVector(path_to_the_yrj_databases, pattern);
     
-    CoreTaxonomer * core = new CoreTaxonomer(yrjUnieativeVector , pattern);
+    
+    vector<YRJUnieative *>::const_iterator first = yrjUnieativeVector.begin() + 0;
+    vector<YRJUnieative *>::const_iterator last = yrjUnieativeVector.begin() + 100;
+    
+    vector<YRJUnieative *>  yrjUnieativeVector2(first , last);
+    CoreTaxonomer * core = new CoreTaxonomer(yrjUnieativeVector2 , pattern);
     
     pair<INT, INT> p =  core->getTheHashedKmer(1);
     
