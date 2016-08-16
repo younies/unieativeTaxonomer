@@ -215,4 +215,8 @@ short Tree::getGlobalLCA( vector<pair< short , short> > & vectorOfResults)
 
 
 
+LONGS Tree::getNumberOfLeaves(short shortName)
+{
+    return this->numberOfLeaves[shortName];
+}
 

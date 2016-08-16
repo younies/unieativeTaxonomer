@@ -30,6 +30,9 @@ int main(int argc, const char * argv[])
     
     
     
+    Tree * tree = new Tree(path_to_the_tree);
+    
+    cout << tree->getNumberOfLeaves(0) << endl;
     
     
     

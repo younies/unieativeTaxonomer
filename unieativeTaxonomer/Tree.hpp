@@ -34,6 +34,7 @@ public:
     
     short getGlobalLCA( vector<pair< short , short> > & vectorOfResults);// take vector of pairs of indices and differences
 
+    LONGS getNumberOfLeaves(short shortName);
     
     short getLCA_for_child_node( TreeNode * node , vector<short> & hitted_nodes );
     
