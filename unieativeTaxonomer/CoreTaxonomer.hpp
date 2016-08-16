@@ -44,7 +44,6 @@ public:
     
     pair<short, short> scanAtIndex(LONGS index ,INT hashed); //returns the short name and
     
-        
 };
 
 #endif /* CorseTaxonomer_hpp */
