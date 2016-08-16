@@ -30,7 +30,7 @@ int main(int argc, const char * argv[])
     
     
     vector<YRJUnieative *>::const_iterator first = yrjUnieativeVector.begin() + 0;
-    vector<YRJUnieative *>::const_iterator last = yrjUnieativeVector.begin() + 100;
+    vector<YRJUnieative *>::const_iterator last = yrjUnieativeVector.begin() + 1;
     
     vector<YRJUnieative *>  yrjUnieativeVector2(first , last);
     CoreTaxonomer * core = new CoreTaxonomer(yrjUnieativeVector2 , pattern);
