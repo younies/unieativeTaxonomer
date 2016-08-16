@@ -14,6 +14,7 @@ YRJUnieative::YRJUnieative(string path , string hash): YRJObject(path)
 {
     //to find the new hash
     vector<char> newHash;
+    this->hashedKmersSize = this->getNumOfKmers();
     for(int i = 0 , n = (int)hash.size() ; i < n ; ++i)
     {
         newHash.push_back(hash[i]);
