@@ -22,7 +22,7 @@ struct HashedNode{
     }
 };
 
-bool hashedNodeCompare( HashedNode &lhs, const HashedNode &rhs);
+bool * hashedNodeCompare( HashedNode &lhs, const HashedNode &rhs);
 //end of the hasehd kmer implementation
 
 #endif /* HashedNode_hpp */
