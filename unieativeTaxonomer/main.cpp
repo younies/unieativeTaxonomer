@@ -30,9 +30,9 @@ int main(int argc, const char * argv[])
     
     
     
-    vector<YRJUnieative *>  yrjUnieativeVector ; string hash;
+   //vector<YRJUnieative *>  yrjUnieativeVector ; string hash;
     
-    CoreTaxonomer * core = new CoreTaxonomer(yrjUnieativeVector , hash);
+    //CoreTaxonomer * core = new CoreTaxonomer(yrjUnieativeVector , hash);
     
     
     Tree * tree = new Tree(path_to_the_tree);
