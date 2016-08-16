@@ -12,6 +12,7 @@
 #include "helpers.hpp"
 #include "CoreTaxonomer.hpp"
 #include "Configurations.h"
+#include "Tree.hpp"
 
 string pattern = "##-#--###---#-#-#-#-#--#-##--##";
 string pathe  = "/Users/youniesmahmoud/Desktop/903893.yrj";// = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/all.yrj";
@@ -29,7 +30,8 @@ int main(int argc, const char * argv[])
     
     
     
-    vector<HashedNode> vec;
+    
+    
     
     
     

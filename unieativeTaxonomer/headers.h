@@ -78,7 +78,8 @@ struct G_Statistics
     LONG kmer;
     LONGS number_of_leaves;
     LONGS number_of_hitted_leaves;
-    Node LCA_global;
+    LONGS LCA_global_Uid;
+    short LCA_global_shortName;
     LONGS demoneratorGX;
     double GX;
     

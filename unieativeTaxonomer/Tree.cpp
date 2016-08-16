@@ -28,6 +28,7 @@ Tree::Tree(string path)
         liness >> uid;
         liness >> parentUid;
         liness >> shortName;
+        liness >> parentShortName;
         liness >> tagged;
         
         this->treeNodesVector[shortName]  = new TreeNode( uid ,  parentUid ,  shortName , parentShortName,  tagged);
@@ -91,6 +92,38 @@ void Tree::buildTheNumberOfLeaves( )
 
 
 
+short Tree::getLCA_for_child_node( TreeNode * node , vector<short> & hitted_nodes )
+{
+    if( binary_search(hitted_nodes.begin(), hitted_nodes.end(), node->shortName))
+        return node->shortName;
+    if( this->treeNodesVector[node->shortName]->children.size() == 0)
+        return -1;
+    vector<short> LCAs;
+    
+    for(TreeNode * child : node->children)
+    {
+        short lca = getLCA_for_child_node(child , hitted_nodes ) ;
+        if( lca != -1)
+        {
+            LCAs.push_back(lca);
+        }
+    }
+    
+    switch (LCAs.size()) {
+        case 0:
+            return -1;
+            break;
+        case 1:
+            return LCAs[0];
+            break;
+            
+        default:
+            return node->shortName;
+            break;
+    }
+    
+    return  -1;
+}
 
 
 
@@ -100,6 +133,34 @@ void Tree::buildTheNumberOfLeaves( )
 
 
 
+G_Statistics Tree::calculateG_Statistics(LONG kmer , short nodeShortName , vector<short> & hitted_nodes  )
+{
+    G_Statistics gStat;
+    
+    gStat.kmer = kmer;
+    
+    gStat.number_of_hitted_leaves = this->numberOfLeaves[nodeShortName];
+    
+    gStat.demoneratorGX = 0;
+    
+    for( TreeNode * child : this->treeNodesVector[nodeShortName]->children)
+    {
+        short lca = getLCA_for_child_node(child , hitted_nodes);
+        
+        if(lca >= 0)
+            gStat.demoneratorGX += this->numberOfLeaves[lca];
+    }
+    
+    gStat.number_of_hitted_leaves = hitted_nodes.size();
+    
+    gStat.LCA_global_shortName = nodeShortName;
+    
+    gStat.LCA_global_Uid = this->treeNodesVector[nodeShortName]->uid;
+    
+    gStat.GX = (double)gStat.number_of_leaves / (double)gStat.demoneratorGX;
+ 
+    return gStat;
+}
 
 
 
@@ -107,6 +168,44 @@ void Tree::buildTheNumberOfLeaves( )
 
 
 
+
+short Tree::getTowLCA(short first , short second)
+{
+    while(first != second)
+    {
+        if(first > second)
+            first = this->getParentShortName(first);
+        else
+            second = this->getParentShortName(second);
+    }
+    
+    return first;
+}
+
+
+
+
+
+short Tree::getGlobalLCA( vector<pair< short , short> > & vectorOfResults)
+{
+    LONGS vecSize = vectorOfResults.size();
+    
+    if(vecSize == 0)
+    {
+        cout << "error in the get Global LCA\n";
+        return  -1;
+    }
+    else if(vecSize == 1)
+        return vectorOfResults[0].first; // return the index of that element
+    
+    
+    short ret =  vectorOfResults[0].first;
+    for(LONGS i = 1 ; i < vecSize  ; ++i )
+        ret = getTowLCA(ret, vectorOfResults[i].first);
+    
+    return ret;
+    
+}
 
 
 

@@ -27,11 +27,11 @@ public:
     short shortName;
     short parentShortName;
     bool tagged;
-    LONG uid, parentUid;
+    LONGS uid, parentUid;
     
     
 
-    TreeNode(LONG uid , LONG parentUid , short shortName , short parentShortName , bool tagged);
+    TreeNode(LONGS uid , LONGS parentUid , short shortName , short parentShortName , bool tagged);
 };
 
 #endif /* TreeNode_hpp */

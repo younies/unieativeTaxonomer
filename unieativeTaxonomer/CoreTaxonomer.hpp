@@ -44,10 +44,7 @@ public:
     
     pair<short, short> scanAtIndex(LONGS index ,INT hashed); //returns the short name and
     
-    short getTowLCA(short first , short second);
-    
-    short getGlobalLCA( vector<pair< short , short> > vectorOfResults);// take vector of pairs of indices and differences
-    
+        
 };
 
 #endif /* CorseTaxonomer_hpp */

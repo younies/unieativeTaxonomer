@@ -9,7 +9,7 @@
 #include "TreeNode.hpp"
 
 
-TreeNode::TreeNode(LONG uid , LONG parentUid , short shortName , short parentShortName , bool tagged)
+TreeNode::TreeNode(LONGS uid , LONGS parentUid , short shortName , short parentShortName , bool tagged)
 {
     this->uid           = uid;
     this-> parentUid    = parentUid;

@@ -28,5 +28,15 @@ public:
     
     void buildTheNumberOfLeaves( );
     
+    //to get the g_statistics domenrator
+    
+    short getTowLCA(short first , short second);
+    
+    short getGlobalLCA( vector<pair< short , short> > & vectorOfResults);// take vector of pairs of indices and differences
+
+    
+    short getLCA_for_child_node( TreeNode * node , vector<short> & hitted_nodes );
+    
+    G_Statistics calculateG_Statistics(LONG kmer , short nodeShortName  , vector<short> & hitted_nodes );
 };
 #endif /* Tree_hpp */
