@@ -8,4 +8,9 @@
 
 #include "HashedNode.hpp"
 
-bool hashedNodeCompare(HashedNode &lhs, HashedNode &rhs) { return lhs < rhs; } // for the binartysearch or the sorting algorithms
+bool hashedNodeCompare(  const HashedNode &lhs, const HashedNode &rhs)
+{
+    return std::tie(lhs.rawKmer, lhs.index , lhs.hashedKmer ) < std::tie(rhs.rawKmer, rhs.index , rhs.hashedKmer);
+} // for the binartysearch or the sorting algorithms
+
+
