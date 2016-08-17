@@ -10,7 +10,7 @@
 
 
 
-YRJUnieative::YRJUnieative(string path , string hash): YRJObject(path)
+YRJUnieative::YRJUnieative(string path , short index , string hash): YRJObject(path , index)
 {
     //to find the new hash
     vector<char> newHash;

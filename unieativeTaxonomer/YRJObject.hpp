@@ -14,16 +14,17 @@
 
 class YRJObject
 {
-    LONG kmerLength;
-    LONG numOfKmers;
+    LONGS kmerLength;
+    LONGS numOfKmers;
     string path_to_file;
     short index;
+    
     
 public:
     
     
     
-    YRJObject(string path);
+    YRJObject(string path , short index);
     ~YRJObject();
     
     vector<LONG>  kmersVector;
@@ -33,6 +34,7 @@ public:
     void fillTheKmersVector();
     
     void  clearTheCompleteKmers();
+    
 };
 
 #endif /* YRJObject_hpp */

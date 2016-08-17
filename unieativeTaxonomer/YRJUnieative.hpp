@@ -27,7 +27,7 @@ class YRJUnieative: YRJObject
     HashedNode convetToHashed(LONG kmer);
     void extractKeys( HashedNode &node , LONG & kmer);
 public:
-    YRJUnieative(string path , string hash);
+    YRJUnieative(string path , short index ,string hash);
     ~YRJUnieative();
     
     LONGS hashedKmersSize;

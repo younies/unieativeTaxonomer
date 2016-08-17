@@ -210,9 +210,9 @@ LONGS Tree::getNumberOfLeaves(short shortName)
 }
 
 
-vector<YRJUnieative *> Tree::getYRJUnieariveVector(string path ,string hash)
+vector<YRJObject *> Tree::getYRJobjects(string path )
 {
-    vector<YRJUnieative *> ret;
+    vector<YRJObject *> ret;
     
     for ( TreeNode * node : this->treeNodesVector)
     {
@@ -220,7 +220,7 @@ vector<YRJUnieative *> Tree::getYRJUnieariveVector(string path ,string hash)
         {
             ostringstream ss;
             ss << node->uid;
-            ret.push_back( (new YRJUnieative(path + ss.str() + ".yrj" , hash)) );
+            ret.push_back( (new YRJObject(path + ss.str() + ".yrj" , node->shortName)) );
         }
     }
     

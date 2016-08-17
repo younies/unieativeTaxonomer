@@ -41,6 +41,6 @@ public:
     
     G_Statistics calculateG_Statistics(LONG kmer , short nodeShortName  , vector<short> & hitted_nodes );
     
-    vector<YRJUnieative *> getYRJUnieariveVector(string path ,string hash);
+    vector<YRJObject *> getYRJobjects(string path );
 };
 #endif /* Tree_hpp */

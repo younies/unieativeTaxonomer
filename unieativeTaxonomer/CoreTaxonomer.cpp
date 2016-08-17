@@ -9,16 +9,16 @@
 #include "CoreTaxonomer.hpp"
 
 
-CoreTaxonomer::CoreTaxonomer(vector<YRJUnieative *> & yrjUnieativeVector , string hash)
+CoreTaxonomer::CoreTaxonomer(vector<YRJObject *> yrjVector , string hash)
 {
     //setting up the hash
     updateHashValue(hash);
     
-    this->yrjUnieativeVector = yrjUnieativeVector;
+    this->yrjVector = yrjVector;
     //to calculate the size of the whole database hashed kmers
     this->coreHashNodesSize = 0;
-    for(YRJUnieative* node : yrjUnieativeVector)
-        this->coreHashNodesSize += node->hashedKmersSize;
+    for(YRJObject* node : this->yrjVector)
+        this->coreHashNodesSize += node->getNumOfKmers();
     
     //to build the hashed database
     this->coreHashedNodes.resize(this->coreHashNodesSize);
@@ -57,9 +57,23 @@ void CoreTaxonomer::copyYRJUnieativeInside(YRJUnieative & yrjUnieative)
 void CoreTaxonomer::fillAllTheCoreData()
 {
     this->startIndex = 0;
-    for (LONGS i = 0 , n = this->yrjUnieativeVector.size(); i < n ; ++i)
+   
+    for ( YRJObject* yrj: this->yrjVector)
     {
-        this->copyYRJUnieativeInside(*(this->yrjUnieativeVector[i]));
+        yrj->fillTheKmersVector();
+        for (LONG kmer : yrj->kmersVector)
+        {
+            pair<INT, INT> tempHahsed =  getTheHashedKmer( kmer);
+            this->coreHashedNodes[ this->startIndex].index = yrj->getIndex();
+            this->coreHashedNodes[this->startIndex ].rawKmer = tempHahsed.first;
+            this->coreHashedNodes[this->startIndex ].hashedKmer = tempHahsed.second;
+            ++this->startIndex;
+        }
+    }
+    
+    if(this->startIndex == this->coreHashNodesSize)
+    {
+        cout << "perfect filling\n";
     }
     
     this->startIndex = 0;

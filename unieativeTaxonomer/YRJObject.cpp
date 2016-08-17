@@ -9,8 +9,9 @@
 #include "YRJObject.hpp"
 
 
-YRJObject::YRJObject(string path)
+YRJObject::YRJObject(string path ,short index)
 {
+    this->index = index;
     this->path_to_file = path;
     ifstream fileStream(path_to_file);
     if(!fileStream.is_open())
@@ -50,13 +51,13 @@ LONGS YRJObject::getNumOfKmers()
 void YRJObject::clearTheCompleteKmers()
 {
     this->kmersVector.clear();
-    this->numOfKmers = 0;
 }
 
 
 
 void YRJObject::fillTheKmersVector()
 {
+    clearTheCompleteKmers();
     ifstream fileStream(path_to_file);
     if(!fileStream.is_open())
     {

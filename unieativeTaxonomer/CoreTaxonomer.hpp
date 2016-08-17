@@ -18,7 +18,7 @@ class CoreTaxonomer
 {
     LONGS coreHashNodesSize = 0;
     vector<HashedNode> coreHashedNodes;
-    vector<YRJUnieative *> yrjUnieativeVector;
+    vector<YRJObject *> yrjVector;
     
     LONGS startIndex = 0;
     
@@ -31,7 +31,7 @@ class CoreTaxonomer
     Tree * globalTree;
     
 public:
-    CoreTaxonomer( vector<YRJUnieative *>  &yrjUnieativeVector , string hash);
+    CoreTaxonomer( vector<YRJObject *> yrjVector , string hash);
     ~CoreTaxonomer();
     
     pair<LONGS, LONGS> getThePlaceOfKmer(INT rawKmer);

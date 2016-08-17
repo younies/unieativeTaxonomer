@@ -26,14 +26,10 @@ int main(int argc, const char * argv[])
     cout << tree->getNumberOfLeaves(0) << endl;
 
    
-    vector<YRJUnieative *>  yrjUnieativeVector  = tree->getYRJUnieariveVector(path_to_the_yrj_databases, pattern);
     
+    vector<YRJObject*> yrjObj = tree->getYRJobjects(path_to_the_yrj_databases);
     
-    vector<YRJUnieative *>::const_iterator first = yrjUnieativeVector.begin() + 0;
-    vector<YRJUnieative *>::const_iterator last = yrjUnieativeVector.begin() + 1;
-    
-    vector<YRJUnieative *>  yrjUnieativeVector2(first , last);
-    CoreTaxonomer * core = new CoreTaxonomer(yrjUnieativeVector2 , pattern);
+    CoreTaxonomer * core = new CoreTaxonomer(yrjObj , pattern);
     
     pair<INT, INT> p =  core->getTheHashedKmer(1);
     
