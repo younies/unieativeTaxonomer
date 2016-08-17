@@ -22,18 +22,23 @@ int main(int argc, const char * argv[])
     // insert code here...
     
     
-    Tree * tree = new Tree(path_to_the_tree);
+   Tree * tree = new Tree(path_to_the_tree);
     cout << tree->getNumberOfLeaves(0) << endl;
 
    
     
     vector<YRJObject*> yrjObj = tree->getYRJobjects(path_to_the_yrj_databases);
     
-    CoreTaxonomer * core = new CoreTaxonomer(yrjObj , pattern);
+    
+    vector<YRJObject*>::const_iterator first = yrjObj.begin() + 0;
+    vector<YRJObject*>::const_iterator last = yrjObj.begin() + 10;
+    vector<YRJObject*> newVec(first, last);
+    
+    CoreTaxonomer * core = new CoreTaxonomer(newVec , pattern);
     
     pair<INT, INT> p =  core->getTheHashedKmer(1);
     
-    cout << p.first << endl;
+    cout <<sizeof(HashedNode) << endl;
     
     
     
