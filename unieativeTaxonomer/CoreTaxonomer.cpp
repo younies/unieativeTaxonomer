@@ -124,30 +124,28 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(INT rawKmer)
 
 pair<INT, INT> CoreTaxonomer::getTheHashedKmer(LONG kmer)
 {
-    pair<INT, INT> ret;
-    ret.first = 0 ;
-    ret.second = 0;
+    pair<INT, INT> ret(0,0);
     
-    LONG tempHash = this->reverseHashBits;
-    kmer = reverseKmer(kmer);
+    bitset<sizeof(INT) * 8> first(0) , second(0);
     
-    while(tempHash > 0)
+    bitset<sizeof(kmer) * 8> kmerBits;
+    
+    int posFirst = 0 , posSecond = 0;
+    for(LONGS i = 0 , n = this->hash.size() ; i <  n ; ++i )
     {
-        int indicator = tempHash % 2; // take the last bit from the temp reversed hash
-        int kmerBit = kmer%2; // take the last bit from the reversed kmer
-        tempHash /= 2;
-        kmer /= 2;
-        if (indicator == 1)
+        if(this->hash[i])
         {
-            ret.first <<= 1;
-            ret.first |= kmerBit;
+            first[posFirst++] = kmerBits[i];
         }
         else
         {
-            ret.second <<= 1;
-            ret.second |= kmerBit;
+            second[posSecond++] = kmerBits[i];
         }
     }
+    
+    ret.first = (INT)first.to_ulong();
+    ret.second = (INT)second.to_ulong();
+
     
     return ret;
 }
@@ -156,30 +154,28 @@ pair<INT, INT> CoreTaxonomer::getTheHashedKmer(LONG kmer)
 
 void CoreTaxonomer::updateHashValue(string hash)
 {
-    vector<char> charHash;
-    for(LONGS i = 0 , n = hash.size() ; i < n ; ++ i)
+    //reverse the hash
+    reverse(hash.begin() , hash.end());
+    bitset<64> newBitHash;
+    for(LONGS i = 0 , n = hash.size() ; i < n ; ++i)
     {
-        charHash.push_back(hash[i]);
-        charHash.push_back(hash[i]);
+        LONGS ii = i * 2;
+        if(hash[i] == '#' )
+        {
+            newBitHash[ii] = 1;
+            newBitHash[ii+1] = 1;
+        }
+        else
+        {
+            newBitHash[ii] = 0;
+            newBitHash[ii+1] = 0;
+        }
     }
-    string newHash(charHash.begin() , charHash.end());
-        this->hash = newHash;
     
-    this->reverseHashBits = 0;
-    
-    string reverseHash = newHash;
-    reverse(reverseHash.begin(), reverseHash.end());
-    
-    
-    for(LONGS i = 0 , n = reverseHash.size() ; i < n  ; ++i)
-    {
-        this->reverseHashBits <<= 1;
-        if(reverseHash[i] == '#')
-            this->reverseHashBits |= 1;
-    }
+    this->hash = newBitHash;
 }
 
-
+/*
 //reversing the bits of all the variable
 LONG CoreTaxonomer::reverseKmer(LONG kmer)
 {
@@ -203,7 +199,7 @@ LONG CoreTaxonomer::reverseKmer(LONG kmer)
     return  ret;
 }
 
-
+*/
 
 /**
  getting the short name from the the database

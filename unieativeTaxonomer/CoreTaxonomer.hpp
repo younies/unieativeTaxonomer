@@ -21,7 +21,10 @@ class CoreTaxonomer
     vector<YRJUnieative *> yrjUnieativeVector;
     
     LONGS startIndex = 0;
-    string hash;
+    
+    bitset<64> hash;
+    int sizeOfHash = 64;
+    int sizeOfHahsedRawPart = 32;
     LONG reverseHashBits;
     void copyYRJUnieativeInside(YRJUnieative &yrjUnieative);
     
