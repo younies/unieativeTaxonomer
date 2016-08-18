@@ -14,6 +14,7 @@
 
 string path_to_the_tree = "/export1/project/hondius/newKrakenResearch/finalNewTree.txt";
 string path_to_the_yrj_databases = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/";
+string path_to_unieative_all_hashed = "/export1/project/hondius/unieative/unieative_hashed.untv";
 
 
 #endif /* Configurations_h */

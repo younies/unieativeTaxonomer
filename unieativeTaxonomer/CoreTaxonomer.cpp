@@ -28,7 +28,11 @@ CoreTaxonomer::CoreTaxonomer(vector<YRJObject *> yrjVector , string hash)
     
     
     //sort all the core data
+    cout << "starting sorting ..... \n";
     std::sort(this->coreHashedNodes.begin(), this->coreHashedNodes.end() , hashedNodeCompare);
+    
+    //the file is sorted
+    cout << "the hashed are sorted \n";
 }
 
 

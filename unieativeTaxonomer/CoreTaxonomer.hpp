@@ -48,6 +48,8 @@ public:
     
     pair<SHORT , SHORT> convertINTtoPairShort(INT kmerINT);
     
+    void writeTheCoreData(string path);
+    
 };
 
 #endif /* CorseTaxonomer_hpp */

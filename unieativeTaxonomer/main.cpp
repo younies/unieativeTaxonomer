@@ -35,6 +35,8 @@ int main(int argc, const char * argv[])
     */
     CoreTaxonomer * core = new CoreTaxonomer(yrjObj , pattern);
     
+    core->writeTheCoreData(path_to_unieative_all_hashed);
+    
     HashedNode p =  core->getTheHashedKmer(1);
     
     cout <<sizeof(p) << endl;
