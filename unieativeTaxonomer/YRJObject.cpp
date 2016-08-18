@@ -79,13 +79,14 @@ void YRJObject::fillTheKmersVector()
 bool YRJObject::openFileStream()
 {
     ifstream fileStream(path_to_file);
-    if(!fileStream.is_open())
+    this->fileStream = &fileStream;
+    if(!this->fileStream->is_open())
     {
         cerr<< "file not found!!!! from filling \n" + this->path_to_file;
         return false;
     }
-    fileStream.read( (char *)&this->kmerLength  , sizeof(LONG));
-    fileStream.read( (char *) &this->numOfKmers , sizeof(LONG));
+    this->fileStream->read( (char *)&this->kmerLength  , sizeof(LONG));
+    this->fileStream->read( (char *) &this->numOfKmers , sizeof(LONG));
     
     return true;
 }
@@ -96,11 +97,14 @@ bool YRJObject::openFileStream()
 LONG YRJObject::readAKmer()
 {
     LONG ret;
-    fileStream.read( (char *)&ret  , sizeof(LONG));
+    this->fileStream->read( (char *)&ret  , sizeof(LONG));
     return ret;
 }
 
 
-
+void YRJObject::closeFileStream()
+{
+    this->fileStream->close();
+}
 
 

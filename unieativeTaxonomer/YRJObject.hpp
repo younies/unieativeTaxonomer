@@ -19,7 +19,7 @@ class YRJObject
     string path_to_file;
     short index;
     
-    ifstream fileStream;
+    ifstream * fileStream;
 public:
     
     
@@ -37,6 +37,7 @@ public:
     
     bool openFileStream();
     LONG readAKmer();
+    void closeFileStream();
     
 };
 

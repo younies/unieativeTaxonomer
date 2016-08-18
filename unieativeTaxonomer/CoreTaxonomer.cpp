@@ -62,16 +62,16 @@ void CoreTaxonomer::fillAllTheCoreData()
     {
         cout << "getInfoFrom  " << yrj->getIndex() << endl;
         cout << " " << yrj->getNumOfKmers() << endl;
-        yrj->fillTheKmersVector();
-        for (LONG kmer : yrj->kmersVector)
+        yrj->openFileStream();
+        for (LONGS i = 0 , n = yrj->getNumOfKmers() ; i <  n ; ++i )
         {
-            HashedNode tempHahsed =  getTheHashedKmer( kmer);
+            HashedNode tempHahsed =  getTheHashedKmer( yrj->readAKmer());
             this->coreHashedNodes[ this->startIndex].index = yrj->getIndex();
             this->coreHashedNodes[this->startIndex ].rawKmer = tempHahsed.rawKmer;
             this->coreHashedNodes[this->startIndex ].hashedKmer = tempHahsed.hashedKmer;
             ++this->startIndex;
         }
-        
+        yrj->closeFileStream();
         yrj->clearTheCompleteKmers();
     }
     
