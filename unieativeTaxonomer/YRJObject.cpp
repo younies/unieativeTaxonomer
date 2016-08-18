@@ -111,22 +111,6 @@ void YRJObject::closeFileStream()
     this->fileStream->close();
 }
 
-ifstream YRJObject::getMeAFileStreamFromTheStart()
-{
-    ifstream fileStream(path_to_file);
-    //this->fileStream = &fileStream;
-    if(!this->fileStream->is_open())
-    {
-        cout<< "file not found!!!! from filling \n" + this->path_to_file;
-        return fileStream;
-    }
-    fileStream.read( (char *)&this->kmerLength  , sizeof(LONG));
-    fileStream.read( (char *) &this->numOfKmers , sizeof(LONG));
-    
-    return fileStream;
-
-}
-
 
 
 
