@@ -38,6 +38,7 @@ public:
     bool openFileStream();
     LONG readAKmer();
     void closeFileStream();
+    ifstream getMeAFileStreamFromTheStart();
     
 };
 
