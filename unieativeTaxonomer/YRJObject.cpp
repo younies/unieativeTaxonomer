@@ -96,6 +96,10 @@ bool YRJObject::openFileStream()
 
 LONG YRJObject::readAKmer()
 {
+    if(!this->fileStream->good())
+    {
+        return 1;
+    }
     LONG ret;
     this->fileStream->read( (char *)&ret  , sizeof(LONG));
     return ret;
