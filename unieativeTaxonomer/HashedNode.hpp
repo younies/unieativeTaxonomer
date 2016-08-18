@@ -13,9 +13,17 @@
 
 //abstracting the new hashed kmer
 struct HashedNode{
-    short index = 0;
-    unsigned int rawKmer = 0; //the non hashed part in the kmer
-    unsigned int hashedKmer = 0 ; // the part that is hashed in the kmer
+    short index;
+    pair<SHORT, SHORT> rawKmer; //the non hashed part in the kmer
+    pair<SHORT, SHORT> hashedKmer ; // the part that is hashed in the kmer
+    
+    HashedNode(){
+        index = 0;
+        rawKmer.first = 0;
+        rawKmer.second = 0;
+        hashedKmer.first = 0;
+        hashedKmer.second = 0;
+    }
 };
 
 bool  hashedNodeCompare( const HashedNode &lhs, const HashedNode &rhs);

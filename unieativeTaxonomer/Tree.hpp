@@ -8,10 +8,9 @@
 
 #ifndef Tree_hpp
 #define Tree_hpp
-
+#include "YRJObject.hpp"
 #include "headers.h"
 #include "TreeNode.hpp"
-#include "YRJUnieative.hpp"
 
 class Tree
 {

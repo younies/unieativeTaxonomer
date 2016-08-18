@@ -10,7 +10,6 @@
 #define CoreTaxonomer_hpp
 #include "HashedNode.hpp"
 #include "headers.h"
-#include "YRJUnieative.hpp"
 #include "helpers.hpp"
 #include "Tree.hpp"
 
@@ -26,7 +25,7 @@ class CoreTaxonomer
     int sizeOfHash = 64;
     int sizeOfHahsedRawPart = 32;
     LONG reverseHashBits;
-    void copyYRJUnieativeInside(YRJUnieative &yrjUnieative);
+    //void copyYRJUnieativeInside(YRJUnieative &yrjUnieative);
     
     Tree * globalTree;
     
@@ -34,10 +33,10 @@ public:
     CoreTaxonomer( vector<YRJObject *> yrjVector , string hash);
     ~CoreTaxonomer();
     
-    pair<LONGS, LONGS> getThePlaceOfKmer(INT rawKmer);
+    pair<LONGS, LONGS> getThePlaceOfKmer(pair<SHORT, SHORT>  rawKmer);
     void fillAllTheCoreData();
     
-    pair<INT, INT> getTheHashedKmer(LONG kmer);// return the rawKmer and the hashedKmer from a kmer
+    HashedNode getTheHashedKmer(LONG kmer);// return the rawKmer and the hashedKmer from a kmer
     
     void updateHashValue(string hash);
     
@@ -45,7 +44,9 @@ public:
     
     vector<pair< short , short> > getShortNameFromKmer(LONG kmer); // return the short names associated with the number of differences
     
-    pair<short, short> scanAtIndex(LONGS index ,INT hashed); //returns the short name and
+    pair<short, short>  scanAtIndex( LONGS index , pair<SHORT, SHORT> pairHashed);
+    
+    pair<SHORT , SHORT> convertINTtoPairShort(INT kmerINT);
     
 };
 

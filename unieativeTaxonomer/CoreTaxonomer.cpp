@@ -41,7 +41,7 @@ CoreTaxonomer::~CoreTaxonomer()
 
 
 
-
+/*
 //merge yrjUnieative inside the the core data
 
 void CoreTaxonomer::copyYRJUnieativeInside(YRJUnieative & yrjUnieative)
@@ -52,7 +52,7 @@ void CoreTaxonomer::copyYRJUnieativeInside(YRJUnieative & yrjUnieative)
     yrjUnieative.clearAllTheData();
 }
 
-
+*/
 
 void CoreTaxonomer::fillAllTheCoreData()
 {
@@ -63,10 +63,10 @@ void CoreTaxonomer::fillAllTheCoreData()
         yrj->fillTheKmersVector();
         for (LONG kmer : yrj->kmersVector)
         {
-            pair<INT, INT> tempHahsed =  getTheHashedKmer( kmer);
+            HashedNode tempHahsed =  getTheHashedKmer( kmer);
             this->coreHashedNodes[ this->startIndex].index = yrj->getIndex();
-            this->coreHashedNodes[this->startIndex ].rawKmer = tempHahsed.first;
-            this->coreHashedNodes[this->startIndex ].hashedKmer = tempHahsed.second;
+            this->coreHashedNodes[this->startIndex ].rawKmer = tempHahsed.rawKmer;
+            this->coreHashedNodes[this->startIndex ].hashedKmer = tempHahsed.hashedKmer;
             ++this->startIndex;
         }
     }
@@ -81,7 +81,7 @@ void CoreTaxonomer::fillAllTheCoreData()
 }
 
 
-pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(INT rawKmer)
+pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(pair<SHORT, SHORT> rawKmer)
 {
     LONGS start = 0 , end = this->coreHashNodesSize - 1 , mid  = (start + end)/2;
     
@@ -136,9 +136,9 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(INT rawKmer)
  Implementing the function that convert the kmer from LONGS kmer to the corresponding rawKmer and hashedPart which is the hidden part
  */
 
-pair<INT, INT> CoreTaxonomer::getTheHashedKmer(LONG kmer)
+HashedNode CoreTaxonomer::getTheHashedKmer(LONG kmer)
 {
-    pair<INT, INT> ret(0,0);
+    HashedNode ret;
     
     bitset<sizeof(INT) * 8> first(0) , second(0);
     
@@ -157,8 +157,14 @@ pair<INT, INT> CoreTaxonomer::getTheHashedKmer(LONG kmer)
         }
     }
     
-    ret.first = (INT)first.to_ulong();
-    ret.second = (INT)second.to_ulong();
+    ret.index = -1;
+    INT rawKmerINT = (INT)first.to_ulong();
+    INT hahsedINT = (INT)second.to_ulong();
+    ret.rawKmer.first = rawKmerINT >> (sizeof(SHORT) * 8);
+    ret.rawKmer.second = (rawKmerINT << (sizeof(SHORT) * 8 ) ) >> (sizeof(SHORT) * 8);
+
+    ret.hashedKmer.first = hahsedINT >> (sizeof(SHORT) * 8);
+    ret.hashedKmer.second = (hahsedINT << (sizeof(SHORT) * 8 ) ) >> (sizeof(SHORT) * 8);
 
     
     return ret;
@@ -222,18 +228,18 @@ LONG CoreTaxonomer::reverseKmer(LONG kmer)
 
 vector<pair< short , short> > CoreTaxonomer::getShortNameFromKmer(LONG kmer)
 {
-    pair<INT, INT> hashedKmer = getTheHashedKmer(kmer);
+    HashedNode hashedKmer = getTheHashedKmer(kmer);
     
-    pair<LONGS, LONGS> startEnd = getThePlaceOfKmer(hashedKmer.first);
+    pair<LONGS, LONGS> startEnd = getThePlaceOfKmer(hashedKmer.rawKmer);
     
 
     vector< pair<short, short> > ret;
-    ret.push_back(scanAtIndex(  startEnd.first , hashedKmer.second));
+    ret.push_back(scanAtIndex(  startEnd.first , hashedKmer.hashedKmer));
 
     LONGS curr = 0;
     for(LONGS i = startEnd.first + 1 ; i <= startEnd.second ; ++i)
     {
-        pair<short, short> temp = scanAtIndex(i, hashedKmer.second);
+        pair<short, short> temp = scanAtIndex(i, hashedKmer.rawKmer);
         
         if( temp.first == ret[curr].first)
             ret[curr].second = min(ret[curr].second , temp.second );
@@ -256,17 +262,26 @@ vector<pair< short , short> > CoreTaxonomer::getShortNameFromKmer(LONG kmer)
  */
 
 
-pair<short, short>  CoreTaxonomer::scanAtIndex( LONGS index , INT hashed)
+pair<short, short>  CoreTaxonomer::scanAtIndex( LONGS index , pair<SHORT, SHORT> pairHashed)
 {
     pair<short, short> ret;
+    
     ret.first = this->coreHashedNodes[index].index;
     ret.second = 0;
     
-    INT comparedHash = this->coreHashedNodes[index].hashedKmer;
     
+    INT comparedHash = this->coreHashedNodes[index].hashedKmer.first;
+    comparedHash <<= sizeof(SHORT) * 8;
+    comparedHash |= this->coreHashedNodes[index].hashedKmer.second;
+    
+    
+    INT hashed = pairHashed.first;
+    hashed <<= sizeof(SHORT) * 8;
+    hashed |= pairHashed.second;
+
     int iterations = sizeof(INT) * 8;
     
-    while (iterations --)
+    while (iterations--)
     {
         if(comparedHash%2 != hashed %2)
             ++ret.second;
@@ -281,4 +296,18 @@ pair<short, short>  CoreTaxonomer::scanAtIndex( LONGS index , INT hashed)
 
 
 
+
+pair<SHORT , SHORT> CoreTaxonomer::convertINTtoPairShort(INT kmerINT)
+{
+    pair<SHORT , SHORT> ret;
+    
+    ret.first = 0;
+    ret.second = 0;
+    
+    ret.first = kmerINT >> (sizeof(ret.first) * 8);
+    ret.second = (kmerINT << (sizeof(ret.first) * 8)) >> (sizeof(ret.first) * 8);
+    
+    return ret;
+
+}
 

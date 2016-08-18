@@ -61,7 +61,7 @@ typedef long LONGS;
 
 typedef unsigned int  INT;
 
-
+typedef unsigned short  SHORT;
 
 
 struct Node

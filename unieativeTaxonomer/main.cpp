@@ -8,7 +8,6 @@
 
 #include "headers.h"
 #include "YRJObject.hpp"
-#include "YRJUnieative.hpp"
 #include "helpers.hpp"
 #include "CoreTaxonomer.hpp"
 #include "Configurations.h"
@@ -29,16 +28,16 @@ int main(int argc, const char * argv[])
     
     vector<YRJObject*> yrjObj = tree->getYRJobjects(path_to_the_yrj_databases);
     
-    
+    /*
     vector<YRJObject*>::const_iterator first = yrjObj.begin() + 0;
     vector<YRJObject*>::const_iterator last = yrjObj.begin() + 10;
     vector<YRJObject*> newVec(first, last);
+    */
+    CoreTaxonomer * core = new CoreTaxonomer(yrjObj , pattern);
     
-    CoreTaxonomer * core = new CoreTaxonomer(newVec , pattern);
+    HashedNode p =  core->getTheHashedKmer(1);
     
-    pair<INT, INT> p =  core->getTheHashedKmer(1);
-    
-    cout <<sizeof(HashedNode) << endl;
+    cout <<sizeof(p) << endl;
     
     
     
