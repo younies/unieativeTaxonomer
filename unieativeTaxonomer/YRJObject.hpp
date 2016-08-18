@@ -19,7 +19,7 @@ class YRJObject
     string path_to_file;
     short index;
     
-    
+    ifstream fileStream;
 public:
     
     
@@ -34,6 +34,9 @@ public:
     void fillTheKmersVector();
     
     void  clearTheCompleteKmers();
+    
+    bool openFileStream();
+    LONG readAKmer();
     
 };
 

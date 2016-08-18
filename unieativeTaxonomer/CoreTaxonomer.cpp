@@ -69,6 +69,8 @@ void CoreTaxonomer::fillAllTheCoreData()
             this->coreHashedNodes[this->startIndex ].hashedKmer = tempHahsed.hashedKmer;
             ++this->startIndex;
         }
+        
+        yrj->clearTheCompleteKmers();
     }
     
     if(this->startIndex == this->coreHashNodesSize)
