@@ -40,6 +40,8 @@ public:
     void closeFileStream();
     ifstream getMeAFileStreamFromTheStart();
     
+    string getMeThePath();
+    
 };
 
 #endif /* YRJObject_hpp */

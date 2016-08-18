@@ -126,3 +126,12 @@ ifstream YRJObject::getMeAFileStreamFromTheStart()
     return fileStream;
 
 }
+
+
+
+
+string YRJObject::getMeThePath()
+{
+    return this->path_to_file;
+    
+}

@@ -63,7 +63,36 @@ void CoreTaxonomer::fillAllTheCoreData()
         cout << "getInfoFrom  " << yrj->getIndex() << endl;
         cout << " " << yrj->getNumOfKmers() << endl;
         
-        ifstream fileStream = yrj->getMeAFileStreamFromTheStart();
+        //ifstream fileStream = yrj->getMeAFileStreamFromTheStart();
+        
+        
+        
+        
+        
+        
+        
+        
+        ifstream fileStream(yrj->getMeThePath() );
+        //this->fileStream = &fileStream;
+        if(!fileStream.is_open())
+        {
+            cout<< "file not found!!!! from filling \n" + yrj->getMeThePath();
+            
+        }
+        
+        LONG kmerLength , numOfKmers;
+        fileStream.read( (char *)&kmerLength  , sizeof(LONG));
+        fileStream.read( (char *) &numOfKmers , sizeof(LONG));
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
         
         for (LONGS i = 0 , n = yrj->getNumOfKmers() ; i <  n ; ++i )
         {
