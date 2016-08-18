@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F351007B1D58EF5700C294D7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F351007A1D58EF5700C294D7 /* main.cpp */; };
 		F35100861D591C8100C294D7 /* YRJObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35100841D591C8100C294D7 /* YRJObject.cpp */; };
-		F362A0C11D66486800FA79C9 /* coreTaxonomyB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F362A0C01D66486800FA79C9 /* coreTaxonomyB.cpp */; };
+		F362A0C31D664B1600FA79C9 /* coreTaxonomyB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F362A0C21D664B1600FA79C9 /* coreTaxonomyB.cpp */; };
 		F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3B433931D592375002D83B5 /* HashedNode.cpp */; };
 		F3B4339D1D5A48BB002D83B5 /* CoreTaxonomer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3B4339B1D5A48BB002D83B5 /* CoreTaxonomer.cpp */; };
 		F3BE9D551D5D1AE6001EF519 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3BE9D531D5D1AE6001EF519 /* Tree.cpp */; };
@@ -36,7 +36,7 @@
 		F35100821D5903DC00C294D7 /* Configurations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configurations.h; sourceTree = "<group>"; };
 		F35100841D591C8100C294D7 /* YRJObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YRJObject.cpp; sourceTree = "<group>"; };
 		F35100851D591C8100C294D7 /* YRJObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = YRJObject.hpp; sourceTree = "<group>"; };
-		F362A0C01D66486800FA79C9 /* coreTaxonomyB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coreTaxonomyB.cpp; sourceTree = "<group>"; };
+		F362A0C21D664B1600FA79C9 /* coreTaxonomyB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coreTaxonomyB.cpp; sourceTree = "<group>"; };
 		F3B433931D592375002D83B5 /* HashedNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashedNode.cpp; sourceTree = "<group>"; };
 		F3B433941D592375002D83B5 /* HashedNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HashedNode.hpp; sourceTree = "<group>"; };
 		F3B4339B1D5A48BB002D83B5 /* CoreTaxonomer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreTaxonomer.cpp; sourceTree = "<group>"; };
@@ -63,7 +63,6 @@
 		F351006E1D58EF5700C294D7 = {
 			isa = PBXGroup;
 			children = (
-				F362A0C01D66486800FA79C9 /* coreTaxonomyB.cpp */,
 				F35100791D58EF5700C294D7 /* unieativeTaxonomer */,
 				F35100781D58EF5700C294D7 /* Products */,
 			);
@@ -80,6 +79,7 @@
 		F35100791D58EF5700C294D7 /* unieativeTaxonomer */ = {
 			isa = PBXGroup;
 			children = (
+				F362A0C21D664B1600FA79C9 /* coreTaxonomyB.cpp */,
 				F3BE9D5C1D620FC3001EF519 /* helpers.cpp */,
 				F3BE9D5D1D620FC3001EF519 /* helpers.hpp */,
 				F3B4339B1D5A48BB002D83B5 /* CoreTaxonomer.cpp */,
@@ -167,7 +167,7 @@
 				F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */,
 				F3BE9D551D5D1AE6001EF519 /* Tree.cpp in Sources */,
 				F35100861D591C8100C294D7 /* YRJObject.cpp in Sources */,
-				F362A0C11D66486800FA79C9 /* coreTaxonomyB.cpp in Sources */,
+				F362A0C31D664B1600FA79C9 /* coreTaxonomyB.cpp in Sources */,
 				F3BE9D581D5D1B02001EF519 /* TreeNode.cpp in Sources */,
 				F351007B1D58EF5700C294D7 /* main.cpp in Sources */,
 				F3BE9D5E1D620FC3001EF519 /* helpers.cpp in Sources */,
