@@ -62,9 +62,13 @@ void CoreTaxonomer::fillAllTheCoreData()
     {
         cout << "getInfoFrom  " << yrj->getIndex() << endl;
         cout << " " << yrj->getNumOfKmers() << endl;
-        yrj->openFileStream();
+        if(!yrj->openFileStream())
+            cout << "big problem!!\n";
+        else
+            cout << "file opened\n";
         for (LONGS i = 0 , n = yrj->getNumOfKmers() ; i <  n ; ++i )
         {
+            cout << "before reading\n";
             LONG kmer = yrj->readAKmer();
             cout << i << "   " << kmer << endl;
             HashedNode tempHahsed =  getTheHashedKmer( kmer);
