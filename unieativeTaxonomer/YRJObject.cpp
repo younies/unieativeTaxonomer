@@ -82,7 +82,7 @@ bool YRJObject::openFileStream()
     this->fileStream = &fileStream;
     if(!this->fileStream->is_open())
     {
-        cerr<< "file not found!!!! from filling \n" + this->path_to_file;
+        cout<< "file not found!!!! from filling \n" + this->path_to_file;
         return false;
     }
     this->fileStream->read( (char *)&this->kmerLength  , sizeof(LONG));
