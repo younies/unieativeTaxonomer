@@ -60,6 +60,8 @@ void CoreTaxonomer::fillAllTheCoreData()
    
     for ( YRJObject* yrj: this->yrjVector)
     {
+        cout << "getInfoFrom  " << yrj->getIndex() << endl;
+        cout << " " << yrj->getNumOfKmers() << endl;
         yrj->fillTheKmersVector();
         for (LONG kmer : yrj->kmersVector)
         {
