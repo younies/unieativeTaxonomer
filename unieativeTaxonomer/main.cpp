@@ -38,7 +38,7 @@ int main(int argc, const char * argv[])
     
     //creating the core data object
     
-    CoreTaxonomer * core = new CoreTaxonomer(  pattern , path_to_the_core_database);
+    CoreTaxonomer * core = new CoreTaxonomer( tree->getYRJobjects(path_to_the_yrj_databases) ,  pattern );
     
     
     

@@ -206,8 +206,12 @@ vector<pair< short , short> > CoreTaxonomer::getShortNameFromKmer(LONG kmer)
     
     pair<LONGS, LONGS> startEnd = getThePlaceOfKmer(hashedKmer.rawKmer);
     
+    
 
     vector< pair<short, short> > ret;
+    
+    if(startEnd.first == -1 || startEnd.second == -1) return ret;
+    
     ret.push_back(scanAtIndex(  startEnd.first , hashedKmer.hashedKmer));
 
     LONGS curr = 0;
