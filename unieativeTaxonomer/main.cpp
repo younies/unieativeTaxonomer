@@ -19,6 +19,7 @@ string million = "/export1/project/hondius/newKrakenResearch/generate_unique_ran
 string tenMillion = "/export1/project/hondius/newKrakenResearch/generate_unique_random/TenMillionRandom.txt";
 
 
+
 string writeIN ="/export1/project/hondius/newKrakenResearch/generate_unique_random/";
 
 LONGS getLong( string s)
@@ -113,9 +114,12 @@ int main(int argc, const char * argv[])
     
     for (LONGS i = 0 , n = millionsInd.size() ; i < n ; ++i)
     {
-        millions.push_back( getRandom->kmersVector[  tenMillionsInd[i] ] );
+        millions.push_back( getRandom->kmersVector[  millionsInd[i] ] );
     }
     
+    
+    cout << millions.size() << endl;
+    cout << tenMillions.size() << endl;
     
     sort(tenMillions.begin(), tenMillions.end());
     sort(millions.begin(), millions.end());

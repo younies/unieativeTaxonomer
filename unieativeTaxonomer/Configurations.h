@@ -17,4 +17,10 @@ string path_to_the_yrj_databases = "/export1/project/hondius/newKrakenResearch/d
 string path_to_unieative_all_hashed = "/export1/project/hondius/unieative/unieative_hashed.untv";
 
 
+
+string path_to_million_random = "/export1/project/hondius/newKrakenResearch/generate_unique_random/randomMillion.yrj";
+
+string path_to_ten_millions_random = "/export1/project/hondius/newKrakenResearch/generate_unique_random/randomTenMillion.yrj";
+
+
 #endif /* Configurations_h */
