@@ -105,61 +105,6 @@ void CoreTaxonomer::fillAllTheCoreData()
 }
 
 
-pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(pair<SHORT, SHORT> rawKmer)
-{
-    LONGS start = 0 , end = this->coreHashNodesSize - 1 , mid  = (start + end)/2;
-    
-    while (end >= start)
-    {
-        mid  = (start + end)/2;
-        if(this->coreHashedNodes[mid].rawKmer == rawKmer)
-            break;
-        else if (this->coreHashedNodes[mid].rawKmer > rawKmer)
-            end = mid - 1;
-        else
-            start = mid + 1;
-    }
-    
-    if(start > end) return make_pair(-1, -1);
-    
-    LONGS newEndStart =  mid ,  newEndEnd  = mid;
-    
-    //for setting the start
-    if(start >= 0 && start < this->coreHashNodesSize)
-    while ( this->coreHashedNodes[start].rawKmer  != rawKmer)
-    {
-        ++start; // take a step to the goal
-        mid = (start + newEndStart) / 2;
-        
-        if(this->coreHashedNodes[mid].rawKmer == rawKmer)
-            newEndStart = mid;
-        else
-            start = mid + 1;
-    }
-    
-    
-    
-    //for setting the end
-    if(end >= 0 && end < this->coreHashNodesSize)
-    while (this->coreHashedNodes[end].rawKmer != rawKmer)
-    {
-        --end; //take one step to the goal and prevent the infinity loop!
-        mid = (end + newEndEnd)/2;
-        if(this->coreHashedNodes[mid].rawKmer == rawKmer)
-            newEndEnd = mid;
-        else
-            end = mid  - 1;
-    }
-    
-    
-    
-    return make_pair(start, end);
-    
-}
-
-
-
-
 /**
  Implementing the function that convert the kmer from LONGS kmer to the corresponding rawKmer and hashedPart which is the hidden part
  */
@@ -299,23 +244,20 @@ pair<short, short>  CoreTaxonomer::scanAtIndex( LONGS index , pair<SHORT, SHORT>
     ret.second = 0;
     
     
-    INT comparedHash = this->coreHashedNodes[index].hashedKmer.first;
-    comparedHash <<= sizeof(SHORT) * 8;
-    comparedHash |= this->coreHashedNodes[index].hashedKmer.second;
+    pair<SHORT, SHORT> comparedHash = this->coreHashedNodes[index].hashedKmer;
     
-    
-    INT hashed = pairHashed.first;
-    hashed <<= sizeof(SHORT) * 8;
-    hashed |= pairHashed.second;
-
-    int iterations = sizeof(INT) * 8;
-    
-    while (iterations--)
+    while( comparedHash.first != pairHashed.first)
     {
-        if(comparedHash%2 != hashed %2)
-            ++ret.second;
-        comparedHash /= 2;
-        hashed /= 2;
+        ++ret.second;
+        comparedHash.first >>= 2 ;
+        pairHashed.first >>= 2;
+    }
+    
+    while( comparedHash.second != pairHashed.second)
+    {
+        ++ret.second;
+        comparedHash.second >>= 2 ;
+        pairHashed.second >>= 2;
     }
     
     return ret;
