@@ -36,12 +36,12 @@ void writeFile(vector<LONG> & kmers , LONG kmerSize , string path)
     ofstream output_file(path);
     
     
-    LONG kmerNumbers = kmers.size();
+    LONGS kmerNumbers = kmers.size();
     
     output_file.write( (char *) &kmerSize ,  sizeof(LONG));
     output_file.write( (char *) &kmerNumbers ,  sizeof(LONG));
     
-    for (int i = 0 ; i < kmerNumbers ; ++i)
+    for (LONGS i = 0 ; i < kmerNumbers ; ++i)
     {
         output_file.write( (char *) &kmers[i] ,  sizeof(LONG));
     }
@@ -104,12 +104,12 @@ int main(int argc, const char * argv[])
     vector<LONG> millions;
 
     
-    for (LONGS i = 0 ; i < tenMillionsInd.size() ; ++i)
+    for (LONGS i = 0  , n = tenMillionsInd.size() ;  i < n ; ++i)
     {
         tenMillions.push_back( getRandom->kmersVector[  tenMillionsInd[i] ] );
     }
     
-    for (LONGS i = 0 ; i < millionsInd.size() ; ++i)
+    for (LONGS i = 0 , n = millionsInd.size() ; i < n ; ++i)
     {
         millions.push_back( getRandom->kmersVector[  tenMillionsInd[i] ] );
     }
