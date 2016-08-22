@@ -120,10 +120,12 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(pair<SHORT, SHORT> rawKmer)
             start = mid + 1;
     }
     
+    if(start > end) return make_pair(-1, -1);
     
     LONGS newEndStart =  mid ,  newEndEnd  = mid;
     
     //for setting the start
+    if(start >= 0 && start < this->coreHashNodesSize)
     while ( this->coreHashedNodes[start].rawKmer  != rawKmer)
     {
         ++start; // take a step to the goal
@@ -138,7 +140,7 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(pair<SHORT, SHORT> rawKmer)
     
     
     //for setting the end
-    
+    if(end >= 0 && end < this->coreHashNodesSize)
     while (this->coreHashedNodes[end].rawKmer != rawKmer)
     {
         --end; //take one step to the goal and prevent the infinity loop!
@@ -148,6 +150,8 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(pair<SHORT, SHORT> rawKmer)
         else
             end = mid  - 1;
     }
+    
+    
     
     return make_pair(start, end);
     
@@ -166,7 +170,7 @@ HashedNode CoreTaxonomer::getTheHashedKmer(LONG kmer)
     
     bitset<sizeof(INT) * 8> first(0) , second(0);
     
-    bitset<sizeof(kmer) * 8> kmerBits;
+    bitset<sizeof(kmer) * 8> kmerBits(kmer);
     
     int posFirst = 0 , posSecond = 0;
     for(LONGS i = 0 , n = this->hash.size() ; i <  n ; ++i )
@@ -200,6 +204,7 @@ void CoreTaxonomer::updateHashValue(string hash)
 {
     //reverse the hash
     reverse(hash.begin() , hash.end());
+    
     bitset<64> newBitHash;
     for(LONGS i = 0 , n = hash.size() ; i < n ; ++i)
     {

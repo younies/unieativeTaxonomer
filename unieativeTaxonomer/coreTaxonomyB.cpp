@@ -38,6 +38,8 @@ CoreTaxonomer::CoreTaxonomer(string hash , string path)
     
     LONGS theSize;
     
+    this->coreHashNodesSize = theSize;
+    
     fileStream.read( (char *)&theSize  , sizeof(LONG));
     
     this->coreHashedNodes.resize(theSize);
