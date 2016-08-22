@@ -43,7 +43,7 @@ int main(int argc, const char * argv[])
     
     
     
-    ofstream final_output("/export1/project/hondius/unieative/" );
+    ofstream final_output("/export1/project/hondius/unieative/trialOutput.txt" );
 
     final_output << "kmerIndex  kmer    Number_hits LCA    number_of_leaves    number_of_hitted_leaves GX_dem  GX  Uids_up_to_5\n";;
 
