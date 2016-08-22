@@ -95,7 +95,7 @@ int main(int argc, const char * argv[])
     string temp;
     while (getline(ifsMil, temp))
     {
-        million.push_back( getLong( temp) );
+        millionsInd.push_back( getLong( temp) );
     }
     
     while (getline(ifsTenMil, temp))
