@@ -82,6 +82,8 @@ int main(int argc, const char * argv[])
     
     YRJObject * getRandom = new YRJObject(pathe , 0);
     
+    getRandom->fillTheKmersVector();
+    
     
     ifstream ifsMil(million);
     ifstream ifsTenMil(tenMillion);
