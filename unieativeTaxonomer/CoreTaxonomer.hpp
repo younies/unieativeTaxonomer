@@ -33,6 +33,7 @@ class CoreTaxonomer
     
 public:
     CoreTaxonomer( vector<YRJObject *> yrjVector , string hash);
+    CoreTaxonomer(string hash , string path);
     ~CoreTaxonomer();
     
     pair<LONGS, LONGS> getThePlaceOfKmer(pair<SHORT, SHORT>  rawKmer);

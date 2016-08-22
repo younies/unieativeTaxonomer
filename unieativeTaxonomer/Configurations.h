@@ -16,7 +16,7 @@ string path_to_the_tree = "/export1/project/hondius/newKrakenResearch/finalNewTr
 string path_to_the_yrj_databases = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/";
 string path_to_unieative_all_hashed = "/export1/project/hondius/unieative/unieative_hashed.untv";
 
-
+string path_to_the_core_database = "/export1/project/hondius/unieative/unieative_hashed.untv";
 
 string path_to_million_random = "/export1/project/hondius/newKrakenResearch/generate_unique_random/randomMillion.yrj";
 

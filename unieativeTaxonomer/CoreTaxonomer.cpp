@@ -64,19 +64,7 @@ void CoreTaxonomer::fillAllTheCoreData()
    
     for ( YRJObject* yrj: this->yrjVector)
     {
-        //cout << "getInfoFrom  " << yrj->getIndex() << endl;
-        //cout << " " << yrj->getNumOfKmers() << endl;
-        
-        //ifstream fileStream = yrj->getMeAFileStreamFromTheStart();
-        
-        
-        
-        
-        
-        
-        
-        
-        ifstream fileStream(yrj->getMeThePath() );
+       ifstream fileStream(yrj->getMeThePath() );
         //this->fileStream = &fileStream;
         if(!fileStream.is_open())
         {
@@ -89,14 +77,6 @@ void CoreTaxonomer::fillAllTheCoreData()
         fileStream.read( (char *) &numOfKmers , sizeof(LONG));
         
 
-        
-        
-        
-        
-        
-        
-        
-        
         
         for (LONGS i = 0 , n = yrj->getNumOfKmers() ; i <  n ; ++i )
         {

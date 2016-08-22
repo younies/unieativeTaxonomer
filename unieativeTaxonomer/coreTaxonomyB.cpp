@@ -25,3 +25,26 @@ void CoreTaxonomer::writeTheCoreData(string path)
     output_file.flush();
     output_file.close();
 }
+
+
+CoreTaxonomer::CoreTaxonomer(string hash , string path)
+{
+    //setting up the hash
+    updateHashValue(hash);
+    
+    //
+    
+    ifstream fileStream(path);
+    
+    LONGS theSize;
+    
+    fileStream.read( (char *)&theSize  , sizeof(LONG));
+    
+    this->coreHashedNodes.resize(theSize);
+    
+    fileStream.read((char *) &this->coreHashedNodes[0], sizeof(HashedNode) * theSize);
+
+    fileStream.close();
+    
+    
+}
