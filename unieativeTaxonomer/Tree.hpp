@@ -15,7 +15,7 @@
 class Tree
 {
     vector< TreeNode * > treeNodesVector;
-    vector<LONGS> fromShortNameToUid;
+    //vector<LONGS> fromShortNameToUid;
     LONGS treeSize = 11000;
     vector<LONGS> numberOfLeaves;
     void connectChildren();

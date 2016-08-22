@@ -15,6 +15,7 @@ Tree::Tree(string path)
     
     
     this->treeNodesVector.resize(this->treeSize , NULL);
+    //this->fromShortNameToUid.resize(this->treeSize , -1);
     string line;
     
     while (getline(inputStream, line))
@@ -256,6 +257,6 @@ vector<YRJObject *> Tree::getYRJobjects(string path )
 
 LONGS Tree::getTheUIDFromShort(short shortName)
 {
-    return this->fromShortNameToUid[shortName];
+    return this->treeNodesVector[shortName]->uid;
 }
 
