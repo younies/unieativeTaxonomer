@@ -178,6 +178,27 @@ short Tree::getTowLCA(short first , short second)
 }
 
 
+short Tree::getGlobalLCA( vector<short> &  hitted_nodes)
+{
+    LONGS vecSize = hitted_nodes.size();
+    
+    if(vecSize == 0)
+    {
+        cout << "error in the get Global LCA\n";
+        return  -1;
+    }
+    else if(vecSize == 1)
+        return hitted_nodes[0]; // return the index of that element\
+    
+    short ret =  hitted_nodes[0];
+    
+    for(LONGS i = 1 ; i < vecSize  ; ++i )
+        ret = getTowLCA(ret, hitted_nodes[i]);
+    
+    return ret;
+
+    
+}
 
 
 
@@ -225,5 +246,16 @@ vector<YRJObject *> Tree::getYRJobjects(string path )
     }
     
     return ret;
+}
+
+
+
+
+
+
+
+LONGS Tree::getTheUIDFromShort(short shortName)
+{
+    return this->fromShortNameToUid[shortName];
 }
 

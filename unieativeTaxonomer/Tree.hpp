@@ -32,6 +32,8 @@ public:
     
     short getTowLCA(short first , short second);
     
+    short getGlobalLCA( vector<short> &  hitted_nodes);
+    
     short getGlobalLCA( vector<pair< short , short> > & vectorOfResults);// take vector of pairs of indices and differences
 
     LONGS getNumberOfLeaves(short shortName);
@@ -39,6 +41,8 @@ public:
     short getLCA_for_child_node( TreeNode * node , vector<short> & hitted_nodes );
     
     G_Statistics calculateG_Statistics(LONG kmer , short nodeShortName  , vector<short> & hitted_nodes );
+    
+    LONGS getTheUIDFromShort(short shortName);
     
     vector<YRJObject *> getYRJobjects(string path );
 };

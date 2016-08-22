@@ -12,6 +12,9 @@ void CoreTaxonomer::writeTheCoreData(string path)
 {
     ofstream output_file(path , ios::binary);
     
+    LONG hashLong = this->hash.to_ulong();
+    output_file.write( (char *) &this->kmerLength ,  sizeof(LONG));
+    output_file.write( (char *) &hashLong ,  sizeof(LONG));
     output_file.write( (char *) &this->coreHashNodesSize ,  sizeof(LONG));
     
     for (LONGS i = 0 ; i < this->coreHashNodesSize ; ++i)

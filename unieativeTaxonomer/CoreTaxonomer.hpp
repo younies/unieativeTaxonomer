@@ -19,6 +19,8 @@ class CoreTaxonomer
     vector<HashedNode> coreHashedNodes;
     vector<YRJObject *> yrjVector;
     
+    LONGS kmerLength = 31; // need some changes
+    
     LONGS startIndex = 0;
     
     bitset<64> hash;
