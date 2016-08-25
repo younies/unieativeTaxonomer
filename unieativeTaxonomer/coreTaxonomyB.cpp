@@ -35,12 +35,8 @@ void CoreTaxonomer::writeTheCoreData()
     
     for (LONGS i = 1 ; i < this->coreHashNodesSize; ++i)
     {
-        if(   this->coreHashedNodes[i].rawKmer == this->coreHashedNodes[i-1].rawKmer)
-        {
-            counter++;
-            end++;
-        }
-        else
+        
+        if( (this->coreHashedNodes[i].rawKmer != this->coreHashedNodes[i-1].rawKmer) || i == this->coreHashNodesSize - 1)
         {
             // now we need to write the data
             HashIndex hashIndex;
@@ -72,32 +68,12 @@ void CoreTaxonomer::writeTheCoreData()
             start = i ; end = i;
             
         }
+        else
+        {
+            counter++;
+            end++;
+        }
     }
-    
-    
-    // now we need to write the data
-    HashIndex hashIndex;
-    hashIndex.size = counter;
-    hashIndex.SetIndex(data_output.tellp());
-    
-    LONG index_in_the_index_file = rawIdentifier.first;
-    index_in_the_index_file <<= 16;
-    index_in_the_index_file |= rawIdentifier.second;
-    
-    index_output.seekp(index_in_the_index_file * sizeof(HashIndex));
-    
-    
-    index_output.write((char *) &hashIndex , sizeof(HashIndex));
-    
-    
-    for(LONGS j = start ; j <= end ; ++j)
-    {
-        HashData temp;
-        temp.index = this->coreHashedNodes[j].index;
-        temp.hashedKmer = this->coreHashedNodes[j].hashedKmer;
-        data_output.write((char *) &temp, sizeof(temp));
-    }
-    
     
     
     
