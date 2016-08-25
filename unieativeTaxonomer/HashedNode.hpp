@@ -10,6 +10,7 @@
 #define HashedNode_hpp
 
 #include "headers.h"
+//#include "Hash.hpp"
 
 //abstracting the new hashed kmer
 struct HashedNode{
@@ -17,7 +18,7 @@ struct HashedNode{
     pair<SHORT, SHORT> rawKmer; //the non hashed part in the kmer
     pair<SHORT, SHORT> hashedKmer ; // the part that is hashed in the kmer
     
-    HashedNode(){
+    HashedNode(  ){
         index = 0;
         rawKmer.first = 0;
         rawKmer.second = 0;

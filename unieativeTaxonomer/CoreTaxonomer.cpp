@@ -9,10 +9,10 @@
 #include "CoreTaxonomer.hpp"
 
 
-CoreTaxonomer::CoreTaxonomer(vector<YRJObject *> yrjVector , string hash)
+CoreTaxonomer::CoreTaxonomer(vector<YRJObject *> yrjVector , Hash * hash)
 {
     //setting up the hash
-    updateHashValue(hash);
+    this->theHash = hash;
     
     this->yrjVector = yrjVector;
     //to calculate the size of the whole database hashed kmers
@@ -84,12 +84,10 @@ void CoreTaxonomer::fillAllTheCoreData()
             LONG kmer ;
             fileStream.read( (char *)&kmer  , sizeof(LONG));
             //cout << i << "   " << kmer << endl;
-            HashedNode tempHahsed =  getTheHashedKmer( kmer);
+            HashedNode tempHahsed =  this->theHash->getHashedNode( kmer);
+            tempHahsed.index = yrj->getIndex();
+            this->coreHashedNodes[ this->startIndex++] = tempHahsed;
             
-            this->coreHashedNodes[ this->startIndex].index = yrj->getIndex();
-            this->coreHashedNodes[this->startIndex ].rawKmer = tempHahsed.rawKmer;
-            this->coreHashedNodes[this->startIndex ].hashedKmer = tempHahsed.hashedKmer;
-            ++this->startIndex;
         }
         fileStream.close();
         yrj->clearTheCompleteKmers();
@@ -109,6 +107,8 @@ void CoreTaxonomer::fillAllTheCoreData()
  Implementing the function that convert the kmer from LONGS kmer to the corresponding rawKmer and hashedPart which is the hidden part
  */
 
+
+/*
 HashedNode CoreTaxonomer::getTheHashedKmer(LONG kmer)
 {
     HashedNode ret;
@@ -195,10 +195,13 @@ LONG CoreTaxonomer::reverseKmer(LONG kmer)
 
 */
 
+
 /**
  getting the short name from the the database
- */
+ 
+*/
 
+/*
 
 vector<pair< short , short> > CoreTaxonomer::getShortNameFromKmer(LONG kmer)
 {
@@ -232,6 +235,8 @@ vector<pair< short , short> > CoreTaxonomer::getShortNameFromKmer(LONG kmer)
     return ret;
 }
 
+
+*/
 
 
 /**
@@ -270,7 +275,7 @@ pair<short, short>  CoreTaxonomer::scanAtIndex( LONGS index , pair<SHORT, SHORT>
 
 
 
-
+/*
 
 pair<SHORT , SHORT> CoreTaxonomer::convertINTtoPairShort(INT kmerINT)
 {
@@ -285,4 +290,4 @@ pair<SHORT , SHORT> CoreTaxonomer::convertINTtoPairShort(INT kmerINT)
     return ret;
 
 }
-
+*/

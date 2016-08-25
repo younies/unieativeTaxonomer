@@ -8,14 +8,34 @@
 
 #include "CoreTaxonomer.hpp"
 
-void CoreTaxonomer::writeTheCoreData(string path)
+void CoreTaxonomer::writeTheCoreData(string path_to_data , string path_to_index)
 {
+    
+    ofstream index_output(path_to_index , ios::binary);
+    
+    pair<INT, INT> emptyIndex;
+    for (LONGS i = 0 ; i < UINT_MAX; ++i)
+    {
+        index_output.write((char *) &emptyIndex , sizeof(emptyIndex));
+    }
+    
+    index_output.flush();
+    index_output.close();
+    
+    
+    
     ofstream output_file(path , ios::binary);
+    
+    
+    
     
     LONG hashLong = this->hash.to_ulong();
     output_file.write( (char *) &this->kmerLength ,  sizeof(LONG));
     output_file.write( (char *) &hashLong ,  sizeof(LONG));
     output_file.write( (char *) &this->coreHashNodesSize ,  sizeof(LONG));
+    
+    
+    long pos =   output_file.tellp();
     
     for (LONGS i = 0 ; i < this->coreHashNodesSize ; ++i)
     {
