@@ -74,6 +74,35 @@ void CoreTaxonomer::writeTheCoreData()
         }
     }
     
+    
+    // now we need to write the data
+    HashIndex hashIndex;
+    hashIndex.size = counter;
+    hashIndex.SetIndex(data_output.tellp());
+    
+    LONG index_in_the_index_file = rawIdentifier.first;
+    index_in_the_index_file <<= 16;
+    index_in_the_index_file |= rawIdentifier.second;
+    
+    index_output.seekp(index_in_the_index_file * sizeof(HashIndex));
+    
+    
+    index_output.write((char *) &hashIndex , sizeof(HashIndex));
+    
+    
+    for(LONGS j = start ; j <= end ; ++j)
+    {
+        HashData temp;
+        temp.index = this->coreHashedNodes[j].index;
+        temp.hashedKmer = this->coreHashedNodes[j].hashedKmer;
+        data_output.write((char *) &temp, sizeof(temp));
+    }
+    
+    
+    
+    
+
+    
     data_output.flush();
     index_output.flush();
     
@@ -83,7 +112,7 @@ void CoreTaxonomer::writeTheCoreData()
 CoreTaxonomer::CoreTaxonomer(string hash , string path)
 {
     //setting up the hash
-      
+    
     //
     
     ifstream fileStream(path);
