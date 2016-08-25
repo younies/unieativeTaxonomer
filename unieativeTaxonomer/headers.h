@@ -8,7 +8,7 @@
 
 #ifndef headers_h
 #define headers_h
-
+#include <climits>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
