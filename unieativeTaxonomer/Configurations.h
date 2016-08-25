@@ -22,5 +22,6 @@ string path_to_million_random = "/export1/project/hondius/newKrakenResearch/gene
 
 string path_to_ten_millions_random = "/export1/project/hondius/newKrakenResearch/generate_unique_random/randomTenMillion.yrj";
 
+string path_to_the_hashed_databases = "/export1/project/hondius/unieative/databases/";
 
 #endif /* Configurations_h */

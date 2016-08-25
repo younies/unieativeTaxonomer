@@ -244,7 +244,7 @@ vector<pair< short , short> > CoreTaxonomer::getShortNameFromKmer(LONG kmer)
 
  */
 
-
+/*
 pair<short, short>  CoreTaxonomer::scanAtIndex( LONGS index , pair<SHORT, SHORT> pairHashed)
 {
     pair<short, short> ret;
@@ -272,7 +272,7 @@ pair<short, short>  CoreTaxonomer::scanAtIndex( LONGS index , pair<SHORT, SHORT>
     return ret;
 }
 
-
+*/
 
 
 /*

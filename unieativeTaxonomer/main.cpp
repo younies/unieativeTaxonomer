@@ -36,13 +36,20 @@ int main(int argc, const char * argv[])
     //creating a tree object
     Tree * tree = new Tree(path_to_the_tree);
     
+    
+    
+    //creating the hash
+    Hash * hash = new Hash( pattern , path_to_the_hashed_databases );
+    
+    
+    
     //creating the core data object
     
-    CoreTaxonomer * core = new CoreTaxonomer( tree->getYRJobjects(path_to_the_yrj_databases) ,  pattern );
+    CoreTaxonomer * core = new CoreTaxonomer( tree->getYRJobjects(path_to_the_yrj_databases) ,  hash);
     
+    core->writeTheCoreData();
     
-    
-    
+    /*
     ofstream final_output("/export1/project/hondius/unieative/trialOutput.txt" );
 
     final_output << "kmerIndex  kmer    Number_hits LCA    number_of_leaves    number_of_hitted_leaves GX_dem  GX  Uids_up_to_5\n";;
@@ -108,7 +115,7 @@ int main(int argc, const char * argv[])
         
     final_output.close();
         
-
+*/
     return 0;
 }
 

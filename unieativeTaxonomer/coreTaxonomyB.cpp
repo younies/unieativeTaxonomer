@@ -8,50 +8,82 @@
 
 #include "CoreTaxonomer.hpp"
 
-void CoreTaxonomer::writeTheCoreData(string path_to_data , string path_to_index)
+void CoreTaxonomer::writeTheCoreData()
 {
     
-    ofstream index_output(path_to_index , ios::binary);
+    ofstream index_output(this->theHash->getTheIndexPath() , ios::binary);
+    ofstream data_output (this->theHash->getTheDataPath() , ios::binary);
     
-    pair<INT, INT> emptyIndex;
+    
+    //fill the empty file
+    HashIndex emptyIndex;
     for (LONGS i = 0 ; i < UINT_MAX; ++i)
     {
         index_output.write((char *) &emptyIndex , sizeof(emptyIndex));
     }
     
     index_output.flush();
-    index_output.close();
+    index_output.seekp(0); /// return to the start
+    
+    //initialize index file
     
     
+    cout << "starting to write all the data ...." << endl;
     
-    ofstream output_file(path , ios::binary);
+    LONGS start = 0  , end = 0 , counter = 1;
+    pair<SHORT, SHORT> rawIdentifier = this->coreHashedNodes[0].rawKmer;
     
-    
-    
-    
-    LONG hashLong = this->hash.to_ulong();
-    output_file.write( (char *) &this->kmerLength ,  sizeof(LONG));
-    output_file.write( (char *) &hashLong ,  sizeof(LONG));
-    output_file.write( (char *) &this->coreHashNodesSize ,  sizeof(LONG));
-    
-    
-    long pos =   output_file.tellp();
-    
-    for (LONGS i = 0 ; i < this->coreHashNodesSize ; ++i)
+    for (LONGS i = 1 ; i < this->coreHashNodesSize; ++i)
     {
-        output_file.write( (char*)&this->coreHashedNodes[i] ,  sizeof(LONG));
+        if(   this->coreHashedNodes[i].rawKmer == this->coreHashedNodes[i-1].rawKmer)
+        {
+            counter++;
+            end++;
+        }
+        else
+        {
+            // now we need to write the data
+            HashIndex hashIndex;
+            hashIndex.size = counter;
+            hashIndex.SetIndex(data_output.tellp());
+            
+            LONG index_in_the_index_file = rawIdentifier.first;
+            index_in_the_index_file <<= 16;
+            index_in_the_index_file |= rawIdentifier.second;
+            
+            index_output.seekp(index_in_the_index_file * sizeof(HashIndex));
+            
+            
+            index_output.write((char *) &hashIndex , sizeof(HashIndex));
+            
+            
+            for(LONGS j = start ; j <= end ; ++j)
+            {
+                HashData temp;
+                temp.index = this->coreHashedNodes[j].index;
+                temp.hashedKmer = this->coreHashedNodes[j].hashedKmer;
+                data_output.write((char *) &temp, sizeof(temp));
+            }
+            
+            // now we finished writing
+            
+            rawIdentifier = this->coreHashedNodes[i].rawKmer;
+            counter = 1;
+            start = i ; end = i;
+            
+        }
     }
     
-    output_file.flush();
-    output_file.close();
+    data_output.flush();
+    index_output.flush();
+    
 }
 
 
 CoreTaxonomer::CoreTaxonomer(string hash , string path)
 {
     //setting up the hash
-    updateHashValue(hash);
-    
+      
     //
     
     ifstream fileStream(path);

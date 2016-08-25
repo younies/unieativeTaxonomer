@@ -50,11 +50,11 @@ public:
     
     //vector<pair< short , short> > getShortNameFromKmer(LONG kmer); // return the short names associated with the number of differences
     
-    pair<short, short>  scanAtIndex( LONGS index , pair<SHORT, SHORT> pairHashed);
+    //pair<short, short>  scanAtIndex( LONGS index , pair<SHORT, SHORT> pairHashed);
     
     //pair<SHORT , SHORT> convertINTtoPairShort(INT kmerINT);
     
-    void writeTheCoreData(string path_to_data , string path_to_index);
+    void writeTheCoreData();
     
 };
 

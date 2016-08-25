@@ -34,6 +34,9 @@ public:
     pair<SHORT, SHORT> convertPartBitSetToPair(bitset<32> bitKmerPart);
     pair<SHORT, SHORT> convertINTPartToPair(INT kmerPart);
     
+    string getTheIndexPath(){return this->path_to_index_file;}
+    string getTheDataPath(){return this->path_to_data_file;}
+    
     
     
     
