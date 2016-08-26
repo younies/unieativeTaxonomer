@@ -127,3 +127,19 @@ string hash_check(string hash)
     }
     
 }
+
+
+
+
+
+INT Hash::getINTfromPair(pair<SHORT, SHORT> partKmer)
+{
+    INT ret = 0 ;
+    
+    ret = partKmer.first;
+    ret <<= 16;
+    ret |= partKmer.second;
+    
+    return ret;
+    
+}

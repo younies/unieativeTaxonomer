@@ -12,6 +12,7 @@
 
 //pathes to important files
 
+
 string path_to_the_tree = "/export1/project/hondius/newKrakenResearch/finalNewTree.txt";
 string path_to_the_yrj_databases = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/";
 string path_to_unieative_all_hashed = "/export1/project/hondius/unieative/unieative_hashed.untv";
@@ -23,5 +24,20 @@ string path_to_million_random = "/export1/project/hondius/newKrakenResearch/gene
 string path_to_ten_millions_random = "/export1/project/hondius/newKrakenResearch/generate_unique_random/randomTenMillion.yrj";
 
 string path_to_the_hashed_databases = "/export1/project/hondius/unieative/databases/";
+
+
+
+//conf main
+// pattern 2 = "##-##-#-#---#-#-##--#--#-#-#-##";
+string pattern =  "##-#--###---#-#-#-#-#--#-##--##";
+string pathe   = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/all.yrj";
+string million = "/export1/project/hondius/newKrakenResearch/generate_unique_random/MillionRandomIndices.txt";
+string tenMillion = "/export1/project/hondius/newKrakenResearch/generate_unique_random/TenMillionRandom.txt";
+
+
+
+string writeIN ="/export1/project/hondius/newKrakenResearch/generate_unique_random/";
+
+
 
 #endif /* Configurations_h */

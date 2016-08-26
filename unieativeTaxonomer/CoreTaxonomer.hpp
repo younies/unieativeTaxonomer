@@ -56,6 +56,8 @@ public:
     
     void writeTheCoreData();
     
+    HashedNode getHashedNode(LONGS index){ return this->coreHashedNodes[index];}
+    
 };
 
 #endif /* CorseTaxonomer_hpp */

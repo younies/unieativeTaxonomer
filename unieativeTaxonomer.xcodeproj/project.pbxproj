@@ -17,6 +17,7 @@
 		F3BE9D581D5D1B02001EF519 /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3BE9D561D5D1B02001EF519 /* TreeNode.cpp */; };
 		F3BE9D5E1D620FC3001EF519 /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3BE9D5C1D620FC3001EF519 /* helpers.cpp */; };
 		F3BF40D41D6E35AF00845B1C /* Hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3BF40D21D6E35AF00845B1C /* Hash.cpp */; };
+		F3BF40D71D70931500845B1C /* testingTheDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3BF40D51D70931400845B1C /* testingTheDatabase.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,8 @@
 		F3BE9D5D1D620FC3001EF519 /* helpers.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
 		F3BF40D21D6E35AF00845B1C /* Hash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Hash.cpp; sourceTree = "<group>"; };
 		F3BF40D31D6E35AF00845B1C /* Hash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Hash.hpp; sourceTree = "<group>"; };
+		F3BF40D51D70931400845B1C /* testingTheDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testingTheDatabase.cpp; sourceTree = "<group>"; };
+		F3BF40D61D70931400845B1C /* testingTheDatabase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = testingTheDatabase.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 				F3BE9D571D5D1B02001EF519 /* TreeNode.hpp */,
 				F3BF40D21D6E35AF00845B1C /* Hash.cpp */,
 				F3BF40D31D6E35AF00845B1C /* Hash.hpp */,
+				F3BF40D51D70931400845B1C /* testingTheDatabase.cpp */,
+				F3BF40D61D70931400845B1C /* testingTheDatabase.hpp */,
 			);
 			path = unieativeTaxonomer;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 				F3B4339D1D5A48BB002D83B5 /* CoreTaxonomer.cpp in Sources */,
 				F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */,
 				F3BE9D551D5D1AE6001EF519 /* Tree.cpp in Sources */,
+				F3BF40D71D70931500845B1C /* testingTheDatabase.cpp in Sources */,
 				F3AF037D1D6AB2CC00F37C04 /* comments.cpp in Sources */,
 				F35100861D591C8100C294D7 /* YRJObject.cpp in Sources */,
 				F362A0C31D664B1600FA79C9 /* coreTaxonomyB.cpp in Sources */,

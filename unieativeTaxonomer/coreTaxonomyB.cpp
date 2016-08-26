@@ -76,9 +76,6 @@ void CoreTaxonomer::writeTheCoreData()
     }
     
     
-    
-
-    
     data_output.flush();
     index_output.flush();
     
@@ -154,12 +151,6 @@ pair<LONGS, LONGS>  CoreTaxonomer::getThePlaceOfKmer(pair<SHORT, SHORT> rawKmer)
     
     return ret;
 }
-
-
-
-
-
-
 
 
 
