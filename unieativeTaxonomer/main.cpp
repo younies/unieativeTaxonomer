@@ -13,7 +13,7 @@
 #include "Configurations.h"
 #include "Tree.hpp"
 
-string pattern = "##-#--###---#-#-#-#-#--#-##--##";
+string pattern = "##-##-#-#---#-#-##--#--#-#-#-##";  // pattern 1 "##-#--###---#-#-#-#-#--#-##--##";
 string pathe   = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/all.yrj";
 string million = "/export1/project/hondius/newKrakenResearch/generate_unique_random/MillionRandomIndices.txt";
 string tenMillion = "/export1/project/hondius/newKrakenResearch/generate_unique_random/TenMillionRandom.txt";
