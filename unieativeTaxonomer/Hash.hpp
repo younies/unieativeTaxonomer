@@ -17,7 +17,7 @@ class Hash
 {
     int  bitSize = 64;
     const string INDEX_EXTENTION = ".hash_index";
-    const string DATA_EXTENSTION = ".hash_index";
+    const string DATA_EXTENSTION = ".hash_data";
     string hash;
     string name;
     string path_to_index_file;
