@@ -88,6 +88,18 @@ bool testKmer( CoreTaxonomer * core ,  Hash * hash, LONG kmer)
         HashData tempHashData;
         dataStream.read((char *) &tempHashData, sizeof(HashData));
         
+        
+        
+        
+        
+        cout << "the shorts does  matsh " << tempHashData.index << "  " <<completedHashNode.index << endl;
+        cout << "the hashed kmers does equal to each others" << endl;
+        cout << "hash one " <<tempHashData.hashedKmer.first << "  " << tempHashData.hashedKmer.second;
+        cout << "  second  " << completedHashNode.hashedKmer.first << "  " << completedHashNode.hashedKmer.second << endl;
+        
+        
+        
+        
         if(tempHashData.index != completedHashNode.index)
         {
             cout << "the shorts does not matsh " << tempHashData.index << "  " <<completedHashNode.index << endl;
