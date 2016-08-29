@@ -32,7 +32,7 @@ int main(int argc, const char * argv[])
     //databaseTesting(path_to_the_tree, path_to_the_hashed_databases, pattern, path_to_the_yrj_databases, path_to_million_random);
     
     
-    buildingHashDatabase(pattern3);
+    buildingHashDatabase(pattern4);
     return 0;
 }
 

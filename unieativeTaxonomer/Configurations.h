@@ -33,7 +33,9 @@ string pattern =  "##-#--###---#-#-#-#-#--#-##--##";
 
 string pattern3 = "#-#-----#-#--#--##-##-#-####-##";
 
-string pattern4 = "#-####-##----#-##---#-#-#--##-#";
+string pattern4 = "#--###---#--##--#-#-###-#-##--#";
+
+string pattern5 = "#-####-##----#-##---#-#-#--##-#";
 
 string pathe   = "/export1/project/hondius/newKrakenResearch/databases/kmerDatabase_new_31/all.yrj";
 string million = "/export1/project/hondius/newKrakenResearch/generate_unique_random/MillionRandomIndices.txt";
