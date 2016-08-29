@@ -29,8 +29,10 @@ int main(int argc, const char * argv[])
 {
     //databaseTesting();
     
-    databaseTesting(path_to_the_tree, path_to_the_hashed_databases, pattern, path_to_the_yrj_databases, path_to_million_random);
+    //databaseTesting(path_to_the_tree, path_to_the_hashed_databases, pattern, path_to_the_yrj_databases, path_to_million_random);
     
+    
+    buildingHashDatabase(pattern3);
     return 0;
 }
 
