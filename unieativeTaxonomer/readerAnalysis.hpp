@@ -21,5 +21,8 @@ class readerAnalysis{
     
     
 public:
+    
+    
+    
 };
 #endif /* readerAnalysis_hpp */
