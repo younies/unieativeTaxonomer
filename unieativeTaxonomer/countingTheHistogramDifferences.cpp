@@ -33,20 +33,50 @@ void calulateTheDifferences( string path_to_the_tree , string path_to_the_hashed
     Hash * hash = new Hash( pattern , path_to_the_hashed_databases );
     
     
-    //now we want to test
+    //now we want to have the connectors
+    ifstream * indexStream = new ifstream(hash->getTheIndexPath());
+    ifstream * dataStream  = new ifstream(hash->getTheDataPath());
     
-    LONGS countTrue = 0 , countFalse = 0;
+    //now creat the output file
+    ofstream * outputFileResults = new ofstream(path_to_the_output_file);
+    
+    
+    vector<LONGS> globalCounter(7 , 0);
     
     for(LONGS i = 0 , n = randomMillionKmers->getNumOfKmers() ; i < n ; ++i)
     {
-        if( testKmer(core, hash, randomMillionKmers->kmersVector[i]))
-            countTrue++;
-        else
-            countFalse++;
+        vector<LONGS> localCounter(7,0);
         
-        cout << "CountTrue = " << countTrue << "   countFalse =  " << countFalse << endl;
+        vector<pair<short, int> > tempResult = getNumberOfDifference(indexStream, dataStream, hash, randomMillionKmers->kmersVector[i]);
+        
+        for( pair<short, int> tempPair : tempResult)
+        {
+            if(tempPair.second > 5)
+                localCounter[6]++;
+            else
+                localCounter[tempPair.second]++;
+        }
+        
+    
+        *outputFileResults << randomMillionKmers->kmersVector[i] << endl;
+        for(int j = 0  , m = (int)localCounter.size() ; j < m ; ++j)
+        {
+            *outputFileResults << localCounter[j] << "\t" ;
+            globalCounter[j] += localCounter[j];
+            
+        }
+        *outputFileResults << endl;
+        
+        for(int j = 0  , m = (int)localCounter.size() ; j < m ; ++j)
+            *outputFileResults << globalCounter[j] << "\t";
+        *outputFileResults << endl;
+        
+        
     }
     
+    outputFileResults->close();
+    dataStream ->close();
+    indexStream->close();
     
 }
 
@@ -55,83 +85,86 @@ void calulateTheDifferences( string path_to_the_tree , string path_to_the_hashed
 
 
 
-bool testKmer( CoreTaxonomer * core ,  Hash * hash, LONG kmer)
+vector<pair<short, int> > getNumberOfDifference( ifstream * indexStream , ifstream * dataStream,  Hash * hash, LONG kmer)
 {
-    bool returnflag = true;
-    ifstream indexStream(hash->getTheIndexPath());
-    ifstream dataStream (hash->getTheDataPath()) ;
+
     
-    HashedNode node = hash->getHashedNode(kmer);
-    pair<LONGS, LONGS> startEnd = core->getThePlaceOfKmer(node.rawKmer);
+    //ifstream indexStream(hash->getTheIndexPath());
+    //ifstream dataStream (hash->getTheDataPath()) ;
     
-    INT index = hash->getINTfromPair(node.rawKmer);
+    HashedNode kmerNode = hash->getHashedNode(kmer);
+    
+    INT index = hash->getINTfromPair(kmerNode.rawKmer);
     
     
-    indexStream.seekg(index * sizeof(HashIndex));
+    indexStream->seekg(index * sizeof(HashIndex));
     
     HashIndex tempHashIndex;
     
-    indexStream.read((char *) &tempHashIndex, sizeof(HashIndex));
-    
-    
-    if( tempHashIndex.size != (startEnd.second - startEnd.first + 1)  )
-    {
-        cout << "the sizes does not matsh\n";
-        cout << "for kmer " + to_string(kmer) << endl;
-        cout << "the hash size " << tempHashIndex.size << endl;
-        cout << " the index returned is " << startEnd.first << "  " << startEnd.second << endl;
-        returnflag = false;
-    }
+    indexStream->read((char *) &tempHashIndex, sizeof(HashIndex));
     
     
     LONG dataIndex = tempHashIndex.getIndex();
     
-    dataStream.seekg(dataIndex );
+    dataStream->seekg(dataIndex );
     
+    vector<HashData> hashDataVector(tempHashIndex.size);
     
-    for(LONGS i = startEnd.first ; i <= startEnd.second ; ++i)
+    for(LONGS i = 0 ; i <tempHashIndex.size ; ++i)
     {
-        HashedNode completedHashNode = core->getHashedNode(i);
-        HashData tempHashData;
-        dataStream.read((char *) &tempHashData, sizeof(HashData));
-        
-        
-        
-        
-        
-        cout << "the shorts does  matsh " << tempHashData.index << "  " <<completedHashNode.index << endl;
-        cout << "the hashed kmers does equal to each others" << endl;
-        cout << "hash one " <<tempHashData.hashedKmer.first << "  " << tempHashData.hashedKmer.second;
-        cout << "  second  " << completedHashNode.hashedKmer.first << "  " << completedHashNode.hashedKmer.second << endl;
-        
-        
-        
-        
-        if(tempHashData.index != completedHashNode.index)
-        {
-            cout << "the shorts does not matsh " << tempHashData.index << "  " <<completedHashNode.index << endl;
-            cout  << " kmer  " << kmer << endl;
-        }
-        
-        if(tempHashData.hashedKmer != completedHashNode.hashedKmer)
-        {
-            cout << "the hashed kmers does not equal to each others" << endl;
-            cout << "hash one " <<tempHashData.hashedKmer.first << "  " << tempHashData.hashedKmer.second;
-            cout << "  second  " << completedHashNode.hashedKmer.first << "  " << completedHashNode.hashedKmer.second << endl;
-            
-            returnflag = false;
-        }
-        
-        
+        dataStream->read((char *) &hashDataVector[i], sizeof(HashData));
     }
     
-    return true;
+    vector<pair<short, int> > ret;
+    
+    for (int i = 0 , n = (int)hashDataVector.size(); i < n ; ++i)
+    {
+        if(ret.size() == 0)
+            ret.push_back(make_pair(hashDataVector[i].index,  numOfDifferencesBetweenKmers(hashDataVector[i].hashedKmer, kmerNode.hashedKmer) ));
+            
+        else
+        {
+            int temDiff = numOfDifferencesBetweenKmers(hashDataVector[i].hashedKmer, kmerNode.hashedKmer);
+            if(ret.back().first != hashDataVector[i].index )
+            {
+                ret.push_back(make_pair(hashDataVector[i].index, temDiff));
+            }
+            else
+            {
+                ret.back().second = min(temDiff , ret.back().second);
+            }
+        }
+    }
+    
+    
+    return ret;
 }
 
 
 
 
-
+int numOfDifferencesBetweenKmers(pair<short, short> hashedKmer1 , pair<short, short> hashedKmer2)
+{
+    
+    int differences = 0;
+    
+    
+    while (hashedKmer1.first != hashedKmer2.first)
+    {
+        differences++;
+        hashedKmer1.first /= 4;
+        hashedKmer2.first /= 4;
+    }
+    
+    while (hashedKmer1.second != hashedKmer2.second)
+    {
+        differences++;
+        hashedKmer1.second /= 4;
+        hashedKmer2.second /= 4;
+    }
+    
+    return differences;
+}
 
 
 
