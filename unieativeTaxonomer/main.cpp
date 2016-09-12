@@ -34,7 +34,7 @@ int main(int argc, const char * argv[])
     //databaseTesting();
     
     
-    calulateTheDifferences(path_to_the_tree, path_to_the_hashed_databases, pattern1, path_to_the_yrj_databases, path_to_million_random, path_to_output);
+    calulateTheDifferences(path_to_the_tree, path_to_the_hashed_databases, argv[1], path_to_the_yrj_databases, path_to_million_random, path_to_output + argv[2]);
     
     
     
