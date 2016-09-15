@@ -169,8 +169,9 @@ void CoreTaxonomer::updateHashValue(string hash)
     this->hash = newBitHash;
 }
 
-/*
-//reversing the bits of all the variable
+
+
+ //reversing the bits of all the variable
 LONG CoreTaxonomer::reverseKmer(LONG kmer)
 {
     int size = sizeof(LONG) * 8;

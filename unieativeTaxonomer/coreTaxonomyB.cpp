@@ -40,7 +40,7 @@ void CoreTaxonomer::writeTheCoreData()
         {
             // now we need to write the data
             HashIndex hashIndex;
-            hashIndex.size = counter;
+            hashIndex.size = (INT)counter;
             hashIndex.SetIndex(data_output.tellp());
             
             LONG index_in_the_index_file = rawIdentifier.first;

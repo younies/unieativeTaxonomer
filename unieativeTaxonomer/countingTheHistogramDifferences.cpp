@@ -20,14 +20,76 @@
 #include "testingTheDatabase.hpp"
 
 
+void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , vector<string> patterns , string path_to_the_yrj_databases , string path_to_million_random , string path_to_the_output_file)
+
+{
+    
+    int numberOfHashes = (int)patterns.size();
+    
+    //random kmers
+    YRJObject * randomMillionKmers = new YRJObject(path_to_million_random , -1);
+    randomMillionKmers->fillTheKmersVector();
+    
+    //create the hash vector
+    vector<Hash *> hashes(patterns.size());
+    for (int i = 0 , n = (int)hashes.size() ; i < n ; ++i)
+    {
+        hashes[i] = new Hash(patterns[i] , path_to_the_hashed_databases);
+    }
+    
+    //connector to data files
+    vector<ifstream *>  indexStreams(patterns.size());
+    vector<ifstream *>  dataStreams(patterns.size());
+    
+    for (int i = 0 , n = (int)hashes.size(); i < n  ; ++i)
+    {
+        indexStreams[i] = new ifstream(hashes[i]->getTheIndexPath());
+        dataStreams[i]  = new ifstream(hashes[i]->getTheDataPath());
+    }
+    
+    //open the writing files
+    vector<ofstream *> outputFilesResults(numberLimit);
+    for (int i =  0  ;  i < numberLimit ; ++i)
+    {
+        outputFilesResults[i ] = new ofstream(path_to_the_output_file + "_" + to_string(i) + ".result");
+    }
+    
+    vector< vector< LONGS> > globalCounter( numberOfHashes , vector<LONGS>( numberLimit , 0) );
+    
+    
+    for(LONGS i = 0 , n = randomMillionKmers->getNumOfKmers() ; i < n ; ++i)
+    {
+         vector<vector< vector<short> > > localCounter(numberOfHashes, vector<vector<short> > (numberLimit));
+        
+        for (LONGS local_i , local_n = hashes.size();  local_i < local_n; ++local_i )
+        {
+            vector<pair<short, int> > tempResult = getNumberOfDifference(indexStreams[local_i], dataStreams[local_i], hashes[local_i], randomMillionKmers->kmersVector[i]);
+            
+            for( pair<short, int> tempPair : tempResult)
+            {
+                if(tempPair.second >= numberLimit - 1)
+                    localCounter[local_i][numberLimit - 1].emplace_back(tempPair.first);
+                else
+                    localCounter[local_i][tempPair.second].emplace_back(tempPair.first);
+            }
+
+        }
+        
+        ///Merge Tomorrwo
+        
+        
+    }
+    
+}
+
+
+
 void calulateTheDifferences( string path_to_the_tree , string path_to_the_hashed_databases , string pattern , string path_to_the_yrj_databases , string path_to_million_random , string path_to_the_output_file)
 {
     //random kmers
     YRJObject * randomMillionKmers = new YRJObject(path_to_million_random , -1);
     randomMillionKmers->fillTheKmersVector();
-    
-    //creating a tree object
-    Tree * tree = new Tree(path_to_the_tree);
+
     
     //creating the hash
     Hash * hash = new Hash( pattern , path_to_the_hashed_databases );
@@ -165,6 +227,85 @@ int numOfDifferencesBetweenKmers(pair<short, short> hashedKmer1 , pair<short, sh
     
     return differences;
 }
+
+
+
+
+vector<vector<short>> getDifferencesVector(vector<pair<short, int> >  differences)
+{
+    vector<vector<short>>  ret(numberLimit);
+    
+    for(pair<short, int> element: differences)
+    {
+        if(element.second < numberLimit - 1)
+            ret[element.second].push_back(element.first);
+        else
+            ret[numberLimit - 1].push_back(element.first);
+    }
+    
+    return ret;
+}
+
+
+
+
+void mergeTwoColumnsToColumnTwo(const vector< vector<short> >&  vec1 , vector< vector<short> >&  vec2)
+{
+    for (int i = 0 , n = (int) vec1.size() ; i < n  ; ++i)
+    {
+        vec2[i] = mergeTwoWithoutRepetition(vec1[i], vec2[i]);
+    }
+}
+
+
+vector<short> mergeTwoWithoutRepetition(const vector<short> & vec1 , const vector<short> & vec2)
+{
+    vector<short> ret;
+    LONGS retSize = 0;
+    
+    LONGS n1 = vec1.size()  , n2 = vec2.size();
+    LONGS i1 = 0 , i2 = 0;
+    while (i1 < n1 || i2 < n2)
+    {
+        short value;
+        if( i1 < n1 && i2 < n2  )
+        {
+            if(vec1[i1] < vec2[i2])
+                value = vec1[i1++];
+            else if (vec1[i1] > vec2[i2])
+                value = vec2[i2++];
+            else//both of them equal
+            {
+                value = vec1[i1++];
+                ++i2;
+            }
+        }
+        else if(i1 < n1)
+            value = vec1[i1++];
+        else
+            value = vec2[i2++];
+        
+        if(retSize == 0 || ret.back() != value )
+        {
+            ret.emplace_back(value);
+            retSize++;
+        }
+    }
+    
+    return ret;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
