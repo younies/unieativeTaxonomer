@@ -61,7 +61,7 @@ void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , v
     for(LONGS i = 0 , n = randomMillionKmers->getNumOfKmers() ; i < n ; ++i)
     {
          vector<vector< vector<SHORT> > > localCounter(numberOfHashes, vector<vector<SHORT> > (numberLimit));
-        cout << "  hashes  " << hashes.size();
+        cout << "  hashes  " << hashes.size() << endl;
         cout << i << "  " << n << endl;
         for (LONGS local_i , local_n = hashes.size();  local_i < local_n; ++local_i )
         {
