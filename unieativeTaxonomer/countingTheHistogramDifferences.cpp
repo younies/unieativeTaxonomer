@@ -167,6 +167,7 @@ void calulateTheDifferences( string path_to_the_tree , string path_to_the_hashed
 
 vector<pair<short, int> > getNumberOfDifference( ifstream * indexStream , ifstream * dataStream,  Hash * hash, LONG kmer)
 {
+    cout << "called " << endl;
 
     
     //ifstream indexStream(hash->getTheIndexPath());
@@ -217,8 +218,8 @@ vector<pair<short, int> > getNumberOfDifference( ifstream * indexStream , ifstre
     }
     
     //testing
-    for(auto tempair: ret)
-        cout << tempair.first << " " << tempair.second << endl;
+    //for(auto tempair: ret)
+      //  cout << tempair.first << " " << tempair.second << endl;
     
     
     return ret;
