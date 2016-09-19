@@ -30,13 +30,22 @@ void testTheDatabaseMillionKmer();
 int main(int argc, const char * argv[])
 {
     
-    string path_to_output = "/export1/project/hondius/unieative/trialCountOutput";
+    string path_to_output = "/export1/project/hondius/unieative/distribution_trial.out";
     //databaseTesting();
     
     
    // calulateTheDifferences(path_to_the_tree, path_to_the_hashed_databases, argv[1], path_to_the_yrj_databases, path_to_million_random, path_to_output + argv[2]);
     
+    vector<string> patterns;
+    patterns.emplace_back(pattern1);
+    patterns.emplace_back(pattern2);
+    patterns.emplace_back(pattern3);
+    patterns.emplace_back(pattern4);
+    patterns.emplace_back(pattern5);
     
+    
+    
+    CalculateDifferencesDistributions(path_to_the_hashed_databases, patterns, path_to_the_yrj_databases, path_to_million_random, path_to_output);
     
     //buildingHashDatabase(pattern3);
     return 0;
