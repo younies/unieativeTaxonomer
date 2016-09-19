@@ -23,6 +23,7 @@
 void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , vector<string> patterns , string path_to_the_yrj_databases , string path_to_million_random , string path_to_the_output_file)
 
 {
+    ofstream * writtingFile = new ofstream(path_to_the_output_file);
     
     int numberOfHashes = (int)patterns.size();
     
@@ -59,13 +60,13 @@ void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , v
     
     for(LONGS i = 0 , n = randomMillionKmers->getNumOfKmers() ; i < n ; ++i)
     {
-         vector<vector< vector<short> > > localCounter(numberOfHashes, vector<vector<short> > (numberLimit));
+         vector<vector< vector<SHORT> > > localCounter(numberOfHashes, vector<vector<SHORT> > (numberLimit));
         
         for (LONGS local_i , local_n = hashes.size();  local_i < local_n; ++local_i )
         {
             vector<pair<short, int> > tempResult = getNumberOfDifference(indexStreams[local_i], dataStreams[local_i], hashes[local_i], randomMillionKmers->kmersVector[i]);
             
-            for( pair<short, int> tempPair : tempResult)
+            for( auto tempPair : tempResult)
             {
                 if(tempPair.second >= numberLimit - 1)
                     localCounter[local_i][numberLimit - 1].emplace_back(tempPair.first);
@@ -75,11 +76,28 @@ void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , v
 
         }
         
-        ///Merge Tomorrwo
+        ///Merge Tomorrwo for a random kmer  [i]
+        for(LONGS hash_i =  1  , hash_n = hashes.size() ; hash_i < hash_n ; ++hash_i )
+            mergeTwoColumnsToColumnTwo(localCounter[hash_i - 1], localCounter[hash_i]);
         
+        
+        //preparing for writing
+        vector<vector<LONGS>> tempLocal =  addLocalToGlobal(globalCounter , localCounter);
+        
+        *writtingFile << "Local " << i + 1 << endl;
+        writeMatrixInFile( writtingFile , tempLocal);
+        
+        *writtingFile << "global " << i + 1 << endl;
+        writeMatrixInFile( writtingFile , globalCounter);
+        
+        
+        
+        
+        writtingFile->flush();
         
     }
-    
+ 
+    writtingFile->close();
 }
 
 
@@ -249,7 +267,7 @@ vector<vector<short>> getDifferencesVector(vector<pair<short, int> >  difference
 
 
 
-void mergeTwoColumnsToColumnTwo(const vector< vector<short> >&  vec1 , vector< vector<short> >&  vec2)
+void mergeTwoColumnsToColumnTwo(const vector< vector<SHORT> >&  vec1 , vector< vector<SHORT> >&  vec2)
 {
     for (int i = 0 , n = (int) vec1.size() ; i < n  ; ++i)
     {
@@ -258,9 +276,9 @@ void mergeTwoColumnsToColumnTwo(const vector< vector<short> >&  vec1 , vector< v
 }
 
 
-vector<short> mergeTwoWithoutRepetition(const vector<short> & vec1 , const vector<short> & vec2)
+vector<SHORT> mergeTwoWithoutRepetition(const vector<SHORT> & vec1 , const vector<SHORT> & vec2)
 {
-    vector<short> ret;
+    vector<SHORT> ret;
     LONGS retSize = 0;
     
     LONGS n1 = vec1.size()  , n2 = vec2.size();

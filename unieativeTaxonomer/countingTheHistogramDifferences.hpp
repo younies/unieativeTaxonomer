@@ -28,10 +28,19 @@ vector<pair<short, int> > getNumberOfDifference( ifstream * indexStream , ifstre
 int numOfDifferencesBetweenKmers(pair<short, short> hashedKmer1 , pair<short, short> hashedKmer2);
 
 
-vector<short> mergeTwoWithoutRepetition(const vector<short> & vec1 , const vector<short> & vec2);
+vector<SHORT> mergeTwoWithoutRepetition(const vector<SHORT> & vec1 , const vector<SHORT> & vec2);
 
-void mergeTwoColumnsToColumnTwo(const vector< vector<short> >&  vec1 , vector< vector<short> >&  vec2);
+void mergeTwoColumnsToColumnTwo(const vector< vector<SHORT> >&  vec1 , vector< vector<SHORT> >&  vec2);
 
 void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , vector<string> patterns , string path_to_the_yrj_databases , string path_to_million_random , string path_to_the_output_file);
+
+
+void writeMatrixInFile(ofstream * writtingFile , vector<vector<LONGS> > data);
+
+
+vector<vector< LONGS> >  addLocalToGlobal( vector< vector< LONGS> > &globalCounter , const vector<vector<vector<SHORT>>> & localCounter);
+
+
+
 
 #endif /* countingTheHistogramDifferences_hpp */
