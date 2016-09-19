@@ -66,6 +66,9 @@ void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , v
         {
             vector<pair<short, int> > tempResult = getNumberOfDifference(indexStreams[local_i], dataStreams[local_i], hashes[local_i], randomMillionKmers->kmersVector[i]);
             
+            for(auto tempair: tempResult)
+                cout << tempair.first << " " << tempair.second << endl;
+            
             for( auto tempPair : tempResult)
             {
                 if(tempPair.second >= numberLimit - 1)
