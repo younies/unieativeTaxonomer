@@ -16,7 +16,7 @@
 #include "Tree.hpp"
 
 
-#define numberLimit 7
+#define numberLimit 14
 
 vector<vector<short>> getDifferencesVector(vector<pair<short, int> >  differences);
 
