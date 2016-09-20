@@ -20,6 +20,11 @@
 #include "testingTheDatabase.hpp"
 
 
+
+LONGS theAmountOfWork = 0;
+
+
+
 void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , vector<string> patterns , string path_to_the_yrj_databases , string path_to_million_random , string path_to_the_output_file)
 
 {
@@ -48,12 +53,14 @@ void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , v
         dataStreams[i]  = new ifstream(hashes[i]->getTheDataPath());
     }
     
+    /*
     //open the writing files
     vector<ofstream *> outputFilesResults(numberLimit);
     for (int i =  0  ;  i < numberLimit ; ++i)
     {
         outputFilesResults[i ] = new ofstream(path_to_the_output_file + "_" + to_string(i) + ".result");
     }
+    */
     
     vector< vector< LONGS> > globalCounter( numberOfHashes , vector<LONGS>( numberLimit , 0) );
     
@@ -61,8 +68,6 @@ void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , v
     for(LONGS i = 0 , n = randomMillionKmers->getNumOfKmers() ; i < n ; ++i)
     {
          vector<vector< vector<SHORT> > > localCounter(numberOfHashes, vector<vector<SHORT> > (numberLimit));
-        cout << "  hashes  " << hashes.size() << endl;
-        cout << i << "  " << n << endl;
         for (LONGS local_i = 0  , local_n = hashes.size();  local_i < local_n; ++local_i )
         {
             vector<pair<short, int> > tempResult = getNumberOfDifference(indexStreams[local_i], dataStreams[local_i], hashes[local_i], randomMillionKmers->kmersVector[i]);
@@ -99,6 +104,10 @@ void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , v
     }
  
     writtingFile->close();
+    
+    cout <<  "theamountof work"<< theAmountOfWork << endl;
+    
+    cout <<  "theamountof work average"<< theAmountOfWork / 1000000.0 << endl;
 }
 
 
@@ -168,7 +177,6 @@ void calulateTheDifferences( string path_to_the_tree , string path_to_the_hashed
 
 vector<pair<short, int> > getNumberOfDifference( ifstream * indexStream , ifstream * dataStream,  Hash * hash, LONG kmer)
 {
-    cout << "called " << endl;
 
     
     //ifstream indexStream(hash->getTheIndexPath());
@@ -191,6 +199,8 @@ vector<pair<short, int> > getNumberOfDifference( ifstream * indexStream , ifstre
     dataStream->seekg(dataIndex );
     
     vector<HashData> hashDataVector(tempHashIndex.size);
+    
+    theAmountOfWork += tempHashIndex.size;
     
     for(LONGS i = 0 ; i <tempHashIndex.size ; ++i)
     {
@@ -217,10 +227,6 @@ vector<pair<short, int> > getNumberOfDifference( ifstream * indexStream , ifstre
             }
         }
     }
-    
-    //testing
-    //for(auto tempair: ret)
-      //  cout << tempair.first << " " << tempair.second << endl;
     
     
     return ret;
