@@ -44,9 +44,9 @@ int main(int argc, const char * argv[])
     patterns.emplace_back(pattern4);
     patterns.emplace_back(pattern5);
     
+    buildingHashDatabase(pattern11);
     
-    
-    CalculateDifferencesDistributions(path_to_the_hashed_databases, patterns, path_to_the_yrj_databases, path_to_million_random, path_to_output);
+   // CalculateDifferencesDistributions(path_to_the_hashed_databases, patterns, path_to_the_yrj_databases, path_to_million_random, path_to_output);
     
     //buildingHashDatabase(pattern3);
     return 0;

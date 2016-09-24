@@ -30,6 +30,8 @@ string path_to_the_hashed_databases = "/export1/project/hondius/unieative/databa
 //conf main
 string pattern1 =  "##-#--###---#-#-#-#-#--#-##--##";
 
+string pattern11 = "#-#-##---#-#-#-#-#-#-##-#--##-#";
+
 string pattern2 = "##-##-#-#---#-#-##--#--#-#-#-##";
 
 string pattern3 = "#-#-----#-#--#--##-##-#-####-##";
