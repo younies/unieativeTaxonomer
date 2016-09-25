@@ -106,7 +106,6 @@ void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , v
     writtingFile->close();
     
     cout <<  "theamountof work"<< theAmountOfWork << endl;
-    
     cout <<  "theamountof work average"<< theAmountOfWork / 1000000.0 << endl;
 }
 
@@ -117,7 +116,7 @@ void calulateTheDifferences( string path_to_the_tree , string path_to_the_hashed
     //random kmers
     YRJObject * randomMillionKmers = new YRJObject(path_to_million_random , -1);
     randomMillionKmers->fillTheKmersVector();
-
+    
     
     //creating the hash
     Hash * hash = new Hash( pattern , path_to_the_hashed_databases );
