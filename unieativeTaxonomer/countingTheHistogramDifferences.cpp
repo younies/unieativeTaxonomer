@@ -289,6 +289,7 @@ void mergeTwoColumnsToColumnTwo(const vector< vector<SHORT> >&  vec1 , vector< v
 
 vector<SHORT> mergeTwoWithoutRepetition(const vector<SHORT> & vec1 , const vector<SHORT> & vec2)
 {
+    /* Old implementation
     vector<SHORT> ret;
     LONGS retSize = 0;
     
@@ -322,6 +323,23 @@ vector<SHORT> mergeTwoWithoutRepetition(const vector<SHORT> & vec1 , const vecto
     }
     
     return ret;
+     */
+    
+    vector<SHORT> ret;
+    
+    set<SHORT> binaryTree;
+    for(auto ele: vec1)
+        if(!binaryTree.count(ele))
+            binaryTree.insert(ele);
+    
+    for(auto ele: vec2)
+        if(!binaryTree.count(ele))
+            binaryTree.insert(ele);
+    
+    for(auto ele: binaryTree)
+        ret.emplace_back(ele);
+    return ret;
+    
 }
 
 

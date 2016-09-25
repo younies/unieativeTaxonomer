@@ -31,7 +31,7 @@ void testTheDatabaseMillionKmer();
 int main(int argc, const char * argv[])
 {
     
-    string path_to_output = "/export1/project/hondius/unieative/distribution_trial_14_base_extendedpattern11.out";
+    string path_to_output = "/export1/project/hondius/unieative/distribution_trial_14_base_extendedpattern11_modified.out";
     //databaseTesting();
     
     
