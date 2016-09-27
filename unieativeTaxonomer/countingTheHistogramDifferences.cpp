@@ -242,14 +242,17 @@ int numOfDifferencesBetweenKmers(pair<short, short> hashedKmer1 , pair<short, sh
     
     while (hashedKmer1.first != hashedKmer2.first)
     {
-        differences++;
+        if(hashedKmer1.first % 4 != hashedKmer2.first % 4)
+            ++differences;
+        
         hashedKmer1.first /= 4;
         hashedKmer2.first /= 4;
     }
     
     while (hashedKmer1.second != hashedKmer2.second)
     {
-        differences++;
+        if(hashedKmer1.second % 4 != hashedKmer2.second % 4)
+            ++differences;
         hashedKmer1.second /= 4;
         hashedKmer2.second /= 4;
     }
