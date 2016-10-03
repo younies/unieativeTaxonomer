@@ -10,7 +10,7 @@
 
 
 
-SHORT Unieative::getLCA(LONG kmer , int differences)
+SHORT Unieative::getLCA(LONG kmer , int & differences)
 {
     
     
@@ -33,3 +33,43 @@ SHORT Unieative::getLCA(LONG kmer , int differences)
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INT Unieative::getFinalUID(YRJObject * yrjObject , int differnces)
+{
+    unordered_set<SHORT , int> LCAs;
+    
+    for(auto kmer : yrjObject->kmersVector)
+    {
+        auto  lca  = this->getLCA(kmer, differnces);
+        if(LCAs.count(lca))
+            ++LCAs[lca];
+        else
+            LCAs[lca] = 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

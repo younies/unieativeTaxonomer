@@ -33,10 +33,10 @@ public:
     //Unieative( vector<shortRead> shortReads);
     //Unieative(vector<string>& shortReads );
     
-    SHORT getLCA(  LONG kmer , int differences);
+    SHORT getLCA(  LONG kmer , int & differences);
     
     
-    
+    INT getFinalUID(YRJObject * yrjObject, int differences);
     
 };
 
