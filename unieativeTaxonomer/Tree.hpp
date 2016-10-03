@@ -20,8 +20,11 @@ class Tree
     vector<LONGS> numberOfLeaves;
     void connectChildren();
     LONGS setNumberOfLeaves(TreeNode * node);
+    
+    
 
 public:
+    short root = 0; /// should always hold the short for the root
     Tree(string pathToTheTree);
     
     short getParentShortName(short shortName);
@@ -29,6 +32,7 @@ public:
     void buildTheNumberOfLeaves( );
     
     //to get the g_statistics domenrator
+    
     
     short getTowLCA(short first , short second);
     

@@ -41,26 +41,44 @@ SHORT Unieative::getLCA(LONG kmer , int & differences)
 
 
 
-
-
-
-
-
-
-
-
-INT Unieative::getFinalUID(YRJObject * yrjObject , int differnces)
+vector<INT> Unieative::getFinalUIDs(YRJObject * yrjObject , int differnces)
 {
-    unordered_set<SHORT , int> LCAs;
+    unordered_map<SHORT , int> LCAs;
     
+    //find the number of hits for each lca corresponding to each kmer
     for(auto kmer : yrjObject->kmersVector)
     {
         auto  lca  = this->getLCA(kmer, differnces);
-        if(LCAs.count(lca))
-            ++LCAs[lca];
-        else
-            LCAs[lca] = 1;
+        LCAs.count(lca) ? ++LCAs[lca] : LCAs[lca] = 1;
     }
+    
+    
+    auto comulatedLCAS = LCAs;
+    // find the total number of hits in the parents too
+    for(auto child : LCAs)
+    {
+        short parent = tree->getParentShortName( child.first);
+        while ( parent != tree->root){
+            if(LCAs.count(parent))
+               comulatedLCAS[child.first] += LCAs[parent];// add to the child more hits
+            parent = tree->getParentShortName(parent);
+        }
+    }
+    
+    vector<INT> ret;
+    if(LCAs.empty())
+        return ret;
+    
+    int maxi = -1;
+    for(auto cLCA: comulatedLCAS )
+        if(cLCA.second > maxi)
+            maxi = cLCA.second;
+    
+    for(auto cLCA : comulatedLCAS)
+        if(cLCA.second == maxi)
+            ret.emplace_back(cLCA.first);
+    
+    return ret;
 }
 
 

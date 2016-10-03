@@ -49,6 +49,7 @@
 #include <memory.h>
 #include <fstream>
 #include <unordered_set>
+#include <unordered_map>
 
 //headaers for the program itself
 

@@ -36,7 +36,7 @@ public:
     SHORT getLCA(  LONG kmer , int & differences);
     
     
-    INT getFinalUID(YRJObject * yrjObject, int differences);
+    vector<INT> getFinalUIDs(YRJObject * yrjObject, int differences);
     
 };
 
