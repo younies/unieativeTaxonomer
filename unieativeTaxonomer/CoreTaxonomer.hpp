@@ -30,7 +30,7 @@ class CoreTaxonomer
     int sizeOfHash = 64;
     int sizeOfHahsedRawPart = 32;
     LONG reverseHashBits;
-    //void copyYRJUnieativeInside(YRJUnieative &yrjUnieative);
+    void copyYRJUnieativeInside(YRJUnieative &yrjUnieative);
     */
     Tree * globalTree;
     

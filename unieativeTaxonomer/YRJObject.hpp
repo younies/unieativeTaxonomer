@@ -25,6 +25,7 @@ public:
     
     
     YRJObject(string path , short index);
+    YRJObject(string shortRead);
     ~YRJObject();
     
     vector<LONG>  kmersVector;

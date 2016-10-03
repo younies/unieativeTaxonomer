@@ -23,6 +23,9 @@ class Hash
     string path_to_index_file;
     string path_to_data_file;
     
+    ifstream * indexStream;
+    ifstream * dataStream;
+    
     bitset<64> bitHash;
     
 public:
