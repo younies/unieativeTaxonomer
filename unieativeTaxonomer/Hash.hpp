@@ -43,6 +43,12 @@ public:
     string getTheDataPath(){return this->path_to_data_file;}
     
     
+    void openConnector();
+    void closeConnectors();
+    
+    ifstream * getIndexStream();
+    ifstream * getDataStream();
+    
     
     
 };

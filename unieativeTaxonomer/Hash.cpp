@@ -35,6 +35,9 @@ Hash::Hash( string hash , string path_to_database  )
     this->path_to_data_file  = path_to_database + name + this->DATA_EXTENSTION;
     
     
+    //open the connectors
+    openConnector();
+    
     
 }
 
@@ -142,4 +145,38 @@ INT Hash::getINTfromPair(pair<SHORT, SHORT> partKmer)
     
     return ret;
     
+}
+
+
+
+
+
+void  Hash::openConnector()
+{
+    this->indexStream = new ifstream(this->getTheIndexPath());
+    this->dataStream = new ifstream(this->getTheDataPath());
+}
+
+
+
+
+
+void Hash::closeConnectors()
+{
+    this->indexStream->close();
+    this->dataStream->close();
+}
+
+
+
+
+
+
+ifstream * Hash::getIndexStream()
+{
+    return this->indexStream;
+}
+ifstream * Hash::getDataStream()
+{
+    return this->dataStream;
 }

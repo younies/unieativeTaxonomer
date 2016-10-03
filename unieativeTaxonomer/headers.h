@@ -48,6 +48,7 @@
 #include <ctime>
 #include <memory.h>
 #include <fstream>
+#include <unordered_set>
 
 //headaers for the program itself
 
