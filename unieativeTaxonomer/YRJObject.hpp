@@ -31,7 +31,7 @@ public:
     
     YRJObject(string path , short index);
     
-    YRJObject(string shortRead , INT UID , bool convert); // for creating YRJ object from short read
+    YRJObject(string fastaHeader ,string shortRead , INT UID ); // for creating YRJ object from short read
     ~YRJObject();
     
     vector<LONG>  kmersVector;
@@ -47,6 +47,10 @@ public:
     void closeFileStream();
     
     string getMeThePath();
+    
+    LONG getLeastCanonicalKmer(LONG kmer);
+    
+    int getCorrespondingCode(char c);
     
 };
 
