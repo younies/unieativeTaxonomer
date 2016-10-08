@@ -16,7 +16,7 @@
             startingLineNumber = "18"
             endingLineNumber = "18"
             landmarkName = "TreeNode::TreeNode(LONGS uid , LONGS parentUid , short shortName , short parentShortName , bool tagged)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

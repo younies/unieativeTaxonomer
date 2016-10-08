@@ -9,22 +9,11 @@
 #include "YRJObject.hpp"
 
 
-YRJObject::YRJObject(string fastaHeader , string shortRead , INT UID )
+YRJObject::YRJObject(string & fastaHeader , string &shortRead , INT UID , Tree * tree)
 {
-    if(shortRead.size() < this->kmerStandardLength)
-    {
-        this->numOfKmers = 0 ;
-        //short uid in the beginning
-        return;
-    }
+    this->kmerLength = this->kmerStandardLength;
     
-    unordered_set<LONG>  hashKmers;
-    
-    
-    //get the fisrt 30 characters in the short read
-    
-    
-    
+    this->fillKmersFromShortRead(shortRead);
     
     
     
@@ -88,7 +77,44 @@ LONG YRJObject::getLeastCanonicalKmer(const LONG kmer)
 
 
 
+void YRJObject::fillKmersFromShortRead(string & shortRead)
+{
+    if(shortRead.size() < this->kmerStandardLength)
+    {
+        this->numOfKmers = 0 ;
+        //short uid in the beginning
+        return;
+    }
+    
+    unordered_set<LONG>  hashKmers;
+    
+    LONG tempKmer = 0 ;
+    //get the fisrt 30 characters in the short read
+    for(int i = 0 ; i < this->kmerStandardLength - 1 ; ++i){
+        tempKmer <<= 2;
+        int letter = this->getCorrespondingCode(shortRead[i]);
+        tempKmer |= letter;
+    }
+    
+    
+    //go through all of the kmers
+    for(int i = 30 , n = (int)shortRead.size() ; i < n ; ++i){
+        tempKmer <<= 2;
+        tempKmer &= this->maxOnes31;
+        int letter = this->getCorrespondingCode(shortRead[i]);
+        tempKmer |= letter;
+        
+        hashKmers.insert(this->getLeastCanonicalKmer(tempKmer));
+    }
+    
+    //fill and sort the kmers' vector
+    for(auto kmer : hashKmers)
+        this->kmersVector.emplace_back(kmer);
+    sort(this->kmersVector.begin(), this->kmersVector.end());
+    this->numOfKmers = this->kmersVector.size();
+    
 
+}
 
 
 
