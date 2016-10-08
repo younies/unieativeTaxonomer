@@ -76,7 +76,7 @@ vector<INT> Unieative::getFinalUIDs(YRJObject * yrjObject , int differnces)
     
     for(auto cLCA : comulatedLCAS)
         if(cLCA.second == maxi)
-            ret.emplace_back(cLCA.first);
+            ret.emplace_back(tree->getTheUIDFromShort(cLCA.first));
     
     return ret;
 }
