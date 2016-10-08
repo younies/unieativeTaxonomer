@@ -20,12 +20,18 @@ class YRJObject
     short index;
     
     ifstream * fileStream;
+    
+    const int kmerStandardLength = 31;
+    const LONG maxLONG = ULONG_MAX;
+    const LONG maxOnes31 = (maxLONG << 2) >> 2;
+    
 public:
     
     
     
     YRJObject(string path , short index);
-    YRJObject(string shortRead);
+    
+    YRJObject(string shortRead , INT UID , bool convert); // for creating YRJ object from short read
     ~YRJObject();
     
     vector<LONG>  kmersVector;

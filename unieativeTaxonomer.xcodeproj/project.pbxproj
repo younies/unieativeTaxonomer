@@ -13,6 +13,7 @@
 		F35100861D591C8100C294D7 /* YRJObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35100841D591C8100C294D7 /* YRJObject.cpp */; };
 		F362A0C31D664B1600FA79C9 /* coreTaxonomyB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F362A0C21D664B1600FA79C9 /* coreTaxonomyB.cpp */; };
 		F37D43921DA2B9F4005D711F /* Kraken.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37D43901DA2B9F4005D711F /* Kraken.cpp */; };
+		F37D43941DA9890E005D711F /* YRJshortread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37D43931DA9890E005D711F /* YRJshortread.cpp */; };
 		F38DA57F1D9063D1006FF1DA /* Count_differences_support.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DA57E1D9063D1006FF1DA /* Count_differences_support.cpp */; };
 		F3AF037D1D6AB2CC00F37C04 /* comments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AF037C1D6AB2CC00F37C04 /* comments.cpp */; };
 		F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3B433931D592375002D83B5 /* HashedNode.cpp */; };
@@ -50,6 +51,7 @@
 		F362A0C21D664B1600FA79C9 /* coreTaxonomyB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coreTaxonomyB.cpp; sourceTree = "<group>"; };
 		F37D43901DA2B9F4005D711F /* Kraken.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Kraken.cpp; sourceTree = "<group>"; };
 		F37D43911DA2B9F4005D711F /* Kraken.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Kraken.hpp; sourceTree = "<group>"; };
+		F37D43931DA9890E005D711F /* YRJshortread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YRJshortread.cpp; sourceTree = "<group>"; };
 		F38DA57E1D9063D1006FF1DA /* Count_differences_support.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Count_differences_support.cpp; sourceTree = "<group>"; };
 		F3AF037C1D6AB2CC00F37C04 /* comments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = comments.cpp; sourceTree = "<group>"; };
 		F3B433931D592375002D83B5 /* HashedNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashedNode.cpp; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				F35100841D591C8100C294D7 /* YRJObject.cpp */,
 				F35100851D591C8100C294D7 /* YRJObject.hpp */,
+				F37D43931DA9890E005D711F /* YRJshortread.cpp */,
 			);
 			name = YRJReader;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			files = (
 				F38DA57F1D9063D1006FF1DA /* Count_differences_support.cpp in Sources */,
 				F3B4339D1D5A48BB002D83B5 /* CoreTaxonomer.cpp in Sources */,
+				F37D43941DA9890E005D711F /* YRJshortread.cpp in Sources */,
 				F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */,
 				F321AC431D864B8F00BEA228 /* countingTheHistogramDifferences.cpp in Sources */,
 				F3BE9D551D5D1AE6001EF519 /* Tree.cpp in Sources */,
