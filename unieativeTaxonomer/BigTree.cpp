@@ -570,6 +570,8 @@ BigTree::BigTree(string path_names , string path_nodes , string path_Gi)
 {
     BigTree( path_names ,  path_nodes );
     
+    
+    cout << "Tree Done!" << endl;
     ifstream Gi_FileStream(path_Gi);
     
     string giString;
@@ -578,11 +580,12 @@ BigTree::BigTree(string path_names , string path_nodes , string path_Gi)
     {
         getline(Gi_FileStream, uidString);
         
-        cout <<giString << "   ****   " << uidString << endl;
+        cout <<giString << "   $$$   " << uidString << endl;
         LONGS gi = stol(giString);
         LONGS uid = stol(uidString);
         
         this->GiMap[gi] = uid;
+        cout << "Tree Done!2" << endl;
     }
     
 }
