@@ -585,7 +585,7 @@ BigTree::BigTree(string path_names , string path_nodes , string path_Gi)
         LONGS uid = stol(uidString);
         
         this->GiMap[gi] = uid;
-        cout << "Tree Done!2" << endl;
+        cout << "Tree Done!2" << endl;   
     }
     
 }
