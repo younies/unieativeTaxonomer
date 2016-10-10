@@ -15,11 +15,15 @@ void testOutYRJfile( ofstream * writeFile , vector<Hash*> &hashes, Tree * tree, 
     
     
     for (int  currDiff = 0 ; currDiff <= numOfDifferences ; ++currDiff) {
+        int testCorrecteness = 0;
         LONGS assignedUid = unieative->getFinalUIDs(yrjObject, currDiff);
         
-        if(bigTree->isBothInGenusLevel(assignedUid, <#LONGS uid_second#>))
+        if(bigTree->isBothInGenusLevel(assignedUid, yrjObject->uid))
+            testCorrecteness = 1;
+        
+        *writeFile << testCorrecteness << "\t";
     }
     
-    
+    *writeFile << endl;
     
 }
