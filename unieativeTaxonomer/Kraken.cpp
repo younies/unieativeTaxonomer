@@ -97,7 +97,7 @@ Unieative::Unieative(Tree * tree , vector<string> hashesPatterns , string path_t
     for(auto pattern : hashesPatterns)
     {
         Hash * hash = new Hash(pattern , path_to_the_database);
-        
+        this->Hashes.emplace_back(hash);
     }
     
 }
