@@ -10,25 +10,6 @@
 
 
 
-void testOutYRJfile( ofstream * writeFile , vector<Hash*> &hashes, Tree * tree, BigTree * bigTree, YRJObject * yrjObject  ,  Unieative * unieative ,int numOfDifferences , vector<LONGS> &globalResult )
-{
-    
-    
-    for (int  currDiff = 0 ; currDiff <= numOfDifferences ; ++currDiff) {
-        int testCorrecteness = 0;
-        LONGS assignedUid = unieative->getFinalUIDs(yrjObject, currDiff);
-        
-        if(bigTree->isBothInGenusLevel(assignedUid, yrjObject->uid))
-            testCorrecteness = 1;
-        
-        *writeFile << testCorrecteness << "\t";
-        globalResult[currDiff] += testCorrecteness;
-    }
-    
-    *writeFile << endl;
-    
-}
-
 
 
 
@@ -67,6 +48,10 @@ void testEntiresimBA5(string path_to_simBA5  , string path_to_simBA5_headers, st
     
     
     
+    for(auto yrj : yrjObjects){
+        testOutYRJfile(resultFile, <#vector<Hash *> &hashes#>, <#Tree *tree#>, <#BigTree *bigTree#>, <#YRJObject *yrjObject#>, <#Unieative *unieative#>, <#int numOfDifferences#>)
+    }
+    
     
 }
 
@@ -76,6 +61,25 @@ void testEntiresimBA5(string path_to_simBA5  , string path_to_simBA5_headers, st
 
 
 
+
+void testOutYRJfile( ofstream * writeFile , vector<Hash*> &hashes, Tree * tree, BigTree * bigTree, YRJObject * yrjObject  ,  Unieative * unieative ,int numOfDifferences , vector<LONGS> &globalResult )
+{
+    
+    
+    for (int  currDiff = 0 ; currDiff <= numOfDifferences ; ++currDiff) {
+        int testCorrecteness = 0;
+        LONGS assignedUid = unieative->getFinalUIDs(yrjObject, currDiff);
+        
+        if(bigTree->isBothInGenusLevel(assignedUid, yrjObject->uid))
+            testCorrecteness = 1;
+        
+        *writeFile << testCorrecteness << "\t";
+        globalResult[currDiff] += testCorrecteness;
+    }
+    
+    *writeFile << endl;
+    
+}
 
 
 

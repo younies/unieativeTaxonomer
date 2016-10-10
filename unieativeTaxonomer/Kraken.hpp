@@ -27,11 +27,12 @@ struct shortRead{
 class Unieative {
     Tree * tree; // the tree that are going to perform the analysis
     vector<Hash *> Hashes;
-    vector<pair<YRJObject * , INT> > shortReads; // each short read with the corresponding UID
     
 public:
     //Unieative( vector<shortRead> shortReads);
     //Unieative(vector<string>& shortReads );
+    
+    Unieative(Tree * tree , vector<string> hashesPatterns , string path_to_the_database);
     
     SHORT getLCA(  LONG kmer , int & differences);
     

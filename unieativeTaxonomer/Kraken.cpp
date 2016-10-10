@@ -90,7 +90,17 @@ LONGS Unieative::getFinalUIDs(YRJObject * yrjObject , int differnces)
 
 
 
-
+Unieative::Unieative(Tree * tree , vector<string> hashesPatterns , string path_to_the_database )
+{
+    this->tree = tree;
+    
+    for(auto pattern : hashesPatterns)
+    {
+        Hash * hash = new Hash(pattern , path_to_the_database);
+        
+    }
+    
+}
 
 
 
