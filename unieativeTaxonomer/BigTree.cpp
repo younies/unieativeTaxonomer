@@ -553,6 +553,8 @@ LONGS BigTree::getUIDFromFastaHeaderGI(string fastaHeader)
     stringstream fastaHeaderStream(fastaHeader);
     getline(fastaHeaderStream, uid , ' ');
     getline(fastaHeaderStream, uid );
+    
+    
     cout << uid <<   "  ### " << endl;
     return this->GiMap[stol(uid)];
 }
