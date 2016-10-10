@@ -50,8 +50,15 @@ int main(int argc, const char * argv[])
     
    //CalculateDifferencesDistributions(path_to_the_hashed_databases, patterns, path_to_the_yrj_databases, path_to_million_random, path_to_output);
     
+    string s = "/Users/youniesmahmoud/Desktop/";
+    string name_path =  s + "names.txt";
+    string node_path = s + "nodes.txt";
+    string gi_path = s + "gi_taxid_nucl.dmp";
     
-    testEntiresimBA5(path_to_simBA5, path_to_simBA5_headers, path_to_the_names_dmp_file, path_to_the_nodes_dmp_file, path_Gi_File, path_to_output, path_to_the_hashed_databases, patterns, path_to_pruined_tree, 4);
+    //BigTree * bigtree = new  BigTree(name_path  ,node_path, gi_path );
+
+    
+   testEntiresimBA5(path_to_simBA5, path_to_simBA5_headers, path_to_the_names_dmp_file, path_to_the_nodes_dmp_file, path_Gi_File, path_to_output, path_to_the_hashed_databases, patterns, path_to_pruined_tree, 4);
     
     
     

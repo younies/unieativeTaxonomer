@@ -578,22 +578,22 @@ BigTree::BigTree(string path_names , string path_nodes , string path_Gi)
         cout << "folla\n";
     else
         cout << "nooo\n";
-    string giString;
-    string uidString;
+    string giString = "";
+    string uidString = "";
     
     LONGS count = 0;
-    while (getline(Gi_FileStream, giString, ' '))
+    while (getline(Gi_FileStream, giString, '\t'))
     {
-        cout << count << endl;
+       // cout << count << endl;
         getline(Gi_FileStream, uidString);
         
-        cout <<giString << "   $$$   " << uidString << endl;
+      //  cout <<giString << "   $$$   " << uidString << endl;
         
         LONGS gi = stol(giString);
         LONGS uid = stol(uidString);
         
         this->GiMap[gi] = uid;
-        cout << "Tree Done!2" << endl;
+      //  cout << "Tree Done!2" << endl;
         count++;
     }
     
