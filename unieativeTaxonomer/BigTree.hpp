@@ -33,7 +33,7 @@ class BigTree {
     vector<vector<string > > names;//it associate all the names for a node in the tree
     vector<string  > levels; // this specify the level for each node (if it is species, genus .... and so on)
     vector< Node > trie;// holds all the trie nodes starting with the root
-    vector< LONGS > GiMap;
+    map< LONGS , LONGS > GiMap;
     
     vector<Node> sorted_leafs_df; // this vector holds the indices  of sorted leafs in the depth first order
     LONGS strTolong(string s); // this function convert the string to integer type (long long)
@@ -88,7 +88,8 @@ public:
     
     string get_level(Node node);
     
-    LONGS getUIDFromFastaHeaderGI(string fastaHeader);
+    LONGS getUIDFromFastaHeaderGI(string fastaHeader);// return the UID for header such as "simBA.000000308 160901491"
+    
 };
 
 

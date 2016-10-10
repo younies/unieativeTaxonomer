@@ -12,7 +12,17 @@
 
 LONGS BigTree::getUIDFromFastaHeaderGI(string fastaHeader)
 {
+    stringstream fastaStream(fastaHeader);
     
+    LONGS ret;
+    
+    getline(fastaStream, fastaHeader, ' ');
+    
+    getline(fastaStream, fastaHeader);
+    
+    ret = stol(fastaHeader);
+    
+    return ret;
 }
 
 
@@ -25,9 +35,16 @@ BigTree::BigTree(string path_names , string path_nodes , string path_Gi)
     
     ifstream Gi_FileStream(path_Gi);
     
-    
-    while (<#condition#>) {
-        <#statements#>
+    string giString;
+    string uidString;
+    while (getline(Gi_FileStream, giString, ' '))
+    {
+        getline(Gi_FileStream, uidString);
+        
+        LONGS gi = stol(giString);
+        LONGS uid = stol(uidString);
+        
+        this->GiMap[gi] = uid;
     }
 
 }

@@ -41,7 +41,7 @@ SHORT Unieative::getLCA(LONG kmer , int & differences)
 
 
 
-vector<INT> Unieative::getFinalUIDs(YRJObject * yrjObject , int differnces)
+LONGS Unieative::getFinalUIDs(YRJObject * yrjObject , int differnces)
 {
     unordered_map<SHORT , int> LCAs;
     
@@ -65,20 +65,24 @@ vector<INT> Unieative::getFinalUIDs(YRJObject * yrjObject , int differnces)
         }
     }
     
-    vector<INT> ret;
+ 
     if(LCAs.empty())
-        return ret;
+        return -1;
     
     int maxi = -1;
     for(auto cLCA: comulatedLCAS )
         if(cLCA.second > maxi)
             maxi = cLCA.second;
     
+    
+    vector<short> shortMaxLCAs; //the maximum Final LCAs
     for(auto cLCA : comulatedLCAS)
         if(cLCA.second == maxi)
-            ret.emplace_back(tree->getTheUIDFromShort(cLCA.first));
+            shortMaxLCAs.emplace_back(cLCA.first);
     
-    return ret;
+    short finalLCA = this->tree->getGlobalLCA(shortMaxLCAs);
+    
+    return  tree->getTheUIDFromShort( finalLCA);
 }
 
 

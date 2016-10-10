@@ -36,7 +36,7 @@ public:
     SHORT getLCA(  LONG kmer , int & differences);
     
     
-    vector<INT> getFinalUIDs(YRJObject * yrjObject, int differences);
+    LONGS getFinalUIDs(YRJObject * yrjObject, int differences); // this function return the final UID associated with KRAKEN using any number of differents
     
 };
 
