@@ -15,6 +15,12 @@
 #include "Tree.hpp"
 #include "Hash.hpp"
 #include "HashedNode.hpp"
+#include "Kraken.hpp"
+
+
+
+
+void testOutYRJfile( ofstream * writeFile , vector<Hash*> &hashes, Tree * tree, BigTree * bigTree, YRJObject * yrjObject  ,  Unieative * unieative ,int numOfDifferences );
 
 
 #endif /* TestingKrakenInDifferenceLevels_hpp */

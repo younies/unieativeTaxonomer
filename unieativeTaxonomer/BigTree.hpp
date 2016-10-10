@@ -90,6 +90,10 @@ public:
     
     LONGS getUIDFromFastaHeaderGI(string fastaHeader);// return the UID for header such as "simBA.000000308 160901491"
     
+    bool isBothInGenusLevel(LONGS uid_first , LONGS uid_second);
+    
+    LONGS getGenusUID(LONGS uid);
+    
 };
 
 

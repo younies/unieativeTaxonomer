@@ -15,6 +15,7 @@
 		F37D43941DA9890E005D711F /* YRJshortread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37D43931DA9890E005D711F /* YRJshortread.cpp */; };
 		F37D43971DA9D5DA005D711F /* BigTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37D43951DA9D5DA005D711F /* BigTree.cpp */; };
 		F37D439D1DAB4A24005D711F /* TestingKrakenInDifferenceLevels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37D439B1DAB4A23005D711F /* TestingKrakenInDifferenceLevels.cpp */; };
+		F37D439F1DABE73E005D711F /* BigTreeExtend.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37D439E1DABE73E005D711F /* BigTreeExtend.cpp */; };
 		F38DA57F1D9063D1006FF1DA /* Count_differences_support.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DA57E1D9063D1006FF1DA /* Count_differences_support.cpp */; };
 		F3AF037D1D6AB2CC00F37C04 /* comments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AF037C1D6AB2CC00F37C04 /* comments.cpp */; };
 		F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3B433931D592375002D83B5 /* HashedNode.cpp */; };
@@ -55,6 +56,7 @@
 		F37D43961DA9D5DA005D711F /* BigTree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BigTree.hpp; sourceTree = "<group>"; };
 		F37D439B1DAB4A23005D711F /* TestingKrakenInDifferenceLevels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestingKrakenInDifferenceLevels.cpp; sourceTree = "<group>"; };
 		F37D439C1DAB4A23005D711F /* TestingKrakenInDifferenceLevels.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestingKrakenInDifferenceLevels.hpp; sourceTree = "<group>"; };
+		F37D439E1DABE73E005D711F /* BigTreeExtend.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BigTreeExtend.cpp; sourceTree = "<group>"; };
 		F38DA57E1D9063D1006FF1DA /* Count_differences_support.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Count_differences_support.cpp; sourceTree = "<group>"; };
 		F3AF037C1D6AB2CC00F37C04 /* comments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = comments.cpp; sourceTree = "<group>"; };
 		F3B433931D592375002D83B5 /* HashedNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashedNode.cpp; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				F37D43901DA2B9F4005D711F /* Kraken.cpp */,
 				F37D43911DA2B9F4005D711F /* Kraken.hpp */,
 				F37D43951DA9D5DA005D711F /* BigTree.cpp */,
+				F37D439E1DABE73E005D711F /* BigTreeExtend.cpp */,
 				F37D43961DA9D5DA005D711F /* BigTree.hpp */,
 				F37D439B1DAB4A23005D711F /* TestingKrakenInDifferenceLevels.cpp */,
 				F37D439C1DAB4A23005D711F /* TestingKrakenInDifferenceLevels.hpp */,
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37D439F1DABE73E005D711F /* BigTreeExtend.cpp in Sources */,
 				F38DA57F1D9063D1006FF1DA /* Count_differences_support.cpp in Sources */,
 				F3B4339D1D5A48BB002D83B5 /* CoreTaxonomer.cpp in Sources */,
 				F37D43941DA9890E005D711F /* YRJshortread.cpp in Sources */,

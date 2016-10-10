@@ -54,6 +54,10 @@ public:
     
     int getCorrespondingCode(char c);
     
+    LONGS uid;
+    short shorName;
+
+    
 };
 
 #endif /* YRJObject_hpp */
