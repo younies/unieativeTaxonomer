@@ -9,7 +9,7 @@
 #include "YRJObject.hpp"
 
 
-YRJObject::YRJObject(string & fastaHeader , string &shortRead , INT UID , Tree * tree)
+YRJObject::YRJObject(string & fastaHeader , string &shortRead , INT UID )
 {
     this->kmerLength = this->kmerStandardLength;
     
