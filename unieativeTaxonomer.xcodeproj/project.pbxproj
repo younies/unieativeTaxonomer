@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F321AC431D864B8F00BEA228 /* countingTheHistogramDifferences.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F321AC411D864B8F00BEA228 /* countingTheHistogramDifferences.cpp */; };
-		F339BF7E1D74A2BF00666889 /* readerAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F339BF7C1D74A2BF00666889 /* readerAnalysis.cpp */; };
 		F351007B1D58EF5700C294D7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F351007A1D58EF5700C294D7 /* main.cpp */; };
 		F35100861D591C8100C294D7 /* YRJObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35100841D591C8100C294D7 /* YRJObject.cpp */; };
 		F362A0C31D664B1600FA79C9 /* coreTaxonomyB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F362A0C21D664B1600FA79C9 /* coreTaxonomyB.cpp */; };
@@ -42,8 +41,6 @@
 /* Begin PBXFileReference section */
 		F321AC411D864B8F00BEA228 /* countingTheHistogramDifferences.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = countingTheHistogramDifferences.cpp; sourceTree = "<group>"; };
 		F321AC421D864B8F00BEA228 /* countingTheHistogramDifferences.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = countingTheHistogramDifferences.hpp; sourceTree = "<group>"; };
-		F339BF7C1D74A2BF00666889 /* readerAnalysis.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = readerAnalysis.cpp; sourceTree = "<group>"; };
-		F339BF7D1D74A2BF00666889 /* readerAnalysis.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = readerAnalysis.hpp; sourceTree = "<group>"; };
 		F35100771D58EF5700C294D7 /* unieativeTaxonomer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = unieativeTaxonomer; sourceTree = BUILT_PRODUCTS_DIR; };
 		F351007A1D58EF5700C294D7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F35100811D58F21800C294D7 /* headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = headers.h; sourceTree = "<group>"; };
@@ -126,8 +123,6 @@
 				F3BF40D31D6E35AF00845B1C /* Hash.hpp */,
 				F3BF40D51D70931400845B1C /* testingTheDatabase.cpp */,
 				F3BF40D61D70931400845B1C /* testingTheDatabase.hpp */,
-				F339BF7C1D74A2BF00666889 /* readerAnalysis.cpp */,
-				F339BF7D1D74A2BF00666889 /* readerAnalysis.hpp */,
 				F321AC411D864B8F00BEA228 /* countingTheHistogramDifferences.cpp */,
 				F321AC421D864B8F00BEA228 /* countingTheHistogramDifferences.hpp */,
 				F38DA57E1D9063D1006FF1DA /* Count_differences_support.cpp */,
@@ -222,7 +217,6 @@
 				F3BE9D5E1D620FC3001EF519 /* helpers.cpp in Sources */,
 				F37D439D1DAB4A24005D711F /* TestingKrakenInDifferenceLevels.cpp in Sources */,
 				F37D43971DA9D5DA005D711F /* BigTree.cpp in Sources */,
-				F339BF7E1D74A2BF00666889 /* readerAnalysis.cpp in Sources */,
 				F37D43921DA2B9F4005D711F /* Kraken.cpp in Sources */,
 				F3BF40D41D6E35AF00845B1C /* Hash.cpp in Sources */,
 			);

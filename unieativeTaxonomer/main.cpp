@@ -12,6 +12,7 @@
 #include "CoreTaxonomer.hpp"
 #include "Tree.hpp"
 #include "Configurations.h"
+#include "TestingKrakenInDifferenceLevels.hpp"
 
 
 

@@ -12,7 +12,9 @@
 #include "BigTree.hpp"
 #include "headers.h"
 #include "YRJObject.hpp"
-#include "<#header#>"
+#include "Tree.hpp"
+#include "Hash.hpp"
+#include "HashedNode.hpp"
 
 
 #endif /* TestingKrakenInDifferenceLevels_hpp */
