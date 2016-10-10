@@ -31,7 +31,7 @@ public:
     
     YRJObject(string path , short index);
     
-    YRJObject(string &fastaHeader ,string & shortRead , INT UID ); // for creating YRJ object from short read
+    YRJObject(string & shortRead ); // for creating YRJ object from short read
     ~YRJObject();
     
     vector<LONG>  kmersVector;
@@ -56,6 +56,8 @@ public:
     
     LONGS uid;
     short shorName;
+
+   
 
     
 };

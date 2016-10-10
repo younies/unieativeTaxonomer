@@ -19,6 +19,8 @@
 
 
 
+void testEntiresimBA5(string path_to_simBA5  , string path_to_simBA5_headers, string path_to_the_names_dmp_file , string path_to_the_nodes_dmp_file , string path_Gi, string path_to_the_output_file );
+
 
 void testOutYRJfile( ofstream * writeFile , vector<Hash*> &hashes, Tree * tree, BigTree * bigTree, YRJObject * yrjObject  ,  Unieative * unieative ,int numOfDifferences );
 

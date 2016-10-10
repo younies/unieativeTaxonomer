@@ -9,11 +9,13 @@
 #include "YRJObject.hpp"
 
 
-YRJObject::YRJObject(string & fastaHeader , string &shortRead , INT UID )
+YRJObject::YRJObject(string &shortRead  )
 {
     this->kmerLength = this->kmerStandardLength;
     
     this->fillKmersFromShortRead(shortRead);
+    
+    
     
     
     
@@ -115,6 +117,11 @@ void YRJObject::fillKmersFromShortRead(string & shortRead)
     
 
 }
+
+
+
+
+
 
 
 
