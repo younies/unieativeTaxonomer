@@ -32,7 +32,7 @@ void testTheDatabaseMillionKmer();
 int main(int argc, const char * argv[])
 {
     
-    string path_to_output = "/export1/project/hondius/unieative/distribution_trial_14_base_extendedpattern11_modified_fixed.out";
+    string path_to_output = "/export1/project/hondius/testingUnieative/results/firstTrial.txt";
     //databaseTesting();
     
     
@@ -48,9 +48,13 @@ int main(int argc, const char * argv[])
     
     //buildingHashDatabase(pattern11);
     
-   CalculateDifferencesDistributions(path_to_the_hashed_databases, patterns, path_to_the_yrj_databases, path_to_million_random, path_to_output);
+   //CalculateDifferencesDistributions(path_to_the_hashed_databases, patterns, path_to_the_yrj_databases, path_to_million_random, path_to_output);
     
-    //buildingHashDatabase(pattern3);
+    
+    testEntiresimBA5(path_to_simBA5, path_to_simBA5_headers, path_to_the_names_dmp_file, path_to_the_nodes_dmp_file, path_Gi_File, path_to_output, path_to_the_hashed_databases, patterns, path_to_pruined_tree, 4);
+    
+    
+    
     return 0;
 }
 

@@ -50,4 +50,12 @@ string writeIN ="/export1/project/hondius/newKrakenResearch/generate_unique_rand
 
 
 
+//pathes for final testing
+string path_to_simBA5 = "/export1/project/hondius/testingUnieative/accuracy/simBA5_accuracy.fa";
+string path_to_simBA5_headers = "/export1/project/hondius/testingUnieative/accuracy/mappingGI.txt";
+string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
+string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
+string path_Gi_File  = "/export1/project/hondius/testingUnieative/accuracy/gi_uid/gi_taxid_nucl.dmp";
+string path_to_pruined_tree = "/export1/project/hondius/newKrakenResearch/finalNewTree.txt";
+
 #endif /* Configurations_h */
