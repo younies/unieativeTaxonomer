@@ -547,7 +547,10 @@ LONGS BigTree::get_vlue_for_parent(vector<Uid_Value> & all_index_values , LONGS 
 
 
 
-
+LONGS BigTree::getUIDFromFastaHeaderGI(string fastaHeader)
+{
+    
+}
 
 
 

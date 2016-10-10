@@ -33,7 +33,7 @@ class BigTree {
     vector<vector<string > > names;//it associate all the names for a node in the tree
     vector<string  > levels; // this specify the level for each node (if it is species, genus .... and so on)
     vector< Node > trie;// holds all the trie nodes starting with the root
-    
+    vector< LONGS > GiMap;
     
     vector<Node> sorted_leafs_df; // this vector holds the indices  of sorted leafs in the depth first order
     LONGS strTolong(string s); // this function convert the string to integer type (long long)
@@ -43,8 +43,12 @@ class BigTree {
     void constructing_trie(); // this method construct the trie
     void construct_sorted_leafs(LONG index  = 0 ); //this method construct the sorted leafs vector
     
+    
 public:
     BigTree(string path_names , string path_nodes);// the default constructor
+    BigTree(string path_names , string path_nodes , string path_Gi);
+    
+    
     
     string getLevel(LONGS position); // method for getting the type of an index node
     
@@ -83,6 +87,8 @@ public:
     LONGS get_vlue_for_parent(vector<Uid_Value> & all_index_values , LONGS index);
     
     string get_level(Node node);
+    
+    LONGS getUIDFromFastaHeaderGI(string fastaHeader);
 };
 
 
