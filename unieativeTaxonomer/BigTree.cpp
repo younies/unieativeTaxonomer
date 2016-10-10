@@ -553,7 +553,7 @@ LONGS BigTree::getUIDFromFastaHeaderGI(string fastaHeader)
     stringstream fastaHeaderStream(fastaHeader);
     getline(fastaHeaderStream, uid , ' ');
     getline(fastaHeaderStream, uid );
-    
+    cout << uid <<   "  ### " << endl;
     return this->GiMap[stol(uid)];
 }
 
@@ -576,6 +576,7 @@ BigTree::BigTree(string path_names , string path_nodes , string path_Gi)
     {
         getline(Gi_FileStream, uidString);
         
+        cout <<giString << "   ****   " << uidString << endl;
         LONGS gi = stol(giString);
         LONGS uid = stol(uidString);
         
