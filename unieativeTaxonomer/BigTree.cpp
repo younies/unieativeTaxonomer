@@ -584,9 +584,11 @@ BigTree::BigTree(string path_names , string path_nodes , string path_Gi)
     LONGS count = 0;
     while (getline(Gi_FileStream, giString, ' '))
     {
+        cout << count << endl;
         getline(Gi_FileStream, uidString);
         
         cout <<giString << "   $$$   " << uidString << endl;
+        
         LONGS gi = stol(giString);
         LONGS uid = stol(uidString);
         
