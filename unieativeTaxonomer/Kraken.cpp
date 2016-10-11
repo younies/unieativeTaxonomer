@@ -20,8 +20,8 @@ SHORT Unieative::getLCA(LONG kmer , int & differences)
         auto tempHits = getNumberOfDifference(hash->getIndexStream(), hash->getDataStream(), hash, kmer);
         
         cout << tempHits.size() << endl;
-        if(tempHits.size() > 0)
-            cout << tempHits[0].first << "   " << tempHits[0].second << endl;
+        for( auto tem :tempHits)
+            cout << tem.first << "   " << tem.second << endl;
         
         for(auto pair : tempHits)
             if(pair.second <= differences)
@@ -29,8 +29,10 @@ SHORT Unieative::getLCA(LONG kmer , int & differences)
         
     }
     
-    vector<short> uniqueHits;
     
+    
+    vector<short> uniqueHits;
+    cout << "hits " << hits.size();
     
     for(auto hit : hits)
         uniqueHits.emplace_back(hit);
