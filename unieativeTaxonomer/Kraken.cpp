@@ -19,6 +19,10 @@ SHORT Unieative::getLCA(LONG kmer , int & differences)
     {
         auto tempHits = getNumberOfDifference(hash->getIndexStream(), hash->getDataStream(), hash, kmer);
         
+        cout << tempHits.size() << endl;
+        if(tempHits.size() > 0)
+            cout << tempHits[0].first << "   " << tempHits[0].second << endl;
+        
         for(auto pair : tempHits)
             if(pair.second <= differences)
                 hits.insert(pair.first);
@@ -30,6 +34,8 @@ SHORT Unieative::getLCA(LONG kmer , int & differences)
     
     for(auto hit : hits)
         uniqueHits.emplace_back(hit);
+    
+    
     
     return this->tree->getGlobalLCA(uniqueHits);
     
