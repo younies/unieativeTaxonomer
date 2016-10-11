@@ -15,7 +15,7 @@ YRJObject::YRJObject(string &shortRead  )
     
     this->fillKmersFromShortRead(shortRead);
     
-    
+    this->numOfKmers = this->kmersVector.size();
     
     
     

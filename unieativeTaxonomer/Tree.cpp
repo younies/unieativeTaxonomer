@@ -185,7 +185,7 @@ short Tree::getGlobalLCA( vector<short> &  hitted_nodes)
     
     if(vecSize == 0)
     {
-        cout << "error in the get Global LCA\n";
+        cout << "error in the get Global LCA 22\n";
         return  -1;
     }
     else if(vecSize == 1)

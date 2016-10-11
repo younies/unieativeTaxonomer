@@ -25,9 +25,11 @@ SHORT Unieative::getLCA(LONG kmer , int & differences)
         
     }
     
-    vector<short> uniqueHits(hits.size());
+    vector<short> uniqueHits;
     
-    copy( hits.begin() , hits.end() , uniqueHits.begin() );
+    
+    for(auto hit : hits)
+        uniqueHits.emplace_back(hit);
     
     return this->tree->getGlobalLCA(uniqueHits);
     
