@@ -21,7 +21,8 @@ SHORT Unieative::getLCA(LONG kmer , int & differences)
         
         cout << tempHits.size() << endl;
         for( auto tem :tempHits)
-            cout << tem.first << "   " << tem.second << endl;
+            cout << tem.first << "    " << tem.second << endl;
+        
         
         for(auto pair : tempHits)
             if(pair.second <= differences)
