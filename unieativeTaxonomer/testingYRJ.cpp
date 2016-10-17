@@ -23,6 +23,8 @@ void Tester::testYRJvector(){
     getline(headerSimBA5Stream, header  );
     getline(simBA5Stream, DNA );
     getline(simBA5Stream, DNA );
+    getline(simBA5Stream, DNA );
+    getline(simBA5Stream, DNA );
     
     
     
