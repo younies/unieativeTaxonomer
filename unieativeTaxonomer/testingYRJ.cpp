@@ -20,12 +20,7 @@ void Tester::testYRJvector(){
     string DNA;
     
     
-    getline(headerSimBA5Stream, header  );
-    getline(simBA5Stream, DNA );
-    getline(simBA5Stream, DNA );
-    getline(simBA5Stream, DNA );
-    getline(simBA5Stream, DNA );
-    
+
     
     
     
@@ -51,7 +46,7 @@ void Tester::testYRJvector(){
             auto differences = this->getNumerOfDifferences(hash, kmer);
         
             for(auto different : differences){
-                if(different.second <= 4)
+                if(different.second <= 1)
                     countainer.insert(different.first);
             }
         }
