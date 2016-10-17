@@ -33,7 +33,7 @@ class Tester {
     const string pattern4 = "#--###---#--##--#-#-###-#-##--#";
     const string pattern5 = "#-####-##----#-##---#-#-#--##-#";
     
-    
+    const string result = "/export1/project/hondius/testingUnieative/results/thesis_trial.txt";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
@@ -56,6 +56,9 @@ public:
     //return the difference between two hashed kmers
     short numOfDifferencesBetweenKmers(pair<short, short> hashedKmer1 , pair<short, short> hashedKmer2);
 
+    
+    set<short> getHitsWithDifference(YRJObject * yrj , int diff , int hashNumber);
+    
 };
 
 

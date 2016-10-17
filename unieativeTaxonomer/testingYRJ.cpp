@@ -19,13 +19,6 @@ void Tester::testYRJvector(){
     string header;
     string DNA;
     
-    
-
-    
-    
-    
-    
-    
     this->hashes.resize(6);
     this->hashes[0] = new Hash(pattern1 , path_to_the_hashed_databases);
     this->hashes[1] = new Hash(pattern11 , path_to_the_hashed_databases);
@@ -37,15 +30,18 @@ void Tester::testYRJvector(){
     
     
     
+    
+    
+    
     while (getline(simBA5Stream, DNA )) {
         getline(simBA5Stream, DNA );
-    YRJObject yrj(DNA);
-    set<short> countainer;
-    for(auto hash : this->hashes)
-        for(auto kmer : yrj.kmersVector){
-            auto differences = this->getNumerOfDifferences(hash, kmer);
+        YRJObject yrj(DNA);
+        set<short> countainer;
+        for(auto hash : this->hashes)
+            for(auto kmer : yrj.kmersVector){
+                auto differences = this->getNumerOfDifferences(hash, kmer);
         
-            for(auto different : differences){
+        for(auto different : differences){
                 if(different.second <= 1)
                     countainer.insert(different.first);
             }
@@ -60,7 +56,26 @@ void Tester::testYRJvector(){
 
 
 
-
+set<short> Tester::getHitsWithDifference(YRJObject * yrj , int diff , int hashNumber){
+    
+    set<short> hits;
+    
+    for(auto kmer: yrj->kmersVector)
+    {
+        for(int i = 0 , n = (int)this->hashes.size() ; i < n && i < hashNumber ; ++i)
+        {
+            auto hash = this->hashes[i];
+            auto hit_diff_pairs = this->getNumerOfDifferences(hash, kmer);
+            
+            for(auto hit : hit_diff_pairs)
+                if(hit.second <= diff)
+                    hits.insert(hit.first);
+                
+        }
+    }
+    
+    return hits;
+}
 
 
 
