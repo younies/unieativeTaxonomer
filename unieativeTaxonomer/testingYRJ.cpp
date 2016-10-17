@@ -28,7 +28,7 @@ void Tester::testYRJvector(){
     
     
     
-    YRJObject yrj(DNA);
+    
     
     
     this->hashes.resize(6);
@@ -41,6 +41,10 @@ void Tester::testYRJvector(){
     
     
     
+    
+    while (getline(simBA5Stream, DNA )) {
+        getline(simBA5Stream, DNA );
+    YRJObject yrj(DNA);
     set<short> countainer;
     for(auto hash : this->hashes)
         for(auto kmer : yrj.kmersVector){
@@ -54,6 +58,8 @@ void Tester::testYRJvector(){
     
     for(auto hit : countainer)
         cout << hit << endl;
+        cout << "*******"<<endl;
+    }
     
 }
 
