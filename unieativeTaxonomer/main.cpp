@@ -19,6 +19,7 @@
 #include "testingTheDatabase.hpp"
 #include "countingTheHistogramDifferences.hpp"
 
+#include "testingYRJ.hpp"
 
 
 
@@ -58,10 +59,14 @@ int main(int argc, const char * argv[])
     //BigTree * bigtree = new  BigTree(name_path  ,node_path, gi_path );
 
     
-   testEntiresimBA5(path_to_simBA5, path_to_simBA5_headers, path_to_the_names_dmp_file, path_to_the_nodes_dmp_file, path_Gi_File, path_to_output, path_to_the_hashed_databases, patterns, path_to_pruined_tree, 4);
+   //testEntiresimBA5(path_to_simBA5, path_to_simBA5_headers, path_to_the_names_dmp_file, path_to_the_nodes_dmp_file, path_Gi_File, path_to_output, path_to_the_hashed_databases, patterns, path_to_pruined_tree, 4);
     
     
     
+    
+    Tester tester;
+    
+    tester.testYRJvector();
     
     
     return 0;

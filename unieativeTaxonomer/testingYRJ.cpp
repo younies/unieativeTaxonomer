@@ -7,3 +7,30 @@
 //
 
 #include "testingYRJ.hpp"
+
+
+
+void Tester::testYRJvector(){
+    ifstream simBA5Stream(this->path_to_simBA5);
+    ifstream headerSimBA5Stream(this->path_to_simBA5_headers);
+    
+    
+    
+    string header;
+    string DNA;
+    
+    
+    getline(headerSimBA5Stream, header  );
+    getline(simBA5Stream, DNA );
+    getline(simBA5Stream, DNA );
+    
+    
+    
+    YRJObject yrj(DNA);
+    
+    
+    
+    for(auto kmer : yrj.kmersVector)
+        cout << kmer << endl;
+    
+}
