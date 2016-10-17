@@ -11,7 +11,7 @@
 
 
 void Tester::testYRJvector(){
-    ifstream simBA5Stream(this->path_to_simBA5);
+    ifstream simBA5Stream("/export1/project/hondius/testingUnieative/dna.txt");
     ifstream headerSimBA5Stream(this->path_to_simBA5_headers);
     
     
