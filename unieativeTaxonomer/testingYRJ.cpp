@@ -33,14 +33,19 @@ void Tester::testYRJvector(){
 
     Hash * hash = new Hash(pattern1 , path_to_the_hashed_databases);
     
+    
+    set<short> countainer;
     for(auto kmer : yrj.kmersVector){
         auto differences = this->getNumerOfDifferences(hash, kmer);
         
         for(auto different : differences){
-            cout << different.first << "  " << different.second << endl;
+            if(different.second <= 4)
+                countainer.insert(different.first);
         }
     }
-        
+    
+    for(auto hit : countainer)
+        cout << hit << endl;
     
 }
 
