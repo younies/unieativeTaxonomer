@@ -50,7 +50,7 @@ public:
     
     LONG getLeastCanonicalKmer(LONG kmer);
     
-    void fillKmersFromShortRead(string & shortRead);
+    void fillKmersFromShortRead(vector<string> &shortRead);
     
     int getCorrespondingCode(char c);
     

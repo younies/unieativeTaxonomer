@@ -33,6 +33,9 @@ void Tester::testYRJvector(){
     ofstream * result = new ofstream(this->result);
     
     
+    this->countHashEffect.resize(7, 0);
+    
+    
     while (getline(simBA5Stream, DNA )) {
         getline(simBA5Stream, DNA );
         YRJObject yrj(DNA);
@@ -53,8 +56,14 @@ void Tester::test1YRJ(ofstream * result , YRJObject & yrj)
         auto hits = this->getHitsWithDifference(&yrj, 4, i);
         
         *result << hits.size() << "\t" ;
+        this->countHashEffect[i-1] += hits.size();
     }
     
+    *result << endl;
+    
+    
+    for(auto count : this->countHashEffect)
+        *result << count << '\t';
     *result << endl;
     
 }
@@ -112,7 +121,7 @@ vector< pair<short, short> >  Tester::getNumerOfDifferences(Hash * hash , LONG k
     
     
     if(hashIndex.size == 0){
-        cout << "NOT found for kmer :" << kmer << endl;
+        //cout << "NOT found for kmer :" << kmer << endl;
         return ret;
     }
     

@@ -33,7 +33,7 @@ class Tester {
     const string pattern4 = "#--###---#--##--#-#-###-#-##--#";
     const string pattern5 = "#-####-##----#-##---#-#-#--##-#";
     
-    const string result = "/export1/project/hondius/testingUnieative/results/thesis_trial.txt";
+    const string result = "/export1/project/hondius/testingUnieative/results/thesis_trial2.txt";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
@@ -42,6 +42,7 @@ class Tester {
     vector<Hash *> hashes;
     
 
+    vector<LONGS> countHashEffect;
     
     
 public:

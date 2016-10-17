@@ -13,7 +13,20 @@ YRJObject::YRJObject(string &shortRead  )
 {
     this->kmerLength = this->kmerStandardLength;
     
-    this->fillKmersFromShortRead(shortRead);
+    
+    vector<string> reads(1, "");
+    
+    for(auto c : shortRead)
+    {
+        if(c == 'N')
+            reads.emplace_back("");
+        else
+            reads.back().push_back(c);
+    }
+    
+    
+    this->fillKmersFromShortRead(reads);
+    
     
     this->numOfKmers = this->kmersVector.size();
     
@@ -79,41 +92,44 @@ LONG YRJObject::getLeastCanonicalKmer(const LONG kmer)
 
 
 
-void YRJObject::fillKmersFromShortRead(string & shortRead)
+void YRJObject::fillKmersFromShortRead(vector<string> & shortReads)
 {
-    if(shortRead.size() < this->kmerStandardLength)
-    {
-        this->numOfKmers = 0 ;
-        //short uid in the beginning
-        return;
-    }
-    
+        
     unordered_set<LONG>  hashKmers;
     
-    LONG tempKmer = 0 ;
-    //get the fisrt 30 characters in the short read
-    for(int i = 0 ; i < this->kmerStandardLength - 1 ; ++i){
-        tempKmer <<= 2;
-        int letter = this->getCorrespondingCode(shortRead[i]);
-        tempKmer |= letter;
-    }
     
     
-    //go through all of the kmers
-    for(int i = 30 , n = (int)shortRead.size() ; i < n ; ++i){
-        tempKmer <<= 2;
-        tempKmer &= this->maxOnes31;
-        int letter = this->getCorrespondingCode(shortRead[i]);
-        tempKmer |= letter;
+    for(auto shortRead : shortReads)
+    {
+        if(shortRead.size() < this->kmerStandardLength)
+            continue;
+        LONG tempKmer = 0 ;
+        //get the fisrt 30 characters in the short read
+        for(int i = 0 ; i < this->kmerStandardLength - 1 ; ++i)
+        {
+            tempKmer <<= 2;
+            int letter = this->getCorrespondingCode(shortRead[i]);
+            tempKmer |= letter;
+        }
         
-        hashKmers.insert(this->getLeastCanonicalKmer(tempKmer));
+        
+        //go through all of the kmers
+        for(int i = 30 , n = (int)shortRead.size() ; i < n ; ++i)
+        {
+            tempKmer <<= 2;
+            tempKmer &= this->maxOnes31;
+            int letter = this->getCorrespondingCode(shortRead[i]);
+            tempKmer |= letter;
+            
+            hashKmers.insert(this->getLeastCanonicalKmer(tempKmer));
+        }
     }
     
     //fill and sort the kmers' vector
-    for(auto kmer : hashKmers)
-        this->kmersVector.emplace_back(kmer);
-    sort(this->kmersVector.begin(), this->kmersVector.end());
-    this->numOfKmers = this->kmersVector.size();
+        for(auto kmer : hashKmers)
+            this->kmersVector.emplace_back(kmer);
+        sort(this->kmersVector.begin(), this->kmersVector.end());
+        this->numOfKmers = this->kmersVector.size();
     
 
 }
