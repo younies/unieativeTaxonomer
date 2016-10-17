@@ -30,27 +30,32 @@ void Tester::testYRJvector(){
     
     
     
-    
+    ofstream * result = new ofstream(this->result);
     
     
     while (getline(simBA5Stream, DNA )) {
         getline(simBA5Stream, DNA );
         YRJObject yrj(DNA);
-        set<short> countainer;
-        for(auto hash : this->hashes)
-            for(auto kmer : yrj.kmersVector){
-                auto differences = this->getNumerOfDifferences(hash, kmer);
-        
-        for(auto different : differences){
-                if(different.second <= 1)
-                    countainer.insert(different.first);
-            }
-        }
+        this->test1YRJ(result, yrj);
     
-    for(auto hit : countainer)
-        cout << hit << endl;
-        cout << "*******"<<endl;
     }
+    
+}
+
+
+
+
+void Tester::test1YRJ(ofstream * result , YRJObject & yrj)
+{
+    
+    for (int i = 1 ; i < 7 ; ++i)
+    {
+        auto hits = this->getHitsWithDifference(&yrj, 4, i);
+        
+        *result << hits.size() << "\t" ;
+    }
+    
+    *result << endl;
     
 }
 

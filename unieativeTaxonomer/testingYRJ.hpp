@@ -56,7 +56,7 @@ public:
     //return the difference between two hashed kmers
     short numOfDifferencesBetweenKmers(pair<short, short> hashedKmer1 , pair<short, short> hashedKmer2);
 
-    
+    void test1YRJ(ofstream * result , YRJObject & yrj);
     set<short> getHitsWithDifference(YRJObject * yrj , int diff , int hashNumber);
     
 };
