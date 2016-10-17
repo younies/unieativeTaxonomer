@@ -25,6 +25,15 @@ class Tester {
     const string path_to_the_hashed_databases = "/export1/project/hondius/unieative/databases/";
 
     
+    //conf main
+    const string pattern1 =  "##-#--###---#-#-#-#-#--#-##--##";
+    const string pattern11 = "#-#-##---#-#-#-#-#-#-##-#--##-#";
+    const string pattern2 = "##-##-#-#---#-#-##--#--#-#-#-##";
+    const string pattern3 = "#-#-----#-#--#--##-##-#-####-##";
+    const string pattern4 = "#--###---#--##--#-#-###-#-##--#";
+    const string pattern5 = "#-####-##----#-##---#-#-#--##-#";
+    
+    
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;

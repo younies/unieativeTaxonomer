@@ -29,20 +29,26 @@ void Tester::testYRJvector(){
     YRJObject yrj(DNA);
     
     
-    string pattern1 =  "##-#--###---#-#-#-#-#--#-##--##";
-
-    Hash * hash = new Hash(pattern1 , path_to_the_hashed_databases);
+    this->hashes.resize(6);
+    this->hashes[0] = new Hash(pattern1 , path_to_the_hashed_databases);
+    this->hashes[1] = new Hash(pattern11 , path_to_the_hashed_databases);
+    this->hashes[2] = new Hash(pattern2 , path_to_the_hashed_databases);
+    this->hashes[3] = new Hash(pattern3 , path_to_the_hashed_databases);
+    this->hashes[4] = new Hash(pattern4 , path_to_the_hashed_databases);
+    this->hashes[5] = new Hash(pattern5 , path_to_the_hashed_databases);
+    
     
     
     set<short> countainer;
-    for(auto kmer : yrj.kmersVector){
-        auto differences = this->getNumerOfDifferences(hash, kmer);
+    for(auto hash : this->hashes)
+        for(auto kmer : yrj.kmersVector){
+            auto differences = this->getNumerOfDifferences(hash, kmer);
         
-        for(auto different : differences){
-            if(different.second <= 4)
-                countainer.insert(different.first);
+            for(auto different : differences){
+                if(different.second <= 4)
+                    countainer.insert(different.first);
+            }
         }
-    }
     
     for(auto hit : countainer)
         cout << hit << endl;
