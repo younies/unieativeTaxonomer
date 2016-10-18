@@ -56,6 +56,7 @@ int main(int argc, const char * argv[])
     string node_path = s + "nodes.txt";
     string gi_path = s + "gi_taxid_nucl.dmp";
     
+    
     //BigTree * bigtree = new  BigTree(name_path  ,node_path, gi_path );
 
     

@@ -33,7 +33,7 @@ class Tester {
     const string pattern4 = "#--###---#--##--#-#-###-#-##--#";
     const string pattern5 = "#-####-##----#-##---#-#-#--##-#";
     
-    const string result = "/export1/project/hondius/testingUnieative/results/thesis_trial2.txt";
+    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff.txt";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
@@ -61,6 +61,8 @@ public:
     set<short> getHitsWithDifference(YRJObject * yrj , int diff , int hashNumber);
     
     set<short> getHitsWithDifferenceButFullHahes(YRJObject * yrj , int diff );
+    
+    void testTheDifferences(ofstream * result , YRJObject & yrj , int maxDiff);
 };
 
 

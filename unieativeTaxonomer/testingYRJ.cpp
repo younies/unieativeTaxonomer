@@ -39,7 +39,7 @@ void Tester::testYRJvector(){
     while (getline(simBA5Stream, DNA )) {
         getline(simBA5Stream, DNA );
         YRJObject yrj(DNA);
-        this->test1YRJ(result, yrj);
+        this->testTheDifferences(result, yrj , 4);
     
     }
     
@@ -71,6 +71,29 @@ void Tester::test1YRJ(ofstream * result , YRJObject & yrj)
     *result << endl;
     
 }
+
+
+
+void Tester::testTheDifferences(ofstream * result , YRJObject & yrj, int maxDiff)
+{
+    vector<long> globalCounter(maxDiff + 1 , 0);
+    
+    for(int diff = 0 ; diff <= maxDiff ; ++diff){
+        
+        auto hits = getHitsWithDifferenceButFullHahes(&yrj , diff);
+        
+        *result << hits.size() << '\t' ;
+        globalCounter[diff] += hits.size();
+    }
+    
+    *result << endl<< '\t' ;
+    
+    for(auto co : globalCounter)
+        *result << co << '\t' ;
+    *result << endl;
+    
+}
+
 
 
 
