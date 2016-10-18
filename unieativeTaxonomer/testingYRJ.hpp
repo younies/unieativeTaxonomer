@@ -60,6 +60,7 @@ public:
     void test1YRJ(ofstream * result , YRJObject & yrj);
     set<short> getHitsWithDifference(YRJObject * yrj , int diff , int hashNumber);
     
+    set<short> getHitsWithDifferenceButFullHahes(YRJObject * yrj , int diff );
 };
 
 

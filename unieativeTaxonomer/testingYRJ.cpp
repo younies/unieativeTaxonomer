@@ -48,6 +48,10 @@ void Tester::testYRJvector(){
 
 
 
+
+
+
+
 void Tester::test1YRJ(ofstream * result , YRJObject & yrj)
 {
     
@@ -94,6 +98,28 @@ set<short> Tester::getHitsWithDifference(YRJObject * yrj , int diff , int hashNu
 
 
 
+
+set<short> Tester::getHitsWithDifferenceButFullHahes(YRJObject * yrj , int diff ){
+    
+    set<short> hits;
+    
+    for(auto kmer: yrj->kmersVector)
+    {
+        for(auto hash : hashes)
+        {
+            auto tempHits = getNumerOfDifferences(hash, kmer);
+            
+            for( auto hit : tempHits)
+            {
+                if(hit.second <= diff)
+                    hits.insert(hit.first);
+            }
+            
+        }
+    }
+    
+    return hits;
+}
 
 
 
