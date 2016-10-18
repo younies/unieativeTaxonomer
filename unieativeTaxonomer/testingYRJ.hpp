@@ -43,7 +43,7 @@ class Tester {
     
 
     vector<LONGS> countHashEffect;
-    
+    vector<long> globalCounter;
     
 public:
     
