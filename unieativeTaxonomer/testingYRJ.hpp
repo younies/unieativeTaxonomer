@@ -20,6 +20,8 @@
 class Tester {
 
     //constant we need in our program
+    
+    const string pathHiSeq = "/export1/project/hondius/testingUnieative/accuracy/HiSeq_accuracy.fa";
     const string path_to_simBA5 = "/export1/project/hondius/testingUnieative/accuracy/simBA5_accuracy.fa";
     const string path_to_simBA5_headers = "/export1/project/hondius/testingUnieative/accuracy/mappingGI.txt";
     const string path_to_the_hashed_databases = "/export1/project/hondius/unieative/databases/";
@@ -33,7 +35,7 @@ class Tester {
     const string pattern4 = "#--###---#--##--#-#-###-#-##--#";
     const string pattern5 = "#-####-##----#-##---#-#-#--##-#";
     
-    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff2.txt";
+    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff2_HiSeq.txt";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
