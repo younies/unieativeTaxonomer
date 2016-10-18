@@ -33,7 +33,7 @@ class Tester {
     const string pattern4 = "#--###---#--##--#-#-###-#-##--#";
     const string pattern5 = "#-####-##----#-##---#-#-#--##-#";
     
-    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff.txt";
+    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff2.txt";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
