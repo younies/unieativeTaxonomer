@@ -33,13 +33,14 @@ void Tester::testYRJvector(){
     ofstream * result = new ofstream(this->result);
     
     
-    this->countHashEffect.resize(5, 0);
-    this->globalCounter.resize(5,0);
+    this->countHashEffect.resize(11, 0);
+    this->globalCounter.resize(11,0);
+    this->globalCounterEffect.resize(11, 0);
     
     while (getline(simBA5Stream, DNA )) {
         getline(simBA5Stream, DNA );
         YRJObject yrj(DNA);
-        this->testTheDifferences(result, yrj , 4);
+        this->testTheDifferences(result, yrj , 10);
     
     }
     
@@ -66,8 +67,7 @@ void Tester::test1YRJ(ofstream * result , YRJObject & yrj)
     *result << endl;
     
     
-    for(auto count : this->countHashEffect)
-        *result << count << '\t';
+    
     *result << endl;
     
 }
@@ -86,7 +86,9 @@ void Tester::testTheDifferences(ofstream * result , YRJObject & yrj, int maxDiff
         globalCounter[diff] += hits.size();
         
         if(hits.size() == 0)
-            countHashEffect[diff] += 1;
+            countHashEffect[diff]++;
+        else
+            this->globalCounterEffect[diff]++;
     }
     
     *result << endl ;
@@ -96,6 +98,10 @@ void Tester::testTheDifferences(ofstream * result , YRJObject & yrj, int maxDiff
     *result << endl;
     
     for(auto co : countHashEffect)
+        *result << co << '\t' ;
+    *result << endl;
+    
+    for(auto co : globalCounterEffect)
         *result << co << '\t' ;
     *result << endl;
     

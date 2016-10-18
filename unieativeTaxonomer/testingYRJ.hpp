@@ -35,7 +35,7 @@ class Tester {
     const string pattern4 = "#--###---#--##--#-#-###-#-##--#";
     const string pattern5 = "#-####-##----#-##---#-#-#--##-#";
     
-    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff2_HiSeq.txt";
+    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff2_HiSeq_big.txt";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
@@ -46,6 +46,7 @@ class Tester {
 
     vector<LONGS> countHashEffect;
     vector<long> globalCounter;
+    vector<long> globalCounterEffect;
     
 public:
     
