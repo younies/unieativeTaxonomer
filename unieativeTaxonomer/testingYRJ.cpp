@@ -40,6 +40,10 @@ void Tester::testYRJvector(){
     while (getline(simBA5Stream, DNA )) {
         getline(simBA5Stream, DNA );
         YRJObject yrj(DNA);
+        if(yrj.getNumOfKmers() == 0){
+            cout << "ooooh\n";
+            continue;
+        }
         this->testTheDifferences(result, yrj , 10);
     
     }
