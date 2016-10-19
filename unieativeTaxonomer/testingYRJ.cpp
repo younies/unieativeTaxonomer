@@ -43,6 +43,7 @@ void Tester::testYRJvector(){
         if(yrj.getNumOfKmers() == 0){
             cout << "ooooh\n";
             continue;
+            
         }
         this->testTheDifferences(result, yrj , 10);
     
