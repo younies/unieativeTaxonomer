@@ -42,7 +42,7 @@ Tree::Tree(string path)
     this->connectChildren();
     
     //build the leaves numbers
-    this->buildTheNumberOfLeaves();
+    //this->buildTheNumberOfLeaves();
 }
 
 
