@@ -57,7 +57,10 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     cout << "passed 4 \n";
 
     cout << yrj->uid << endl;
-    auto yrjNode     = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(yrj->uid));
+    
+    auto index = this->bigTree->uid_to_index(yrj->uid);
+   cout << "passed 4.1 \n";
+    auto yrjNode     = this->bigTree->getNodeFromIndex(index);
     
     cout << "passed 5 \n";
 
