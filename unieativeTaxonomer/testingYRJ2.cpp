@@ -24,12 +24,15 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
             cout << "hits 0\n";
             continue;
         }
-        auto lca = this->pruinedTree->getGlobalLCA(hits);
+        if(hits.size() > 0)
+        {
+            auto lca = this->pruinedTree->getGlobalLCA(hits);
         
-        if(hitNumbers.count(lca))
-            hitNumbers[lca]++;
-        else
-            hitNumbers[lca] = 1;
+            if(hitNumbers.count(lca))
+                hitNumbers[lca]++;
+            else
+                hitNumbers[lca] = 1;
+        }
     }
     
     
