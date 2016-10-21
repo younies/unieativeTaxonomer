@@ -85,8 +85,8 @@ void CoreTaxonomer::writeTheCoreData()
 CoreTaxonomer::CoreTaxonomer(string hash , string path)
 {
     //setting up the hash
+
     
-    //
     
     ifstream fileStream(path);
     

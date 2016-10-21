@@ -230,6 +230,41 @@ vector< pair<short, short> >  Tester::getNumerOfDifferences(Hash * hash , LONG k
 
 
 
+vector< short > Tester::hits_kmer_with_differences( LONG kmer , int diff)
+{
+    set<short> ret_set;
+    
+    for (auto hash : this->hashes)
+    {
+        //extract the hits from each hash
+        auto temp_hits = this->getNumerOfDifferences(hash, kmer);
+        
+        for (auto hit :  temp_hits)
+        {
+            if(hit.second <= diff)
+                ret_set.insert(hit.first);
+        }
+    }
+    
+    vector<short> ret(ret_set.size()) ;
+    
+    int i = 0;
+    
+    for(auto retElement : ret_set)
+    {
+        ret[i++] = retElement;
+    }
+    
+    
+    return ret;
+    
+}
+
+
+
+
+
+
 
 short Tester::numOfDifferencesBetweenKmers(pair<short, short> hashedKmer1 , pair<short, short> hashedKmer2)
 {

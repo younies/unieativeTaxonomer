@@ -41,6 +41,8 @@ class Tester {
     BigTree * bigTree;
     Tree * pruinedTree;
     
+    unordered_map<string , long> finalResult;
+    
     vector<Hash *> hashes;
     
 
@@ -55,6 +57,10 @@ public:
     
     void testYRJvector();
     
+    vector< short > hits_kmer_with_differences( LONG kmer , int diff);// return all the hits
+
+    
+    
     vector< pair<short, short> > getNumerOfDifferences(Hash * hash , LONG kmer);
 
     //return the difference between two hashed kmers
@@ -66,6 +72,8 @@ public:
     set<short> getHitsWithDifferenceButFullHahes(YRJObject * yrj , int diff );
     
     void testTheDifferences(ofstream * result , YRJObject & yrj , int maxDiff);
+    
+    void testingGenomeLevel( YRJObject * yrj  ,int differences);
 };
 
 
