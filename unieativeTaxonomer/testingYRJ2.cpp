@@ -32,6 +32,7 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     //to get kraken
     
+    cout << hitNumbers.size() << endl;
     auto krakenShort = this->pruinedTree->getTheMaximumKRAKENhit(hitNumbers);
     
     auto krakenUID   = this->pruinedTree->getTheUIDFromShort(krakenShort);
