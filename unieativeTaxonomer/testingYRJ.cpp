@@ -45,6 +45,7 @@ void Tester::testYRJvector(){
             continue;
             
         }
+        
         this->testTheDifferences(result, yrj , 10);
     
     }
