@@ -14,6 +14,8 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
 {
     map<int, int> hitNumbers;
     
+    
+    //to find all the LCAs
     for(auto kmer: yrj->kmersVector)
     {
         auto hits = this->hits_kmer_with_differences(kmer, differences);
@@ -25,6 +27,20 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
         else
             hitNumbers[lca] = 1;
     }
+    
+    
+    
+    //to aggregate all the lcas
+    
+    
+    for(auto hit : hitNumbers)
+    {
+        
+    }
+    
+    
+    
+    
     
     
 }

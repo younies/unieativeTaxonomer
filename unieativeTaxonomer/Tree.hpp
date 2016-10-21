@@ -49,5 +49,10 @@ public:
     LONGS getTheUIDFromShort(short shortName);
     
     vector<YRJObject *> getYRJobjects(string path );
+    
+    
+    
+    vector<short> getTheMaximumKRAKENhit(map<short, int> & hitNumbers);
+    
 };
 #endif /* Tree_hpp */

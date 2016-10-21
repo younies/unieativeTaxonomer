@@ -19,6 +19,7 @@
 		F37D439F1DABE73E005D711F /* BigTreeExtend.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F37D439E1DABE73E005D711F /* BigTreeExtend.cpp */; };
 		F38DA57F1D9063D1006FF1DA /* Count_differences_support.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DA57E1D9063D1006FF1DA /* Count_differences_support.cpp */; };
 		F39EC74F1DBA7D6F00CC5CCC /* testingYRJ2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39EC74E1DBA7D6F00CC5CCC /* testingYRJ2.cpp */; };
+		F39EC7511DBA829D00CC5CCC /* tree_support.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39EC7501DBA829D00CC5CCC /* tree_support.cpp */; };
 		F3AF037D1D6AB2CC00F37C04 /* comments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3AF037C1D6AB2CC00F37C04 /* comments.cpp */; };
 		F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3B433931D592375002D83B5 /* HashedNode.cpp */; };
 		F3B4339D1D5A48BB002D83B5 /* CoreTaxonomer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3B4339B1D5A48BB002D83B5 /* CoreTaxonomer.cpp */; };
@@ -63,6 +64,7 @@
 		F37D439E1DABE73E005D711F /* BigTreeExtend.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BigTreeExtend.cpp; sourceTree = "<group>"; };
 		F38DA57E1D9063D1006FF1DA /* Count_differences_support.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Count_differences_support.cpp; sourceTree = "<group>"; };
 		F39EC74E1DBA7D6F00CC5CCC /* testingYRJ2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testingYRJ2.cpp; sourceTree = "<group>"; };
+		F39EC7501DBA829D00CC5CCC /* tree_support.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tree_support.cpp; sourceTree = "<group>"; };
 		F3AF037C1D6AB2CC00F37C04 /* comments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = comments.cpp; sourceTree = "<group>"; };
 		F3B433931D592375002D83B5 /* HashedNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashedNode.cpp; sourceTree = "<group>"; };
 		F3B433941D592375002D83B5 /* HashedNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HashedNode.hpp; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				F3B433931D592375002D83B5 /* HashedNode.cpp */,
 				F3B433941D592375002D83B5 /* HashedNode.hpp */,
 				F3BE9D531D5D1AE6001EF519 /* Tree.cpp */,
+				F39EC7501DBA829D00CC5CCC /* tree_support.cpp */,
 				F3BE9D541D5D1AE6001EF519 /* Tree.hpp */,
 				F3BE9D561D5D1B02001EF519 /* TreeNode.cpp */,
 				F3BE9D571D5D1B02001EF519 /* TreeNode.hpp */,
@@ -217,6 +220,7 @@
 				F38DA57F1D9063D1006FF1DA /* Count_differences_support.cpp in Sources */,
 				F3B4339D1D5A48BB002D83B5 /* CoreTaxonomer.cpp in Sources */,
 				F37D43941DA9890E005D711F /* YRJshortread.cpp in Sources */,
+				F39EC7511DBA829D00CC5CCC /* tree_support.cpp in Sources */,
 				F3B433951D592375002D83B5 /* HashedNode.cpp in Sources */,
 				F321AC431D864B8F00BEA228 /* countingTheHistogramDifferences.cpp in Sources */,
 				F3BE9D551D5D1AE6001EF519 /* Tree.cpp in Sources */,
