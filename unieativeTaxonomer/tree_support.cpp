@@ -11,7 +11,7 @@
 
 
 //implementation for maximum hits
-vector<short> Tree::getTheMaximumKRAKENhit(map<short, int> & originalHitsMap)
+short Tree::getTheMaximumKRAKENhit(map<short, int> & originalHitsMap)
 {
     auto retHitsMap = originalHitsMap;
     
@@ -44,6 +44,6 @@ vector<short> Tree::getTheMaximumKRAKENhit(map<short, int> & originalHitsMap)
         if(hit.second == maxHits)
             ret.emplace_back(hit.first);
     
-    return ret;
+    return this->getGlobalLCA(ret);
     
 }

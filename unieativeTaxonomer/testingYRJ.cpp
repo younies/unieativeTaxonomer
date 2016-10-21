@@ -37,6 +37,7 @@ void Tester::testYRJvector(){
     this->globalCounter.resize(11,0);
     this->globalCounterEffect.resize(11, 0);
     
+    /*
     while (getline(simBA5Stream, DNA )) {
         getline(simBA5Stream, DNA );
         YRJObject yrj(DNA);
@@ -49,6 +50,17 @@ void Tester::testYRJvector(){
         this->testTheDifferences(result, yrj , 10);
     
     }
+     */
+    
+    
+    getline(simBA5Stream, DNA );
+    getline(simBA5Stream, DNA );
+    
+    YRJObject yrj(DNA);
+    yrj.uid = 160901491;
+    this->testingGenomeLevel(&yrj, 4);
+    
+    
     
 }
 

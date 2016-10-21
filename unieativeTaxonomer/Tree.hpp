@@ -52,7 +52,7 @@ public:
     
     
     
-    vector<short> getTheMaximumKRAKENhit(map<short, int> & hitNumbers);
+    short getTheMaximumKRAKENhit(map<short, int> & hitNumbers);
     
 };
 #endif /* Tree_hpp */

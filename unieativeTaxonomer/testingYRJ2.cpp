@@ -12,7 +12,7 @@
 
 void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
 {
-    map<int, int> hitNumbers;
+    map<short, int> hitNumbers;
     
     
     //to find all the LCAs
@@ -30,15 +30,23 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     
     
-    //to aggregate all the lcas
+    //to get kraken
+    
+    auto krakenShort = this->pruinedTree->getTheMaximumKRAKENhit(hitNumbers);
+    
+    auto krakenUID   = this->pruinedTree->getTheUIDFromShort(krakenShort);
+    
+    auto krakenNode  = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(krakenUID));
+    
+    auto yrjNode     = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(yrj->uid));
     
     
-    for(auto hit : hitNumbers)
-    {
-        
-    }
+    
+    auto testingLeveLUID = this->bigTree->get_LCA_between_Two_Nodes(krakenNode, yrjNode);
     
     
+    auto levelUID = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(testingLeveLUID));
+    cout << testingLeveLUID << "   " << this->bigTree->get_level(levelUID);
     
     
     
