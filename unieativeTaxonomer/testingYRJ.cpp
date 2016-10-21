@@ -61,7 +61,7 @@ void Tester::testYRJvector(){
     getline(simBA5Stream, DNA );
     
     YRJObject yrj(DNA);
-    yrj.uid = 160901491;
+    yrj.uid = 1841402;
     
     
     this->testingGenomeLevel(&yrj, 4);
