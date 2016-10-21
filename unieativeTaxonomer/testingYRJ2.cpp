@@ -20,6 +20,10 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     {
         auto hits = this->hits_kmer_with_differences(kmer, differences);
         
+        if(hits.size() == 0){
+            cout << "hits 0\n";
+            continue;
+        }
         auto lca = this->pruinedTree->getGlobalLCA(hits);
         
         if(hitNumbers.count(lca))
