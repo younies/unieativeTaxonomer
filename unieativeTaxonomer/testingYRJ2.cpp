@@ -56,6 +56,7 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     auto krakenNode  = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(krakenUID));
     cout << "passed 4 \n";
 
+    cout << yrj->uid << endl;
     auto yrjNode     = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(yrj->uid));
     
     cout << "passed 5 \n";
