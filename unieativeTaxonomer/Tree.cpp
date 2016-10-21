@@ -61,6 +61,8 @@ void Tree::connectChildren()
 
 short Tree::getParentShortName(short shortName)
 {
+    cout << "short n  " << shortName << endl;
+    cout << this->treeNodesVector.size() << endl;
     return this->treeNodesVector[shortName]->parentShortName;
 }
 
