@@ -17,6 +17,7 @@ void Tester::testYRJvector(){
     
     this->pruinedTree = new Tree(this->path_to_pruined_tree);
     
+    
     this->bigTree = new BigTree(path_to_the_names_dmp_file, path_to_the_nodes_dmp_file);
     
     string header;
