@@ -15,6 +15,11 @@ void Tester::testYRJvector(){
     ifstream headerSimBA5Stream(this->path_to_simBA5_headers);
     
     
+    
+    ifstream hiseqNew(this->hiSeqModified);
+    
+    
+    
     this->pruinedTree = new Tree(this->path_to_pruined_tree);
     
     
@@ -42,8 +47,10 @@ void Tester::testYRJvector(){
     this->globalCounterEffect.resize(11, 0);
     
     
-    
+    /*
     vector<vector<string>> genomes;
+    
+    
     int i = -1;
     while (getline(simBA5Stream, DNA))
     {
@@ -71,17 +78,25 @@ void Tester::testYRJvector(){
     
     }
      
-    
-    /*
-    getline(simBA5Stream, DNA );
-    getline(simBA5Stream, DNA );
-    
-    YRJObject yrj(DNA);
-    yrj.uid = 1841402;
-    
-    
-    this->testingGenomeLevel(&yrj, 4);
     */
+    
+    
+    
+    
+    while (getline(hiseqNew, DNA))
+    {
+        long uid = stol(DNA);
+        getline(hiseqNew, DNA);
+        YRJObject yrj(DNA);
+        yrj.uid = uid;
+        this->testingGenomeLevel(&yrj, 4);
+
+    }
+    
+    
+    
+    
+    
     
     
     
