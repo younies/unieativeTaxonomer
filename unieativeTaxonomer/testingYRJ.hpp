@@ -28,7 +28,7 @@ class Tester {
     const string path_to_the_hashed_databases = "/export1/project/hondius/unieative/databases/";
 
     const string path_to_pruined_tree = "/export1/project/hondius/newKrakenResearch/finalNewTree.txt";
-    const strin hiSeqModified = "/export1/project/hondius/testingUnieative/accuracy/hiSeqModified.fa";
+    const string hiSeqModified = "/export1/project/hondius/testingUnieative/accuracy/hiSeqModified.fa";
 
     //conf main
     const string pattern1 =  "##-#--###---#-#-#-#-#--#-##--##";
