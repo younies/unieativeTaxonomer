@@ -31,7 +31,8 @@ public:
     
     YRJObject(string path , short index);
     
-    
+    YRJObject(string &shortRead );
+
     YRJObject(vector<string> &shortReads  );
     
     ~YRJObject();

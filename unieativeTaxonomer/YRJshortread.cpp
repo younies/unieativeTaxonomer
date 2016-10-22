@@ -146,6 +146,29 @@ void YRJObject::fillTheHashKmer(vector<string> & shortReads ,  unordered_set<LON
 
 
 
+YRJObject::YRJObject(string &shortRead )
+{
+    
+    
+    vector<string> reads(1, "");
+    
+    
+    
+        for(auto c : shortRead)
+        {
+            if(c == 'N')
+                reads.emplace_back("");
+            else
+                reads.back().push_back(c);
+        }
+        
+    this->fillKmersFromShortRead(reads);
+    
+    
+    this->numOfKmers = this->kmersVector.size();
+    
+}
+
 
 
 
