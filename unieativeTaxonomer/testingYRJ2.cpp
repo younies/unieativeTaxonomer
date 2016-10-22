@@ -59,6 +59,7 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     auto krakenUID   = this->pruinedTree->getTheUIDFromShort(krakenShort);
     cout << "passed 23 \n";
+    cout << krakenUID << endl;
 
 
     auto krakenNode  = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(krakenUID));
