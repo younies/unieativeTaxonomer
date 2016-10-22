@@ -29,6 +29,9 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
             cout << "hits 0\n";
             continue;
         }
+        
+        
+        
         if(hits.size() > 0)
         {
             auto lca = this->pruinedTree->getGlobalLCA(hits);
@@ -51,25 +54,32 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     cout << hitNumbers.size() << endl;
     auto krakenShort = this->pruinedTree->getTheMaximumKRAKENhit(hitNumbers);
     
+    cout << "passed 22 \n";
 
     
     auto krakenUID   = this->pruinedTree->getTheUIDFromShort(krakenShort);
-    
+    cout << "passed 23 \n";
+
 
     auto krakenNode  = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(krakenUID));
+
+    cout << "passed 24 \n";
 
     cout << yrj->uid << endl;
     
     auto index = this->bigTree->uid_to_index(yrj->uid);
    
+    
      cout << index << endl;
-   
+    cout << "passed 25 \n";
+
     auto yrjNode     = this->bigTree->getNodeFromIndex(index);
     
+    cout << "passed 26 \n";
 
     
     auto testingLeveLUID = this->bigTree->get_LCA_between_Two_Nodes(krakenNode, yrjNode);
-    
+    cout << "passed 27 \n";
     
     auto levelUID = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(testingLeveLUID));
     cout << testingLeveLUID << "   " << this->bigTree->get_level(levelUID);
