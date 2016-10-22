@@ -81,7 +81,7 @@ void Tester::testYRJvector(){
     */
     
     
-    
+    this->finalResult[this->notConsidered] = 0;
     
     while (getline(hiseqNew, DNA))
     {
@@ -96,6 +96,10 @@ void Tester::testYRJvector(){
     
     
     
+    for(auto res : this->finalResult)
+    {
+        *result << res.first << "\t" << res.second << endl;
+    }
     
     
     

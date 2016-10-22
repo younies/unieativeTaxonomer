@@ -14,6 +14,8 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
 {
     map<short, int> hitNumbers;
     
+    
+    
 
     //to find all the LCAs
     for(auto kmer: yrj->kmersVector)
@@ -80,7 +82,13 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     
     auto levelUID = this->bigTree->getNodeFromIndex(testingLevelIndex);
-    cout << this->bigTree->get_level(levelUID) << endl;
+    
+    string level = this->bigTree->get_level(levelUID);
+    
+    if(this->finalResult.count(level))
+        finalResult[level] ++;
+    else
+        finalResult[level] = 1;
     
     
     
