@@ -65,9 +65,12 @@ int main(int argc, const char * argv[])
     
     
     
-    Tester tester;
+    
     for(int deep  = 0   ; deep < 10 ; deep++ )
+    {
+        Tester tester;
         tester.testYRJvector(deep);
+    }
     
     
     return 0;
