@@ -48,7 +48,6 @@ Tree::Tree(string path)
 
 void Tree::connectChildren()
 {
-    cout << this->treeNodesVector.size() << endl;
     for (LONGS i = 0 , n = this->treeNodesVector.size(); i < n ; ++i)
     {
         if(this->treeNodesVector[i] != NULL && this->treeNodesVector[i]->parentShortName != this->treeNodesVector[i]->shortName)//to avoid the loop in the root
@@ -62,8 +61,6 @@ void Tree::connectChildren()
 
 short Tree::getParentShortName(short shortName)
 {
-    cout << "short n  " << shortName << endl;
-    cout << this->treeNodesVector.size() << endl;
     return this->treeNodesVector[shortName]->parentShortName;
 }
 

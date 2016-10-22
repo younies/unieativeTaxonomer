@@ -68,27 +68,27 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
 
     cout << yrj->uid << endl;
     
-    auto index = this->bigTree->uid_to_index(yrj->uid);
+    auto indexYRJ = this->bigTree->uid_to_index(yrj->uid);
    
     
-     cout << index << endl;
+     cout << indexYRJ << endl;
     cout << "passed 25 \n";
 
-    auto yrjNode     = this->bigTree->getNodeFromIndex(index);
+    auto yrjNode     = this->bigTree->getNodeFromIndex(indexYRJ);
     
     cout << "passed 26 \n";
 
     
-    auto testingLeveLUID = this->bigTree->get_LCA_between_Two_Nodes(krakenNode, yrjNode);
+    auto testingLevelIndex = this->bigTree->get_LCA_between_Two_Nodes(krakenNode, yrjNode);
     cout << "passed 27 \n";
     
     
-    cout <<  testingLeveLUID << endl;
+    cout <<  testingLevelIndex << endl;
     
     
     
-    auto levelUID = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(testingLeveLUID));
-    cout << testingLeveLUID << "   " << this->bigTree->get_level(levelUID);
+    auto levelUID = this->bigTree->getNodeFromIndex(testingLevelIndex);
+    cout << this->bigTree->get_level(levelUID);
     
     
     
