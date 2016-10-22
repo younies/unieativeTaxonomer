@@ -19,11 +19,10 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     //to find all the LCAs
     for(auto kmer: yrj->kmersVector)
     {
-        cout << "passed 112 \n";
 
+        cout << kmer << endl;
         auto hits = this->hits_kmer_with_differences(kmer, differences);
         
-        cout << "passed 113 \n";
 
         if(hits.size() == 0){
             cout << "hits 0\n";
@@ -42,7 +41,6 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
                 hitNumbers[lca] = 1;
         }
         
-        cout << "passed hash\n";
     }
     
     
