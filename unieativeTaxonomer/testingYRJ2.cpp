@@ -49,7 +49,7 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     if(hitNumbers.size() == 0)
     {
-        cout << "not_considered\n";
+        this->finalResult[this->notConsidered] ++;
         return;
     }
     auto krakenShort = this->pruinedTree->getTheMaximumKRAKENhit(hitNumbers);

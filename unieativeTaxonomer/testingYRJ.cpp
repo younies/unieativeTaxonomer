@@ -10,7 +10,7 @@
 
 
 
-void Tester::testYRJvector(){
+void Tester::testYRJvector(int deep){
     ifstream simBA5Stream(this->pathMiSeq);
     ifstream headerSimBA5Stream(this->path_to_simBA5_headers);
     
@@ -38,8 +38,10 @@ void Tester::testYRJvector(){
     
     
     
+    string s;
+    s.push_back( (char)(deep + '0'));
     
-    ofstream * result = new ofstream(this->result);
+    ofstream * result = new ofstream(this->result + s + ".out" );
     
     
     this->countHashEffect.resize(11, 0);
@@ -90,7 +92,7 @@ void Tester::testYRJvector(){
         YRJObject yrj(DNA);
         yrj.uid = uid;
         
-        this->testingGenomeLevel(&yrj, 4);
+        this->testingGenomeLevel(&yrj, deep);
 
     }
     
