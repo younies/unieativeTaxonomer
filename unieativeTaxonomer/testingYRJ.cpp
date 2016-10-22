@@ -85,13 +85,11 @@ void Tester::testYRJvector(){
     
     while (getline(hiseqNew, DNA))
     {
-        cout << DNA << endl;
         long uid = stol(DNA);
         getline(hiseqNew, DNA);
         YRJObject yrj(DNA);
         yrj.uid = uid;
         
-        cout << DNA << endl;
         this->testingGenomeLevel(&yrj, 4);
 
     }
