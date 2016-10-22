@@ -41,10 +41,26 @@ void Tester::testYRJvector(){
     this->globalCounter.resize(11,0);
     this->globalCounterEffect.resize(11, 0);
     
-    /*
-    while (getline(simBA5Stream, DNA )) {
-        getline(simBA5Stream, DNA );
-        YRJObject yrj(DNA);
+    
+    
+    vector<vector<string>> genomes;
+    int i = -1;
+    while (getline(simBA5Stream, DNA))
+    {
+        
+        if(DNA[0] == '>'){
+            genomes.emplace_back(vector<string>());
+            ++i;
+        }
+        else
+            genomes[i].emplace_back(DNA);
+        
+    }
+    
+    
+    for ( auto genome : genomes) {
+        
+        YRJObject yrj(genome);
         if(yrj.getNumOfKmers() == 0){
             cout << "ooooh\n";
             continue;
@@ -54,9 +70,9 @@ void Tester::testYRJvector(){
         this->testTheDifferences(result, yrj , 10);
     
     }
-     */
+     
     
-    
+    /*
     getline(simBA5Stream, DNA );
     getline(simBA5Stream, DNA );
     
@@ -65,7 +81,7 @@ void Tester::testYRJvector(){
     
     
     this->testingGenomeLevel(&yrj, 4);
-    
+    */
     
     
     

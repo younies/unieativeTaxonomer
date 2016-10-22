@@ -38,7 +38,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff2_HiSeq_big.txt";
+    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff2_HiSeq_newnew.txt";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;

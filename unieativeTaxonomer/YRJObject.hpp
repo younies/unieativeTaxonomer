@@ -31,7 +31,9 @@ public:
     
     YRJObject(string path , short index);
     
-    YRJObject(string & shortRead ); // for creating YRJ object from short read
+    
+    YRJObject(vector<string> &shortReads  );
+    
     ~YRJObject();
     
     vector<LONG>  kmersVector;
@@ -57,7 +59,8 @@ public:
     LONGS uid;
     short shorName;
 
-   
+    void fillTheHashKmer(vector<string> & shortReads ,  unordered_set<LONG> & hashKmers);
+
 
     
 };

@@ -9,21 +9,24 @@
 #include "YRJObject.hpp"
 
 
-YRJObject::YRJObject(string &shortRead  )
+YRJObject::YRJObject(vector<string> &shortReads  )
 {
     this->kmerLength = this->kmerStandardLength;
     
     
     vector<string> reads(1, "");
     
-    for(auto c : shortRead)
-    {
-        if(c == 'N')
-            reads.emplace_back("");
-        else
-            reads.back().push_back(c);
-    }
     
+    for(auto shortRead : shortReads)
+    {
+        for(auto c : shortRead)
+        {
+            if(c == 'N')
+                reads.emplace_back("");
+            else
+                reads.back().push_back(c);
+        }
+    }
     
     this->fillKmersFromShortRead(reads);
     
@@ -98,7 +101,21 @@ void YRJObject::fillKmersFromShortRead(vector<string> & shortReads)
     unordered_set<LONG>  hashKmers;
     
     
+    this->fillTheHashKmer(shortReads, hashKmers);
     
+    //fill and sort the kmers' vector
+        for(auto kmer : hashKmers)
+            this->kmersVector.emplace_back(kmer);
+        sort(this->kmersVector.begin(), this->kmersVector.end());
+        this->numOfKmers = this->kmersVector.size();
+    
+
+}
+
+
+
+void YRJObject::fillTheHashKmer(vector<string> & shortReads ,  unordered_set<LONG> & hashKmers)
+{
     for(auto shortRead : shortReads)
     {
         if(shortRead.size() < this->kmerStandardLength)
@@ -125,16 +142,7 @@ void YRJObject::fillKmersFromShortRead(vector<string> & shortReads)
         }
     }
     
-    //fill and sort the kmers' vector
-        for(auto kmer : hashKmers)
-            this->kmersVector.emplace_back(kmer);
-        sort(this->kmersVector.begin(), this->kmersVector.end());
-        this->numOfKmers = this->kmersVector.size();
-    
-
 }
-
-
 
 
 
