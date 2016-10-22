@@ -11,7 +11,7 @@
 
 
 void Tester::testYRJvector(){
-    ifstream simBA5Stream(this->pathHiSeq);
+    ifstream simBA5Stream(this->pathMiSeq);
     ifstream headerSimBA5Stream(this->path_to_simBA5_headers);
     
     

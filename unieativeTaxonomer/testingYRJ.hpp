@@ -22,6 +22,7 @@ class Tester {
     //constant we need in our program
     
     const string pathHiSeq = "/export1/project/hondius/testingUnieative/accuracy/HiSeq_accuracy.fa";
+    const string pathMiSeq = "/export1/project/hondius/testingUnieative/accuracy/MiSeq_accuracy.fa";
     const string path_to_simBA5 = "/export1/project/hondius/testingUnieative/accuracy/simBA5_accuracy.fa";
     const string path_to_simBA5_headers = "/export1/project/hondius/testingUnieative/accuracy/mappingGI.txt";
     const string path_to_the_hashed_databases = "/export1/project/hondius/unieative/databases/";
@@ -38,7 +39,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/results/maxDiff2_HiSeq_newnew.txt";
+    const string result = "/export1/project/hondius/testingUnieative/results/MiSeqMaxDiff.txt";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
