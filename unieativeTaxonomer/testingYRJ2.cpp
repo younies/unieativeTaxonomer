@@ -12,6 +12,49 @@
 
 void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
 {
+    
+    
+    
+    
+    map<short, int> tempHitsNum;
+    
+    
+    
+    
+    //to find all the LCAs
+    for(auto kmer: yrj->kmersVector)
+    {
+        
+        auto hits = this->hits_kmer_with_differences(kmer, differences);
+        
+        
+        if(hits.size() == 0){
+            continue;
+        }
+        
+        
+        
+        if(hits.size() > 0)
+        {
+            auto lca = this->pruinedTree->getGlobalLCA(hits);
+            
+            if(tempHitsNum.count(lca))
+                tempHitsNum[lca]++;
+            else
+                tempHitsNum[lca] = 1;
+        }
+        
+    }
+
+    if(tempHitsNum.size() == 0)
+    {
+        this->finalResult[this->notConsidered] ++;
+        return;
+    }
+    
+    
+    
+    
     map<short, int> hitNumbers;
     
     
