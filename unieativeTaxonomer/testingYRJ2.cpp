@@ -25,7 +25,7 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     for(auto kmer: yrj->kmersVector)
     {
         
-        auto hits = this->hits_kmer_with_differences(kmer, differences);
+        auto hits = this->hits_kmer_with_differences(kmer, 0);
         
         
         if(hits.size() == 0){
