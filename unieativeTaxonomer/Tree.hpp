@@ -11,6 +11,7 @@
 #include "YRJObject.hpp"
 #include "headers.h"
 #include "TreeNode.hpp"
+#include "BigTree.hpp"
 
 class Tree
 {
@@ -20,6 +21,9 @@ class Tree
     vector<LONGS> numberOfLeaves;
     void connectChildren();
     LONGS setNumberOfLeaves(TreeNode * node);
+    
+    
+    //vector for the genus level and species  level
     
     
 
@@ -53,6 +57,9 @@ public:
     
     
     short getTheMaximumKRAKENhit(map<short, int> & hitNumbers);
+    
+    
+    void connectSpeciesGenusLevels(BigTree * bigTree);
     
 };
 #endif /* Tree_hpp */

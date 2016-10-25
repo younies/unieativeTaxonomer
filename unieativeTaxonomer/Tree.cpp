@@ -14,7 +14,7 @@ Tree::Tree(string path)
     ifstream inputStream(path);
     
     
-    this->treeNodesVector.resize(11000 );
+    this->treeNodesVector.resize(this->treeSize);
     //this->fromShortNameToUid.resize(this->treeSize , -1);
     string line;
     

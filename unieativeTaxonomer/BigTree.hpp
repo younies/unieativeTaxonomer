@@ -57,7 +57,7 @@ public:
     
     vector<LONGS> get_All_Parents(Node node); // return parents indices
     LONGS get_LCA_between_Two_Nodes(Node node1 , Node node2);
-    Node get_Global_LCA(vector<Node> nodes);
+    Node get_Global_LCA(vector<Node>  nodes);
     
     
     LONGS get_Number_Of_Node_Leaves(Node node);
@@ -93,6 +93,8 @@ public:
     bool isBothInGenusLevel(LONGS uid_first , LONGS uid_second);
     
     LONGS getGenusUID(LONGS uid);
+    
+    LONGS getTheSpeciesUID(LONGS uid);// this method return the species UID for the taxonomer or -1 if it is upove this UID
     
 };
 

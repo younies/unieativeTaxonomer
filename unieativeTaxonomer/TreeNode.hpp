@@ -22,6 +22,9 @@ class TreeNode
 {
 
 public:
+    
+    short genus; // the short id for genus level of this node
+    short species; // the short id for the genus level of this node
     TreeNode * parent;
     vector<TreeNode* > children;
     short shortName;

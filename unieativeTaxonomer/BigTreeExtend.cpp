@@ -44,3 +44,27 @@ LONGS BigTree::getGenusUID(LONGS uid){
     return -1;
     
 }
+
+
+
+
+
+
+
+
+LONGS BigTree::getTheSpeciesUID(LONGS uid)
+{
+    LONGS index = this->uid_to_index(uid);
+    
+    
+    while (index)
+    {
+        if(levels[index] == "species")
+            return this->trie[index].uid;
+        
+        index = trie[index].parentIndex;
+    }
+    
+    return -1;
+    
+}
