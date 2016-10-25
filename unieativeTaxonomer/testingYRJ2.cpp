@@ -46,9 +46,9 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
         
     }
 
-    if(tempHitsNum.size() == 0)
+    if(tempHitsNum.size() != 0)
     {
-        this->finalResult[this->notConsidered] ++;
+        this->finalResult[this->notNeeded] ++;
         return;
     }
     

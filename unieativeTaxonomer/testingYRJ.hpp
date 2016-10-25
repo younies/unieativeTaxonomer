@@ -31,6 +31,7 @@ class Tester {
     const string hiSeqModified = "/export1/project/hondius/testingUnieative/accuracy/hiSeqModified.fa";
 
     const string notConsidered = "not_considered";
+    const string notNeeded = "not_needed";
     //conf main
     const string pattern1 =  "##-#--###---#-#-#-#-#--#-##--##";
     const string pattern11 = "#-#-##---#-#-#-#-#-#-##-#--##-#";
@@ -41,7 +42,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/results/firstMapResult_new_";
+    const string result = "/export1/project/hondius/testingUnieative/results/firstMapResult_theOther_";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;

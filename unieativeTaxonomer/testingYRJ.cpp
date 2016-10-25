@@ -84,6 +84,7 @@ void Tester::testYRJvector(int deep){
     
     
     this->finalResult[this->notConsidered] = 0;
+    this->finalResult[this->notNeeded] = 0;
     
     while (getline(hiseqNew, DNA))
     {
