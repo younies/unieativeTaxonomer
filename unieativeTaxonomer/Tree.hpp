@@ -15,7 +15,6 @@
 
 class Tree
 {
-    BigTree * bigTree;
     vector< TreeNode * > treeNodesVector;
     //vector<LONGS> fromShortNameToUid;
     const long treeSize = 11000l;
@@ -30,6 +29,8 @@ class Tree
     
 
 public:
+    BigTree * bigTree;
+
     short root = 0; /// should always hold the short for the root
     Tree(string pathToTheTree);
     

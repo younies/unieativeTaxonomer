@@ -86,6 +86,8 @@ void Tester::testYRJvector(int deep){
     this->finalResult[this->notConsidered] = 0;
     this->finalResult[this->notNeeded] = 0;
     
+    this->pruinedTree->bigTree = this->bigTree;
+    
     while (getline(hiseqNew, DNA))
     {
         long uid = stol(DNA);
@@ -93,7 +95,7 @@ void Tester::testYRJvector(int deep){
         YRJObject yrj(DNA);
         yrj.uid = uid;
         
-        this->testingGenomeLevel(&yrj, deep);
+        this->testingGenomeLevelWithNewMethodology(&yrj, deep);
 
     }
     
@@ -129,8 +131,6 @@ void Tester::test1YRJ(ofstream * result , YRJObject & yrj)
     }
     
     *result << endl;
-    
-    
     
     *result << endl;
     

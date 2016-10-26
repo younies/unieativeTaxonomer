@@ -42,7 +42,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/results/firstMapResult_theOther_";
+    const string result = "/export1/project/hondius/testingUnieative/results/testing_genus_level_";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
@@ -94,8 +94,9 @@ public:
     map<short, int>  getUnieativeHitsGenus(YRJObject * yrj , int differences );
     
     
-    
-    
+    short unieativeLCAKraken(map<short, int> unieativeHits);
+
+    string getLeastCommonLevel(YRJObject * yrj, short krakenShort);
 };
 
 
