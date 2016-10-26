@@ -15,6 +15,11 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
     
     auto  unieativeHits = this->getUnieativeHitsGenus(yrj ,  differences );
     
+    if(unieativeHits.empty()){
+        this->finalResult[this->notConsidered]++;
+        return;
+    }
+    
     auto finalUnieative = this->unieativeLCAKraken(unieativeHits);
     
     auto level = this->getLeastCommonLevel(yrj, finalUnieative);
