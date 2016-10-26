@@ -68,3 +68,8 @@ LONGS BigTree::getTheSpeciesUID(LONGS uid)
     return -1;
     
 }
+
+string BigTree::getLevel(LONGS position)
+{
+    return levels[position];
+}

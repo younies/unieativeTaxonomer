@@ -145,6 +145,8 @@ short Tree::getSpeciesParent(short shortName)
     return -1;
     
 }
+
+
 short Tree::getGenusParent(short shortName)
 {
     if(this->treeNodesVector[shortName]->genusParent != -2)
