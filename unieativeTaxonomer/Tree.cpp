@@ -7,12 +7,13 @@
 //
 
 #include "Tree.hpp"
-
 Tree::Tree(string path)
 {
     
     ifstream inputStream(path);
     
+    
+
     
     this->treeNodesVector.resize(this->treeSize);
     //this->fromShortNameToUid.resize(this->treeSize , -1);

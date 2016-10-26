@@ -9,120 +9,37 @@
 #include "testingYRJ.hpp"
 
 
+void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differences)
+{
+    //using my new methodology to make it better
+    
+}
+
+
 
 void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
 {
+    auto hitNumbers = this->getKrakenLCAs(yrj, differences);
     
-    
-    
-    
-    map<short, int> tempHitsNum;
-    
-    
-    
-    
-    //to find all the LCAs
-    for(auto kmer: yrj->kmersVector)
-    {
-        
-        auto hits = this->hits_kmer_with_differences(kmer, 0);
-        
-        
-        if(hits.size() == 0){
-            continue;
-        }
-        
-        
-        
-        if(hits.size() > 0)
-        {
-            auto lca = this->pruinedTree->getGlobalLCA(hits);
-            
-            if(tempHitsNum.count(lca))
-                tempHitsNum[lca]++;
-            else
-                tempHitsNum[lca] = 1;
-        }
-        
-    }
-
-    if(tempHitsNum.size() != 0)
-    {
-        this->finalResult[this->notNeeded] ++;
-        return;
-    }
-    
-    
-    
-    
-    map<short, int> hitNumbers;
-    
-    
-    
-
-    //to find all the LCAs
-    for(auto kmer: yrj->kmersVector)
-    {
-
-        auto hits = this->hits_kmer_with_differences(kmer, differences);
-        
-
-        if(hits.size() == 0){
-            continue;
-        }
-        
-        
-        
-        if(hits.size() > 0)
-        {
-            auto lca = this->pruinedTree->getGlobalLCA(hits);
-        
-            if(hitNumbers.count(lca))
-                hitNumbers[lca]++;
-            else
-                hitNumbers[lca] = 1;
-        }
-        
-    }
-    
-    
-    
-    
-    //to get kraken
+    //to get kraken Final Taxonomy
     
     if(hitNumbers.size() == 0)
     {
         this->finalResult[this->notConsidered] ++;
         return;
     }
+    
     auto krakenShort = this->pruinedTree->getTheMaximumKRAKENhit(hitNumbers);
     
-
-    
     auto krakenUID   = this->pruinedTree->getTheUIDFromShort(krakenShort);
-    cout << krakenUID << endl;
-
 
     auto krakenNode  = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(krakenUID));
-
-
-    cout << yrj->uid << endl;
     
     auto indexYRJ = this->bigTree->uid_to_index(yrj->uid);
    
-    
-     cout << indexYRJ << endl;
-
     auto yrjNode     = this->bigTree->getNodeFromIndex(indexYRJ);
     
-
-    
     auto testingLevelIndex = this->bigTree->get_LCA_between_Two_Nodes(krakenNode, yrjNode);
-    
-    
-    cout <<  testingLevelIndex << endl;
-    
-    
     
     auto levelUID = this->bigTree->getNodeFromIndex(testingLevelIndex);
     
@@ -133,7 +50,60 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     else
         finalResult[level] = 1;
     
-    
-    
-    
 }
+
+
+
+
+bool Tester::isKrakenCatch(YRJObject * yrj )
+{
+    //to find all the LCAs
+    for(auto kmer: yrj->kmersVector)
+    {
+        auto hits = this->hits_kmer_with_differences(kmer, 0);
+        
+        if(hits.size() != 0)
+            return true;
+    }
+    
+    return false;
+
+}
+
+map<short, int>  Tester::getKrakenLCAs(YRJObject * yrj , int differences)
+{
+    map<short, int> hitNumbers;
+    //to find all the LCAs
+    for(auto kmer: yrj->kmersVector)
+    {
+        auto hits = this->hits_kmer_with_differences(kmer, differences);
+        
+        if(hits.size() == 0){
+            continue;
+        }
+        
+        if(hits.size() > 0)
+        {
+            auto lca = this->pruinedTree->getGlobalLCA(hits);
+            
+            if(hitNumbers.count(lca))
+                hitNumbers[lca]++;
+            else
+                hitNumbers[lca] = 1;
+        }
+    }
+    return hitNumbers;
+}
+
+
+
+map<short, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences )
+{
+    map<short, int> unieativeHits;
+    
+    
+    
+    for(auto kmer :)
+     
+}
+

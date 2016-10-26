@@ -81,6 +81,21 @@ public:
     void testTheDifferences(ofstream * result , YRJObject & yrj , int maxDiff);
     
     void testingGenomeLevel( YRJObject * yrj  ,int differences);
+    
+    bool isKrakenCatch(YRJObject * yrj );// this function test if there is any hit at zero level?
+    
+    
+    map<short, int> getKrakenLCAs(YRJObject * yrj , int differences);
+    
+    
+    
+    void testingGenomeLevelWithNewMethodology( YRJObject * yrj  ,int differences);
+
+    map<short, int>  getUnieativeHitsGenus(YRJObject * yrj , int differences );
+    
+    
+    
+    
 };
 
 

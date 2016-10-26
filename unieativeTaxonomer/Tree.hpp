@@ -15,13 +15,15 @@
 
 class Tree
 {
+    BigTree * bigTree;
     vector< TreeNode * > treeNodesVector;
     //vector<LONGS> fromShortNameToUid;
     const long treeSize = 11000l;
     vector<LONGS> numberOfLeaves;
     void connectChildren();
     LONGS setNumberOfLeaves(TreeNode * node);
-    
+    const string species    = "species";
+    const string genus      = "genus";
     
     //vector for the genus level and species  level
     
@@ -55,6 +57,10 @@ public:
     vector<YRJObject *> getYRJobjects(string path );
     
     
+    short getSpeciesParent(YRJObject * yrj);// this function return the speciest parent short number
+    short getGenusParent(YRJObject * yrj);// this function return the Genus parent short number
+    short getSpeciesParent(short shortName);// this function return the speciest parent short number
+    short getGenusParent(short shortName);// this function return the Genus parent short number
     
     short getTheMaximumKRAKENhit(map<short, int> & hitNumbers);
     

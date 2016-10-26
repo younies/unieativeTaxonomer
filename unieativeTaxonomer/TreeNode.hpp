@@ -33,6 +33,12 @@ public:
     LONGS uid, parentUid;
     
     
+    short speciesParent = -2;
+    short genusParent = -2;
+    
+
+    
+    
 
     TreeNode(LONGS uid , LONGS parentUid , short shortName , short parentShortName , bool tagged);
 };

@@ -19,6 +19,7 @@ class YRJObject
     string path_to_file;
     short index;
     
+
     ifstream * fileStream;
     
     const int kmerStandardLength = 31;
@@ -28,7 +29,9 @@ class YRJObject
 public:
     
     
-    
+    short speciesParent = -2;
+    short genusParent = -2;
+
     YRJObject(string path , short index);
     
     YRJObject(string &shortRead );
