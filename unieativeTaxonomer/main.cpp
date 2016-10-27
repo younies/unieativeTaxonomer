@@ -78,6 +78,11 @@ int main(int argc, const char * argv[])
     
     LONGS uid = 6907;
     
+    if(argc == 2)
+    {
+        uid = stol(argv[1]);
+    }
+    
     while(uid > 1)
     {
         auto position = bigTree->uid_to_index(uid);
