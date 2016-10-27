@@ -64,12 +64,30 @@ int main(int argc, const char * argv[])
     
     
     
-    
+    /***
     
     for(int deep  = 1   ; deep < 10 ; deep++ )
     {
         Tester *tester = new Tester();
         tester->testYRJvector(deep);
+    }
+    */
+    
+    BigTree * bigTree = new BigTree(path_to_the_names_dmp_file, path_to_the_nodes_dmp_file);
+    
+    
+    LONGS uid = 6907;
+    
+    while(uid > 1)
+    {
+        auto position = bigTree->uid_to_index(uid);
+        auto level =  bigTree->getLevel(position);\
+        
+        cout << uid << "   " << position << "    " << level;
+        
+        auto node = bigTree->getNodeFromIndex(position);
+        
+        uid = node.parentUID;
     }
     
     
