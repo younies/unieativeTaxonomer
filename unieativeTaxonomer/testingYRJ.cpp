@@ -94,7 +94,7 @@ void Tester::testYRJvector(int deep){
         getline(hiseqNew, DNA);
         YRJObject yrj(DNA);
         yrj.uid = uid;
-        
+        cout << DNA << endl;
         this->testingGenomeLevelWithNewMethodology(&yrj, deep);
 
     }
