@@ -66,6 +66,7 @@ short Tree::getSpeciesParent(YRJObject * yrj)
     
     while (speciesParent != 0)
     {
+        
         auto uid = this->treeNodesVector[speciesParent]->uid;
         auto index_in_BigTree = this->bigTree->uid_to_index(uid);
         auto level = this->bigTree->getLevel(index_in_BigTree);
@@ -97,6 +98,9 @@ short  Tree::getGenusParent(YRJObject * yrj)
     
     while (genusParent != 0)
     {
+        
+        cout << genusParent << endl;
+        
         auto uid = this->treeNodesVector[genusParent]->uid;
         auto index_in_BigTree = this->bigTree->uid_to_index(uid);
         auto level = this->bigTree->getLevel(index_in_BigTree);
