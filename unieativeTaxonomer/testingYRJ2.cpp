@@ -94,6 +94,17 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     auto krakenShort = this->pruinedTree->getTheMaximumKRAKENhit(hitNumbers);
     
+    
+    auto UID = this->pruinedTree->getTheUIDFromShort(krakenShort);
+    
+    auto genusUID = this->bigTree->getGenusUID(UID);
+    
+    if(genusUID == -1)
+    {
+        finalResult[this->notNeeded]++;
+        return;
+    }
+    
     auto level = this->getLeastCommonLevel(yrj, krakenShort);
     
     if(this->finalResult.count(level))
@@ -136,6 +147,11 @@ map<short, int>  Tester::getKrakenLCAs(YRJObject * yrj , int differences)
         if(hits.size() > 0)
         {
             auto lca = this->pruinedTree->getGlobalLCA(hits);
+            
+            
+            
+            
+            
             
             if(hitNumbers.count(lca))
                 hitNumbers[lca]++;
