@@ -58,6 +58,8 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
     auto level = this->getLeastCommonLevel(yrj, finalUnieative);
     
     
+    if(level == "no")
+    
     if(this->finalResult.count(level))
         finalResult[level] ++;
     else
@@ -289,6 +291,9 @@ string Tester::getLeastCommonLevel(YRJObject * yrj, short krakenShort)
     auto levelUID = this->bigTree->getNodeFromIndex(testingLevelIndex);
     
     string level = this->bigTree->get_level(levelUID);
+    
+    if(level == "no")
+        level = this->bigTree->getNextNotNoLevellevel(levelUID);
     
     return level;
 
