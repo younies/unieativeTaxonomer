@@ -84,6 +84,7 @@ string BigTree::getNextNotNoLevellevel(Node node)
     
     while (levels[position] == "no")
     {
+        cerr << position << endl;
         position = this->trie[position].parentIndex;
     }
     
