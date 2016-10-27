@@ -260,9 +260,14 @@ string Tester::getLeastCommonLevel2(YRJObject * yrj, LONGS finalResultUID)
     
     auto testingLevelIndex = this->bigTree->get_LCA_between_Two_Nodes(krakenNode, yrjNode);
     
-    auto levelUID = this->bigTree->getNodeFromIndex(testingLevelIndex);
+    auto levelNode = this->bigTree->getNodeFromIndex(testingLevelIndex);
     
-    string level = this->bigTree->get_level(levelUID);
+    string level = this->bigTree->get_level(levelNode);
+    
+    if(level == "no")
+    {
+        level = this->bigTree->getNextNotNoLevellevel(levelNode);
+    }
     
     return level;
 }

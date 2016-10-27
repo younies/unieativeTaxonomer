@@ -73,3 +73,19 @@ string BigTree::getLevel(LONGS position)
 {
     return levels[position];
 }
+
+
+
+
+string BigTree::getNextNotNoLevellevel(Node node)
+{
+    auto position = node.myselfIndex;
+    
+    while (levels[position] == "no")
+    {
+        position = this->trie[position].parentIndex;
+    }
+    
+    return levels[position];
+    
+}

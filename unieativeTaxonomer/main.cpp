@@ -64,16 +64,16 @@ int main(int argc, const char * argv[])
     
     
     
-    /***
+
     
-    for(int deep  = 1   ; deep < 10 ; deep++ )
+    for(int deep  = 0   ; deep < 10 ; deep++ )
     {
         Tester *tester = new Tester();
         tester->testYRJvector(deep);
     }
-    */
+
     
-    BigTree * bigTree = new BigTree(path_to_the_names_dmp_file, path_to_the_nodes_dmp_file);
+    /*BigTree * bigTree = new BigTree(path_to_the_names_dmp_file, path_to_the_nodes_dmp_file);
     
     
     LONGS uid = 6907;
@@ -100,7 +100,7 @@ int main(int argc, const char * argv[])
         uid = node.parentUID;
     }
     
-    
+    */
     return 0;
 }
 

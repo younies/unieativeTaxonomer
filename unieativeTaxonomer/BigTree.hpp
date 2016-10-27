@@ -96,6 +96,8 @@ public:
     
     LONGS getTheSpeciesUID(LONGS uid);// this method return the species UID for the taxonomer or -1 if it is upove this UID
     
+    string getNextNotNoLevellevel(Node node);
+    
 };
 
 
