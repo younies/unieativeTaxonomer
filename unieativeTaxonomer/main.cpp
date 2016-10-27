@@ -83,6 +83,11 @@ int main(int argc, const char * argv[])
         uid = stol(argv[1]);
     }
     
+    
+    Tree * pruned = new Tree(path_to_pruined_tree);
+    
+    uid = pruned->getTheUIDFromShort(uid);
+    
     while(uid > 1)
     {
         auto position = bigTree->uid_to_index(uid);
