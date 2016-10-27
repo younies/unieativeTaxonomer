@@ -20,7 +20,7 @@ void Tester::testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int diffe
 
     auto finalUnieative = this->unieativeLCAKraken(unieativeHits);
 
-    auto level = this->getLeastCommonLevel(yrj, finalUnieative);
+    auto level = this->getLeastCommonLevel2(yrj, finalUnieative);
 
     if(this->finalResult.count(level))
         finalResult[level] ++;
@@ -145,24 +145,25 @@ map<short, int>  Tester::getKrakenLCAs(YRJObject * yrj , int differences)
 }
 
 
-map<short, int>  Tester::getUnieativeHitsSpecies(YRJObject * yrj , int differences )
+map<LONGS, int>  Tester::getUnieativeHitsSpecies(YRJObject * yrj , int differences )
 {
-    map<short, int> unieativeHits;
+    map<LONGS, int> unieativeHits;
     
     for(auto kmer : yrj->kmersVector)
     {
         auto hits = this->hits_kmer_with_differences(kmer, differences);
+        
         if(hits.size() == 0){
             continue;
         }
         
-        set<short> speciesHits;
+        set<LONGS> speciesHits;
         
         for (auto hit: hits)
         {
             
             if(this->pruinedTree->getSpeciesParent( hit) != -1)
-                speciesHits.insert( this->pruinedTree->getSpeciesParent( hit));
+                speciesHits.insert( this->getSpeciesLevelUID( hit));
             else
                 cerr << "big problem \n" << hit <<endl;
         }
@@ -184,9 +185,9 @@ map<short, int>  Tester::getUnieativeHitsSpecies(YRJObject * yrj , int differenc
 
 
 
-map<short, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences )
+map<LONGS, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences )
 {
-    map<short, int> unieativeHits;
+    map<LONGS, int> unieativeHits;
     
     
     
@@ -198,7 +199,7 @@ map<short, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
             continue;
         }
         
-        set<short> genusHits;
+        set<LONGS> genusHits;
         
         for (auto hit: hits)
         {
@@ -226,22 +227,41 @@ map<short, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
 
 
 
-short Tester::unieativeLCAKraken(map<short, int> unieativeHits)
+LONGS Tester::unieativeLCAKraken(map<LONGS, int> unieativeHits)
 {
     int maximum = 0;
     
-    vector<short> maxNodes;
+    vector<Node> maxNodes;
     for(auto hit: unieativeHits)
         maximum = max(maximum , hit.second);
     
     for(auto unieative: unieativeHits)
         if(unieative.second == maximum)
-            maxNodes.emplace_back(unieative.first);
+            maxNodes.emplace_back( this->bigTree->getNodeFromIndex( this->bigTree->uid_to_index(  unieative.first)));
     
     
-    return this->pruinedTree->getGlobalLCA(maxNodes);
+    auto finalNode = this->bigTree->get_Global_LCA(maxNodes);
+    
+    return finalNode.uid;
 
     
+}
+
+
+string Tester::getLeastCommonLevel2(YRJObject * yrj, LONGS finalResultUID)
+{
+    auto krakenNode  = this->bigTree->getNodeFromIndex(this->bigTree->uid_to_index(finalResultUID));
+    auto indexYRJ = this->bigTree->uid_to_index(yrj->uid);
+    
+    auto yrjNode     = this->bigTree->getNodeFromIndex(indexYRJ);
+    
+    auto testingLevelIndex = this->bigTree->get_LCA_between_Two_Nodes(krakenNode, yrjNode);
+    
+    auto levelUID = this->bigTree->getNodeFromIndex(testingLevelIndex);
+    
+    string level = this->bigTree->get_level(levelUID);
+    
+    return level;
 }
 
 
@@ -265,5 +285,19 @@ string Tester::getLeastCommonLevel(YRJObject * yrj, short krakenShort)
     return level;
 
 }
+
+
+
+
+
+
+LONGS Tester::getSpeciesLevelUID(short shortName)
+{
+    auto uid = this->pruinedTree->getTheUIDFromShort(shortName);
+    
+    return this->bigTree->getTheSpeciesUID(uid);
+}
+
+
 
 
