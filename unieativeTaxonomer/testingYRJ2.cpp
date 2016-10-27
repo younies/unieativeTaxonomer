@@ -151,7 +151,7 @@ map<LONGS, int>  Tester::getUnieativeHitsSpecies(YRJObject * yrj , int differenc
     
     for(auto kmer : yrj->kmersVector)
     {
-        auto hits = this->hits_kmer_with_differences(kmer, differences);
+        vector<short> hits = this->hits_kmer_with_differences(kmer, differences);
         
         if(hits.size() == 0){
             continue;
@@ -161,9 +161,10 @@ map<LONGS, int>  Tester::getUnieativeHitsSpecies(YRJObject * yrj , int differenc
         
         for (auto hito: hits)
         {
-            
+            cout << "start \n";
             auto hit = this->pruinedTree->getTheUIDFromShort(hito);
             
+            cout << "end \n";
             if(this->getSpeciesLevelUID( hit) != -1)
                 speciesHits.insert( this->getSpeciesLevelUID( hit));
             else
