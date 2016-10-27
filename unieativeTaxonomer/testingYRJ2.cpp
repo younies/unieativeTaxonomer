@@ -159,13 +159,15 @@ map<LONGS, int>  Tester::getUnieativeHitsSpecies(YRJObject * yrj , int differenc
         
         set<LONGS> speciesHits;
         
-        for (auto hit: hits)
+        for (auto hito: hits)
         {
             
-            if(this->pruinedTree->getSpeciesParent( hit) != -1)
+            auto hit = this->pruinedTree->getTheUIDFromShort(hito);
+            
+            if(this->getSpeciesLevelUID( hit) != -1)
                 speciesHits.insert( this->getSpeciesLevelUID( hit));
             else
-                cerr << "big problem \n" << hit <<endl;
+                cerr << "big problem 44 \n" << hit <<endl;
         }
         
         for(auto species: speciesHits)
