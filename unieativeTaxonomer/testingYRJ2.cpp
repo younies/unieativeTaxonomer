@@ -159,12 +159,12 @@ map<LONGS, int>  Tester::getUnieativeHitsSpecies(YRJObject * yrj , int differenc
         
         set<LONGS> speciesHits;
         
-        for (auto hito: hits)
+        for (auto hit: hits)
         {
-            cout << "start \n";
-            auto hit = this->pruinedTree->getTheUIDFromShort(hito);
+           // cout << "start \n";
+            //auto hit = this->pruinedTree->getTheUIDFromShort(hito);
             
-            cout << "end \n";
+          //  cout << "end \n";
             if(this->getSpeciesLevelUID( hit) != -1)
                 speciesHits.insert( this->getSpeciesLevelUID( hit));
             else
