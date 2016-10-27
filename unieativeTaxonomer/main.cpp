@@ -83,7 +83,7 @@ int main(int argc, const char * argv[])
         auto position = bigTree->uid_to_index(uid);
         auto level =  bigTree->getLevel(position);\
         
-        cout << uid << "   " << position << "    " << level;
+        cout << uid << "   " << position << "    " << level << endl;
         
         auto node = bigTree->getNodeFromIndex(position);
         
