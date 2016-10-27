@@ -90,11 +90,14 @@ short Tree::getSpeciesParent(YRJObject * yrj)
 
 short  Tree::getGenusParent(YRJObject * yrj)
 {
+    cout << "genusParent" << endl;
     if(yrj->genusParent != -2)
         return yrj->genusParent;
     
     
     auto genusParent = yrj->shorName;
+    
+    cout << genusParent << endl;
     
     while (genusParent != 0)
     {

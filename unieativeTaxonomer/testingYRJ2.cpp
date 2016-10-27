@@ -131,7 +131,10 @@ map<short, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
         
         for (auto hit: hits)
         {
-            genusHits.insert( this->pruinedTree->getGenusParent( hit));
+            if(this->pruinedTree->getGenusParent( hit) != -1)
+                genusHits.insert( this->pruinedTree->getGenusParent( hit));
+            else
+                cerr << "big problem \n";
         }
         
         
