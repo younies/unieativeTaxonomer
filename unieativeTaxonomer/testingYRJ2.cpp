@@ -41,9 +41,6 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
         *result << res.first << "\t" << res.second << endl;
     }
     
-    
-
-    
 }
 
 
@@ -134,7 +131,7 @@ map<short, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
         
         for (auto hit: hits)
         {
-            genusHits.insert( this->pruinedTree->getGenusParent(hit));
+            genusHits.insert( this->pruinedTree->getGenusParent(this->pruinedTree->getTheUIDFromShort( hit)));
         }
         
         
