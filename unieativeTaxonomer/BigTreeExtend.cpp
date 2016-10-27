@@ -57,8 +57,9 @@ LONGS BigTree::getTheSpeciesUID(LONGS uid)
     LONGS index = this->uid_to_index(uid);
     
     
-    while (index)
+    while (index > 1)
     {
+        
         if(levels[index] == "species")
             return this->trie[index].uid;
         
