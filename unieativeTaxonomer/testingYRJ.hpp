@@ -87,7 +87,8 @@ public:
     
     map<short, int> getKrakenLCAs(YRJObject * yrj , int differences);
     
-    
+    map<short, int>  getUnieativeHitsSpecies(YRJObject * yrj , int differences );
+
     
     void testingGenomeLevelWithNewMethodology( YRJObject * yrj  ,int differences);
 
@@ -97,6 +98,9 @@ public:
     short unieativeLCAKraken(map<short, int> unieativeHits);
 
     string getLeastCommonLevel(YRJObject * yrj, short krakenShort);
+    
+    void testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int differences);
+
 };
 
 

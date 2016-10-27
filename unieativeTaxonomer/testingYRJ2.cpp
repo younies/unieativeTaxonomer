@@ -9,6 +9,39 @@
 #include "testingYRJ.hpp"
 
 
+
+void Tester::testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int differences)
+{
+    auto  unieativeHits = this->getUnieativeHitsSpecies(yrj ,  differences );
+    if(unieativeHits.empty()){
+        this->finalResult[this->notConsidered]++;
+        return;
+    }
+
+    auto finalUnieative = this->unieativeLCAKraken(unieativeHits);
+
+    auto level = this->getLeastCommonLevel(yrj, finalUnieative);
+
+    if(this->finalResult.count(level))
+        finalResult[level] ++;
+    else
+        finalResult[level] = 1;
+    cout << level << endl;
+    
+    string s;
+    s.push_back( (char)(differences + '0'));
+    
+    ofstream * result = new ofstream(this->result + s + ".out" );
+    for(auto res : this->finalResult)
+    {
+        *result << res.first << "\t" << res.second << endl;
+    }
+
+    
+}
+
+
+
 void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differences)
 {
     //using my new methodology to make it better
@@ -112,6 +145,44 @@ map<short, int>  Tester::getKrakenLCAs(YRJObject * yrj , int differences)
 }
 
 
+map<short, int>  Tester::getUnieativeHitsSpecies(YRJObject * yrj , int differences )
+{
+    map<short, int> unieativeHits;
+    
+    for(auto kmer : yrj->kmersVector)
+    {
+        auto hits = this->hits_kmer_with_differences(kmer, differences);
+        if(hits.size() == 0){
+            continue;
+        }
+        
+        set<short> speciesHits;
+        
+        for (auto hit: hits)
+        {
+            
+            if(this->pruinedTree->getSpeciesParent( hit) != -1)
+                speciesHits.insert( this->pruinedTree->getSpeciesParent( hit));
+            else
+                cerr << "big problem \n" << hit <<endl;
+        }
+        
+        for(auto species: speciesHits)
+        {
+            if(unieativeHits.count(species))
+                unieativeHits[species]++;
+            else
+                unieativeHits[species] = 1;
+        }
+        
+    }
+    
+    
+    return unieativeHits;
+
+}
+
+
 
 map<short, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences )
 {
@@ -131,6 +202,7 @@ map<short, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
         
         for (auto hit: hits)
         {
+            
             if(this->pruinedTree->getGenusParent( hit) != -1)
                 genusHits.insert( this->pruinedTree->getGenusParent( hit));
             else
