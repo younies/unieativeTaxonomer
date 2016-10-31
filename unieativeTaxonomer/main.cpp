@@ -71,6 +71,7 @@ int main(int argc, const char * argv[])
         //testing the tester
         Tester *tester = new Tester();
         tester->testYRJvector(deep);
+        delete tester;
     }
 
     

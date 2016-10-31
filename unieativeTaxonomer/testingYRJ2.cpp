@@ -37,6 +37,7 @@ void Tester::testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int diffe
         *result << res.first << "\t" << res.second << endl;
     }
 
+    result->close();
     
 }
 
