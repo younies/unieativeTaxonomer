@@ -80,9 +80,15 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
 }
 
 
-
+//Kraken
 void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
 {
+    
+    if(!this->isKrakenCatch(yrj))
+    {
+        this->finalResult[this->notConsidered] ++;
+        return;
+    }
     auto hitNumbers = this->getKrakenLCAs(yrj, differences);
     
     //to get kraken Final Taxonomy
