@@ -26,19 +26,9 @@ void Tester::testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int diffe
         finalResult[level] ++;
     else
         finalResult[level] = 1;
-    cout << level << endl;
     
-    string s;
-    s.push_back( (char)(differences + '0'));
     
-    ofstream * result = new ofstream(this->result + s + ".out" );
-    for(auto res : this->finalResult)
-    {
-        *result << res.first << "\t" << res.second << endl;
-    }
 
-    result->close();
-    
 }
 
 

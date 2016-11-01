@@ -95,8 +95,8 @@ void Tester::testYRJvector(int deep){
         YRJObject yrj(DNA);
         yrj.uid = uid;
      //   cout << DNA << endl;
-        this->testingGenomeLevel(&yrj, deep);
-
+        //this->testingGenomeLevel(&yrj, deep);
+        testingSpeciesLevelWithNewMethodology(&yrj, deep);
     }
     
     
@@ -112,6 +112,9 @@ void Tester::testYRJvector(int deep){
     
     result->close();
     
+    
+    delete bigTree;
+    delete pruinedTree;
     
     
 }
