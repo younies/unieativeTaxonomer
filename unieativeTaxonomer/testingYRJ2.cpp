@@ -63,10 +63,10 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
     
     if(this->finalResult.count(level))
         finalResult[level] ++;
-    else
+    else{
         finalResult[level] = 1;
-    
-    cout << level << endl;
+    }
+    //cout << level << endl;
     
     string s;
     s.push_back( (char)(differences + '0'));
@@ -83,12 +83,13 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
 //Kraken
 void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
 {
-    
+    /*
     if(!this->isKrakenCatch(yrj))
     {
         this->finalResult[this->notConsidered] ++;
         return;
     }
+     */
     auto hitNumbers = this->getKrakenLCAs(yrj, differences);
     
     //to get kraken Final Taxonomy
