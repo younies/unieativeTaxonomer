@@ -337,3 +337,60 @@ LONGS Tester::getSpeciesLevelUID(short shortName)
 
 
 
+void Tester::calculate_accurcy(string file)
+{
+    ofstream output(file);
+    
+    
+    double total = 0.0;
+    
+    for(auto element : finalResult)
+    {
+        
+        if(element.first == notConsidered)
+            continue;
+        if(element.first == notNeeded)
+            continue;
+        
+        total+= element.second;
+    }
+    
+    
+    double speciesAccuracy = 0.0;
+    
+    
+    speciesAccuracy += getElementInTheResult("species");
+    speciesAccuracy += getElementInTheResult("subspecies");
+    
+    
+    
+    
+    double genusAccuracy = speciesAccuracy ;
+    genusAccuracy +=getElementInTheResult ("genus");
+    
+    
+    double not_counted = getElementInTheResult(notConsidered) + getElementInTheResult(notNeeded);
+    
+    
+    output << "species:\t" << speciesAccuracy/total << endl;
+    output << "genus:\t" << genusAccuracy/total << endl;
+    output << "not used" << not_counted/(total + not_counted) << endl;
+    
+    output.close();
+    
+    
+    
+    
+}
+
+
+
+long Tester::getElementInTheResult(string element)
+{
+    if(finalResult.count(element) )
+        return finalResult[element] ;
+
+    return 0;
+}
+
+

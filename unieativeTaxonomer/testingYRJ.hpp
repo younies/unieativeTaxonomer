@@ -42,7 +42,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/results/Kraken_Net_";
+    const string result = "/export1/project/hondius/testingUnieative/newResults/Kraken_Net_";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
@@ -104,6 +104,11 @@ public:
     LONGS getSpeciesLevelUID(short shortName);
 
     string getLeastCommonLevel2(YRJObject * yrj, LONGS finalResultUID);
+    
+    void calculate_accurcy(string file);
+    
+    long getElementInTheResult(string element);
+    
 };
 
 

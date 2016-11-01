@@ -100,13 +100,17 @@ void Tester::testYRJvector(int deep){
     }
     
     
+    calculate_accurcy(this->result + "_summery_" + s + ".out");
     
-    for(auto res : this->finalResult)
+    
+    string ranks[] = {"root" , "phylum" , "class" , "order" , "family" , "genus" , "species" , "subspecies" , "no" , notConsidered , notNeeded};
+    
+    for(auto rank : ranks)
     {
-        *result << res.first << "\t" << res.second << endl;
+        *result << rank  << "\t" << getElementInTheResult(rank) << endl;
     }
     
-    
+    result->close();
     
     
     
