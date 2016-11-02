@@ -35,7 +35,7 @@ LONGS BigTree::getGenusUID(LONGS uid){
     while (uid != 1) {
         auto index = this->uid_to_index(uid);
         auto node  = this->getNodeFromIndex(index);
-        auto level = get_level(node);
+        string level = get_level(node);
         if(level == "genus")// we should check this
             return uid;
         uid = node.parentUID;

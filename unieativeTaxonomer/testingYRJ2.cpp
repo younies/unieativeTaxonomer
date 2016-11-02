@@ -53,7 +53,7 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
     
     auto finalUnieative = this->unieativeLCAKraken(unieativeHits);
     
-    auto level = this->getLeastCommonLevel(yrj, finalUnieative);
+    auto level = this->getLeastCommonLevel2(yrj, finalUnieative);
     
     if(bigTree->getGenusUID(finalUnieative) < 0)
     {
