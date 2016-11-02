@@ -82,7 +82,7 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     //to get kraken Final Taxonomy
     
-    if(hitNumbers.size() < 3)
+    if(hitNumbers.size() < 2)
     {
         this->finalResult[this->notConsidered] ++;
         return;
