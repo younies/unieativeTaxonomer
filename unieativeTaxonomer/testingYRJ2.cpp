@@ -253,7 +253,9 @@ map<LONGS, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
             
             if(genusUID == -1 && speciesUID != -1)
             {
-                cout << "oooooh " << hit << endl;
+                cout << "oooooh " << speciesUID << endl;
+                ofstream str("/export1/project/hondius/testingUnieative/newResults/log.txt");
+                str << speciesUID << endl;
             }
             
             if(genusUID != -1)
