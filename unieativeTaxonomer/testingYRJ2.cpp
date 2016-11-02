@@ -234,6 +234,7 @@ map<LONGS, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
     {
         auto hits = this->hits_kmer_with_differences(kmer, differences);
         
+        
         if(hits.size() == 0){
             continue;
         }
@@ -242,6 +243,11 @@ map<LONGS, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
         
         for (auto hit: hits)
         {
+            if(hit < 0)
+            {
+                cout << "weired error  " << hit << "\n";
+                break;
+            }
             auto genusUID = getGenusLevelUID(hit);
             if(genusUID != -1)
                 genusHits.insert( genusUID);
