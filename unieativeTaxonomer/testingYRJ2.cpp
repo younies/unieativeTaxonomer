@@ -179,7 +179,7 @@ map<LONGS, int>  Tester::getUnieativeHitsWeightedSpecies(YRJObject * yrj , int d
                     tempHits[speciesUID] = hit.second;
             }
             else
-                cerr << "big problem 44 \n" << hit <<endl;
+                cerr << "big problem 44 \n" << hit.first <<endl;
         }
         
         for(auto tmpHit : tempHits)
