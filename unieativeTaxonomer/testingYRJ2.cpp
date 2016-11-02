@@ -115,9 +115,9 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     auto UID = this->pruinedTree->getTheUIDFromShort(krakenShort);
     
-    auto genusUID = this->bigTree->getGenusUID(UID);
+    auto speciesUID = this->bigTree->getTheSpeciesUID(UID);
     
-    if(genusUID == -1)
+    if(speciesUID == -1)
     {
         finalResult[this->notNeeded]++;
         return;
