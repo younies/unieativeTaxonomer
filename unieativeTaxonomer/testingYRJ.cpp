@@ -323,14 +323,8 @@ map<short, int> Tester::hits_kmer_with_differences_weighted(LONG kmer , int diff
         }
     }
     
-    vector<short, int> ret;
     
-    for(auto retEle : retMap)
-    {
-        ret.emplace_back(retEle);
-    }
-    
-    return ret;
+    return retMap;
 }
 
 
