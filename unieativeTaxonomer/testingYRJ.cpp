@@ -299,7 +299,7 @@ vector< pair<short, short> >  Tester::getNumerOfDifferences(Hash * hash , LONG k
 
 
 
-vector<short, int> Tester::hits_kmer_with_differences_weighted(LONG kmer , int differences)
+map<short, int> Tester::hits_kmer_with_differences_weighted(LONG kmer , int differences)
 {
     map<short, int> retMap;
     

@@ -117,7 +117,7 @@ public:
     map<LONGS, int>  getUnieativeHitsWeightedSpecies(YRJObject * yrj , int differences );
 
     
-    vector<short, int> hits_kmer_with_differences_weighted(LONG kmer , int differences);
+    map<short, int> hits_kmer_with_differences_weighted(LONG kmer , int differences);
     
     void testingSpeciesLevelWithWeightedMethodology(YRJObject * yrj   , int differences);
 };
