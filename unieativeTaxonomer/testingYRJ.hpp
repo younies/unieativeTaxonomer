@@ -103,6 +103,8 @@ public:
     
     LONGS getSpeciesLevelUID(short shortName);
 
+    LONGS getGenusLevelUID(short shortName);
+
     string getLeastCommonLevel2(YRJObject * yrj, LONGS finalResultUID);
     
     void calculate_accurcy(string file);

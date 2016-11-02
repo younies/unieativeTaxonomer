@@ -242,9 +242,9 @@ map<LONGS, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
         
         for (auto hit: hits)
         {
-            
-            if(this->pruinedTree->getGenusParent( hit) != -1)
-                genusHits.insert( this->pruinedTree->getGenusParent( hit));
+            auto genusUID = getGenusLevelUID(hit);
+            if(genusUID != -1)
+                genusHits.insert( genusUID);
             else
                 cerr << "big problem \n" << hit <<endl;
         }
@@ -348,6 +348,13 @@ LONGS Tester::getSpeciesLevelUID(short shortName)
     return this->bigTree->getTheSpeciesUID(uid);
 }
 
+
+LONGS Tester::getGenusLevelUID(short shortName)
+{
+    auto uid = this->pruinedTree->getTheUIDFromShort(shortName);
+
+    return this->bigTree->getGenusUID(uid);
+}
 
 
 
