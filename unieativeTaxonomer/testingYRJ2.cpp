@@ -395,7 +395,7 @@ void Tester::calculate_accurcy(string file)
     
     output << "species:\t" << speciesAccuracy/total << endl;
     output << "genus:\t" << genusAccuracy/total << endl;
-    output << "not used" << not_counted/(total + not_counted) << endl;
+    output << "not used\t" << not_counted/(total + not_counted) << endl;
     
     output.close();
     
