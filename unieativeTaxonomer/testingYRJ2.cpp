@@ -20,6 +20,13 @@ void Tester::testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int diffe
 
     auto finalUnieative = this->unieativeLCAKraken(unieativeHits);
 
+    
+    if(bigTree->getGenusUID(finalUnieative) < 0)
+    {
+        finalResult[notNeeded]++;
+        return;
+    }
+    
     auto level = this->getLeastCommonLevel2(yrj, finalUnieative);
 
     if(this->finalResult.count(level))
@@ -57,7 +64,8 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
         finalResult[level] = 1;
     }
     //cout << level << endl;
-    
+    /*
+     
     string s;
     s.push_back( (char)(differences + '0'));
 
@@ -66,7 +74,7 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
     {
         *result << res.first << "\t" << res.second << endl;
     }
-    
+    */
 }
 
 
@@ -284,6 +292,9 @@ string Tester::getLeastCommonLevel2(YRJObject * yrj, LONGS finalResultUID)
     {
         level = this->bigTree->getNextNotNoLevellevel(levelNode);
     }
+    
+    //if( bigTree->getGenusUID(levelNode.uid)  < 0 )
+      //  return this->notNeeded;
     
     return level;
 }
