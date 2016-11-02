@@ -8,7 +8,32 @@
 
 #include "testingYRJ.hpp"
 
+void Tester::testingSpeciesLevelWithWeightedMethodology(YRJObject * yrj   , int differences)
+{
+    auto  unieativeHits = this->getUnieativeHitsWeightedSpecies(yrj ,  differences );
 
+    if(unieativeHits.empty()){
+        this->finalResult[this->notConsidered]++;
+        return;
+    }
+    
+    auto finalUnieative = this->unieativeLCAKraken(unieativeHits);
+
+    
+    if(bigTree->getGenusUID(finalUnieative) < 0)
+    {
+        finalResult[notNeeded]++;
+        return;
+    }
+    
+    auto level = this->getLeastCommonLevel2(yrj, finalUnieative);
+    
+    if(this->finalResult.count(level))
+        finalResult[level] ++;
+    else
+        finalResult[level] = 1;
+
+}
 
 void Tester::testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int differences)
 {
@@ -40,54 +65,7 @@ void Tester::testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int diffe
 
 
 
-void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differences)
-{
-    //using my new methodology to make it better
-    
-    auto  unieativeHits = this->getUnieativeHitsGenus(yrj ,  differences );
-    
-    if(unieativeHits.empty()){
-        this->finalResult[this->notConsidered]++;
-        return;
-    }
-    
-    auto finalUnieative = this->unieativeLCAKraken(unieativeHits);
-    
-    auto level = this->getLeastCommonLevel2(yrj, finalUnieative);
-    
-    if(bigTree->getGenusUID(finalUnieative) < 0)
-    {
-        finalResult[notNeeded]++;
-        return;
-    }
 
-    
-    
-    if(bigTree->getGenusUID(finalUnieative) < 0)
-    {
-        finalResult[notNeeded]++;
-        return;
-    }
-    
-    
-    if(this->finalResult.count(level))
-        finalResult[level] ++;
-    else{
-        finalResult[level] = 1;
-    }
-    //cout << level << endl;
-    /*
-     
-    string s;
-    s.push_back( (char)(differences + '0'));
-
-    ofstream * result = new ofstream(this->result + s + ".out" );
-    for(auto res : this->finalResult)
-    {
-        *result << res.first << "\t" << res.second << endl;
-    }
-    */
-}
 
 
 //Kraken
@@ -166,11 +144,6 @@ map<short, int>  Tester::getKrakenLCAs(YRJObject * yrj , int differences)
         {
             auto lca = this->pruinedTree->getGlobalLCA(hits);
             
-            
-            
-            
-            
-            
             if(hitNumbers.count(lca))
                 hitNumbers[lca]++;
             else
@@ -180,6 +153,47 @@ map<short, int>  Tester::getKrakenLCAs(YRJObject * yrj , int differences)
     return hitNumbers;
 }
 
+map<LONGS, int>  Tester::getUnieativeHitsWeightedSpecies(YRJObject * yrj , int differences )
+{
+    map<LONGS, int> unieativeRet;
+    
+    for(auto kmer : yrj->kmersVector)
+    {
+        auto hits = this->hits_kmer_with_differences_weighted(kmer, differences);
+        
+        if(hits.size() == 0){
+            continue;
+        }
+        
+        map<LONGS , int> tempHits;
+        
+        for(auto hit : hits)
+        {
+            auto speciesUID = getSpeciesLevelUID(hit.first);
+            
+            if(speciesUID != -1)
+            {
+                if(tempHits.count(speciesUID))
+                    tempHits[speciesUID] = max(tempHits[speciesUID] , hit.second);
+                else
+                    tempHits[speciesUID] = hit.second;
+            }
+            else
+                cerr << "big problem 44 \n" << hit <<endl;
+        }
+        
+        for(auto tmpHit : tempHits)
+        {
+            if(unieativeRet.count(tmpHit.first))
+                unieativeRet[tmpHit.first] += tmpHit.second;
+            else
+                unieativeRet[tmpHit.first] = tmpHit.second;
+        }
+
+    }
+    
+    return unieativeRet;
+}
 
 map<LONGS, int>  Tester::getUnieativeHitsSpecies(YRJObject * yrj , int differences )
 {
@@ -298,7 +312,6 @@ LONGS Tester::unieativeLCAKraken(map<LONGS, int> unieativeHits)
     auto finalNode = this->bigTree->get_Global_LCA(maxNodes);
     
     return finalNode.uid;
-
     
 }
 
@@ -429,5 +442,7 @@ long Tester::getElementInTheResult(string element)
 
     return 0;
 }
+
+
 
 

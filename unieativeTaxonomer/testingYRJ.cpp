@@ -299,6 +299,39 @@ vector< pair<short, short> >  Tester::getNumerOfDifferences(Hash * hash , LONG k
 
 
 
+vector<short, int> Tester::hits_kmer_with_differences_weighted(LONG kmer , int differences)
+{
+    map<short, int> retMap;
+    
+    auto maxWeight = differences + 1;
+    for (auto hash : this->hashes)
+    {
+        //extract the hits from each hash
+        auto temp_hits = this->getNumerOfDifferences(hash, kmer);
+        
+        for (auto hit :  temp_hits)
+        {
+            if(hit.second > differences)
+                continue;
+            
+            auto weight = maxWeight - hit.second;
+            
+            if (retMap.count(hit.first))
+                retMap[hit.first] = max(retMap[hit.first] , weight);
+            else
+                retMap[hit.first] = weight;
+        }
+    }
+    
+    vector<short, int> ret;
+    
+    for(auto retEle : retMap)
+    {
+        ret.emplace_back(retEle);
+    }
+    
+    return ret;
+}
 
 
 vector< short > Tester::hits_kmer_with_differences( LONG kmer , int diff)
