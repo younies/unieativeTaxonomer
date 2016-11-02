@@ -249,6 +249,13 @@ map<LONGS, int>  Tester::getUnieativeHitsGenus(YRJObject * yrj , int differences
                 break;
             }
             auto genusUID = getGenusLevelUID(hit);
+            auto speciesUID = getSpeciesLevelUID(hit);
+            
+            if(genusUID == -1 && speciesUID != -1)
+            {
+                cout << "oooooh " << hit << endl;
+            }
+            
             if(genusUID != -1)
                 genusHits.insert( genusUID);
             else
