@@ -96,7 +96,7 @@ void Tester::testYRJvector(int deep){
         yrj.uid = uid;
      //   cout << DNA << endl;
         //this->testingGenomeLevel(&yrj, deep);
-        testingSpeciesLevelWithNewMethodology(&yrj, deep);
+        testingGenomeLevelWithNewMethodology(&yrj, deep);
     }
     
     

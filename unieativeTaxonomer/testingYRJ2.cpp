@@ -55,8 +55,20 @@ void Tester::testingGenomeLevelWithNewMethodology(YRJObject * yrj   , int differ
     
     auto level = this->getLeastCommonLevel(yrj, finalUnieative);
     
+    if(bigTree->getGenusUID(finalUnieative) < 0)
+    {
+        finalResult[notNeeded]++;
+        return;
+    }
+
     
-    if(level == "no")
+    
+    if(bigTree->getGenusUID(finalUnieative) < 0)
+    {
+        finalResult[notNeeded]++;
+        return;
+    }
+    
     
     if(this->finalResult.count(level))
         finalResult[level] ++;
