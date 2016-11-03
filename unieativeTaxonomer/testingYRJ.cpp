@@ -103,8 +103,8 @@ void Tester::testYRJvector(int deep){
         }
      //   cout << DNA << endl;
         //this->testingGenomeLevel(&yrj, deep);
-        testingGenomeLevelWithNewMethodology(&yrj, deep);
-        //testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
+        //testingGenomeLevelWithNewMethodology(&yrj, deep);
+        testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
     }
     
     calculate_accurcy(this->result + "_summery_" + s + ".out");
