@@ -94,7 +94,7 @@ void Tester::testYRJvector(int deep){
         getline(hiseqNew, DNA);
         YRJObject yrj(DNA);
         yrj.uid = uid;
-        if(uid != 1437877)
+        if(uid != 1675528)
             continue;
         if (bigTree->getGenusUID(uid) == -1)
         {
