@@ -42,7 +42,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/newResults/kraken_lemit2_";
+    const string result = "/export1/project/hondius/testingUnieative/matlabResults/kraken_";
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
@@ -120,6 +120,8 @@ public:
     map<short, int> hits_kmer_with_differences_weighted(LONG kmer , int differences);
     
     void testingSpeciesLevelWithWeightedMethodology(YRJObject * yrj   , int differences);
+    void calculate_accurcy_matlab(string file);
+
 };
 
 

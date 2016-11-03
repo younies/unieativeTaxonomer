@@ -82,7 +82,7 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     //to get kraken Final Taxonomy
     
-    if(hitNumbers.size() < 2)
+    if(hitNumbers.size()  == 0)
     {
         this->finalResult[this->notConsidered] ++;
         return;
@@ -386,7 +386,41 @@ LONGS Tester::getGenusLevelUID(short shortName)
 }
 
 
+void Tester::calculate_accurcy_matlab(string file)
+{
+    ofstream accurFile(file);
+    
+    double total = 0.0;
+    
+    for(auto element : finalResult)
+    {
+        
+        if(element.first == notConsidered)
+            continue;
+        if(element.first == notNeeded)
+            continue;
+        
+        total+= element.second;
+    }
 
+    double speciesAccuracy = 0.0;
+    
+    
+    speciesAccuracy += getElementInTheResult("species");
+    speciesAccuracy += getElementInTheResult("subspecies");
+    
+    
+    
+    
+    double genusAccuracy = speciesAccuracy ;
+    genusAccuracy +=getElementInTheResult ("genus");
+    
+
+    accurFile << speciesAccuracy << endl;
+    accurFile << genusAccuracy - speciesAccuracy << endl;
+    accurFile << total - genusAccuracy - speciesAccuracy << endl;
+    
+}
 void Tester::calculate_accurcy(string file)
 {
     ofstream output(file);

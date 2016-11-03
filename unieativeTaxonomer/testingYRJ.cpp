@@ -345,21 +345,18 @@ vector< short > Tester::hits_kmer_with_differences( LONG kmer , int diff)
         }
     }
     
-    vector<short> ret(ret_set.size()) ;
+    vector<short> ret ;
     
-    int i = 0;
     
     for(auto retElement : ret_set)
     {
-        ret[i++] = retElement;
+        ret.emplace_back( retElement);
     }
     
     
     return ret;
     
 }
-
-
 
 
 
