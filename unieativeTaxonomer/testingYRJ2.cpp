@@ -87,7 +87,7 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
         sum += hit.second;
     }
     cout << sum << endl;
-    if(sum < 11)
+    if(sum < 1)
     {
         
         this->finalResult[this->notConsidered] ++;
