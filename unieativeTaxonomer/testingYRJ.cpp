@@ -102,13 +102,13 @@ void Tester::testYRJvector(int deep){
             continue;
         }
      //   cout << DNA << endl;
-        this->testingGenomeLevel(&yrj, deep);
-        //testingGenomeLevelWithNewMethodology(&yrj, deep);
+        //this->testingGenomeLevel(&yrj, deep);
+        testingGenomeLevelWithNewMethodology(&yrj, deep);
         //testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
     }
     
-    
-    calculate_accurcy_matlab(this->result + "_summery_" + s + ".out");
+    calculate_accurcy(this->result + "_summery_" + s + ".out");
+    calculate_accurcy_matlab(this->result + "_summery_matlab_" + s + ".out");
     
     
     string ranks[] = {"root" , "phylum" , "class" , "order" , "family" , "genus" , "species" , "subspecies" , "no" , notConsidered , notNeeded};
