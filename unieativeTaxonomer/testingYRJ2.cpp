@@ -71,19 +71,25 @@ void Tester::testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int diffe
 //Kraken
 void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
 {
-    
+   /*
     if(!this->isKrakenCatch(yrj))
     {
         this->finalResult[this->notConsidered] ++;
         return;
     }
-     
+     */
     auto hitNumbers = this->getKrakenLCAs(yrj, differences);
     
     //to get kraken Final Taxonomy
-    
-    if(hitNumbers.size()  == 0)
+    long sum = 0;
+    for(auto hit: hitNumbers)
     {
+        sum += hit.second;
+    }
+    cout << sum << endl;
+    if(sum < 11)
+    {
+        
         this->finalResult[this->notConsidered] ++;
         return;
     }
