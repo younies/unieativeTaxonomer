@@ -418,7 +418,7 @@ void Tester::calculate_accurcy_matlab(string file)
 
     accurFile << speciesAccuracy << endl;
     accurFile << genusAccuracy - speciesAccuracy << endl;
-    accurFile << total - genusAccuracy - speciesAccuracy << endl;
+    accurFile << total - genusAccuracy  << endl;
     
 }
 void Tester::calculate_accurcy(string file)
