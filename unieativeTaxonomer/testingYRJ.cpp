@@ -107,7 +107,7 @@ void Tester::testYRJvector(int deep){
     }
     
     
-    calculate_accurcy(this->result + "_summery_" + s + ".out");
+    calculate_accurcy_matlab(this->result + "_summery_" + s + ".out");
     
     
     string ranks[] = {"root" , "phylum" , "class" , "order" , "family" , "genus" , "species" , "subspecies" , "no" , notConsidered , notNeeded};
