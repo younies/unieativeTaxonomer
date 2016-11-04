@@ -45,6 +45,7 @@ void Tester::testingSpeciesLevelWithNewMethodology(YRJObject * yrj   , int diffe
 
     auto finalUnieative = this->unieativeLCAKraken(unieativeHits);
 
+    cout << finalUnieative << endl;
     
     if(bigTree->getGenusUID(finalUnieative) < 0)
     {
