@@ -19,7 +19,7 @@ void Tester::testingSpeciesLevelWithWeightedMethodology(YRJObject * yrj   , int 
     
     auto finalUnieative = this->unieativeLCAKraken(unieativeHits);
 
-    
+    cout << finalUnieative << endl;
     if(bigTree->getGenusUID(finalUnieative) < 0)
     {
         finalResult[notNeeded]++;
