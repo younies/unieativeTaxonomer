@@ -93,9 +93,12 @@ void Tester::testYRJvector(int deep){
         long uid = stol(DNA);
         getline(hiseqNew, DNA);
         YRJObject yrj(DNA);
-        yrj.uid = uid;
+        
         if(uid != 1675528)
             continue;
+        uid = 1280;
+        yrj.uid = uid;
+      
         if (bigTree->getGenusUID(uid) == -1)
         {
             cout << "not  a good level " << uid << endl;
