@@ -320,6 +320,8 @@ map<short, int> Tester::hits_kmer_with_differences_weighted(LONG kmer , int diff
             
             auto weight = maxWeight - hit.second;
             
+            weight *= weight;
+            
             if (retMap.count(hit.first))
                 retMap[hit.first] = max(retMap[hit.first] , weight);
             else
