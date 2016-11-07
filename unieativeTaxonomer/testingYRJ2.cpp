@@ -501,13 +501,24 @@ void Tester::testKrakenOutput()
         converter >> uid1;
         converter >> uid2;
         
+        cout << uid1 << "   " << uid2 << endl;
+        
         auto node1 = bigTree->getNodeFromIndex(bigTree->uid_to_index(uid1));
+        cout << "get2\n";
         auto node2 = bigTree->getNodeFromIndex(bigTree->uid_to_index(uid2));
         
-        auto lca = bigTree->get_LCA_between_Two_Nodes(node1, node2);
+        cout << "get3\n";
+
         
+        auto lca = bigTree->get_LCA_between_Two_Nodes(node1, node2);
+        cout << "get4\n";
+
         
         auto  level = this->bigTree->getNextNotNoLevellevel(bigTree->getNodeFromIndex(bigTree->uid_to_index(lca)));
+        
+        
+        cout << "get6\n";
+
         
         if(this->finalResult.count(level))
             finalResult[level] ++;
