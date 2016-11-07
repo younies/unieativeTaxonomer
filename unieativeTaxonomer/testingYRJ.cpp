@@ -87,7 +87,7 @@ void Tester::testYRJvector(int deep){
     this->finalResult[this->notNeeded] = 0;
     
     this->pruinedTree->bigTree = this->bigTree;
-    
+    /*
     while (getline(hiseqNew, DNA))
     {
         long uid = stol(DNA);
@@ -108,6 +108,8 @@ void Tester::testYRJvector(int deep){
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
         testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
     }
+     */
+    testKrakenOutput();
     
     calculate_accurcy(this->result + "_summery_" + s + ".out");
     calculate_accurcy_matlab(this->result + "_summery_matlab_" + s + ".out");

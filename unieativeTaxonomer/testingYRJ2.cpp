@@ -487,3 +487,38 @@ long Tester::getElementInTheResult(string element)
 
 
 
+void Tester::testKrakenOutput()
+{
+    ifstream krakenOutput(path_to_Kraken_test);
+    
+    string line;
+    
+    while (getline(krakenOutput, line))
+    {
+        stringstream converter(line);
+        long uid1 , uid2;
+        
+        converter >> uid1;
+        converter >> uid2;
+        
+        auto node1 = bigTree->getNodeFromIndex(bigTree->uid_to_index(uid1));
+        auto node2 = bigTree->getNodeFromIndex(bigTree->uid_to_index(uid2));
+        
+        auto lca = bigTree->get_LCA_between_Two_Nodes(node1, node2);
+        
+        
+        auto  level = this->bigTree->getNextNotNoLevellevel(bigTree->getNodeFromIndex(bigTree->uid_to_index(lca)));
+        
+        if(this->finalResult.count(level))
+            finalResult[level] ++;
+        else
+            finalResult[level] = 1;
+
+
+    }
+    
+}
+
+
+
+

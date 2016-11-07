@@ -42,7 +42,10 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/trialResults/finally_unieative_double4_weight_";
+    const string result = "/export1/project/hondius/testingUnieative/finalResults/kraken_original_";
+    
+    const string path_to_Kraken_test = "/export1/project/hondius/testingUnieative/finalResults/ids_for_kraken_HiSeq.txt";
+    
     vector<YRJObject* > yrjVector;
     
     BigTree * bigTree;
@@ -121,6 +124,8 @@ public:
     
     void testingSpeciesLevelWithWeightedMethodology(YRJObject * yrj   , int differences);
     void calculate_accurcy_matlab(string file);
+    
+    void testKrakenOutput(); // this function to test kraken output accuracy
 
 };
 

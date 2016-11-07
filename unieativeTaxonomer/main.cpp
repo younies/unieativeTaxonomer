@@ -66,7 +66,7 @@ int main(int argc, const char * argv[])
     
  //testing new investigation
     
-    for(int deep  = 0   ; deep < 10 ; deep++ )
+    for(int deep  = 9   ; deep < 10 ; deep++ )
     {
         //testing the tester
         Tester *tester = new Tester();
