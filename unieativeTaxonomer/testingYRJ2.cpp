@@ -514,7 +514,7 @@ void Tester::testKrakenOutput()
         cout << "get4\n";
 
         
-        auto  level = this->bigTree->getNextNotNoLevellevel(bigTree->getNodeFromIndex(bigTree->uid_to_index(lca)));
+        auto  level = this->bigTree->getNextNotNoLevellevel(bigTree->getNodeFromIndex((lca)));
         
         
         cout << "get6\n";
