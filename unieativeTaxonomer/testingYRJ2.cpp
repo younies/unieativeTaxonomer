@@ -503,9 +503,23 @@ void Tester::testKrakenOutput()
         
         cout << uid1 << "   " << uid2 << endl;
         
+        
+        auto speciesUID = this->bigTree->getGenusUID(uid2);
+        
+        if(speciesUID == -1)
+        {
+            finalResult[this->notNeeded]++;
+            continue;
+        }
+
+        
+        
         auto node1 = bigTree->getNodeFromIndex(bigTree->uid_to_index(uid1));
         cout << "get2\n";
         auto node2 = bigTree->getNodeFromIndex(bigTree->uid_to_index(uid2));
+        
+        
+        
         
         cout << "get3\n";
 
