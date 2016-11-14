@@ -49,6 +49,8 @@ void Tester::testYRJvector(int deep){
     this->globalCounterEffect.resize(11, 0);
     
     
+    this->finalKmerResult.resize(16);
+    
     /*
     vector<vector<string>> genomes;
     
@@ -87,7 +89,7 @@ void Tester::testYRJvector(int deep){
     this->finalResult[this->notNeeded] = 0;
     
     this->pruinedTree->bigTree = this->bigTree;
-    /*
+ 
     while (getline(hiseqNew, DNA))
     {
         long uid = stol(DNA);
@@ -106,13 +108,17 @@ void Tester::testYRJvector(int deep){
      //   cout << DNA << endl;
         //this->testingGenomeLevel(&yrj, deep);
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
-        testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
+        //testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
+        testKmerLevelLevel(&yrj);
+        
     }
-     */
-    testKrakenOutput();
+   
     
-    calculate_accurcy(this->result + "_summery_" + s + ".out");
-    calculate_accurcy_matlab(this->result + "_summery_matlab_" + s + ".out");
+    //for kraken
+    //testKrakenOutput();
+    
+    calculate_accurcy(this->result + "_summery_" + s + ".out" , finalResult);
+    calculate_accurcy_matlab(this->result + "_summery_matlab_" + s + ".out" , finalResult);
     
     
     string ranks[] = {"root" , "phylum" , "class" , "order" , "family" , "genus" , "species" , "subspecies" , "no" , notConsidered , notNeeded};

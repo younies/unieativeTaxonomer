@@ -42,7 +42,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/finalResults/kraken_original3_";
+    const string result = "/export1/project/hondius/testingUnieative/finalResults/kmer_test_level_";
     
     const string path_to_Kraken_test = "/export1/project/hondius/testingUnieative/finalResults/ids_for_kraken_HiSeq.txt";
     
@@ -50,6 +50,9 @@ class Tester {
     
     BigTree * bigTree;
     Tree * pruinedTree;
+    
+    
+    vector<unordered_map<string , long> > finalKmerResult;
     
     unordered_map<string , long> finalResult;
     
@@ -110,7 +113,7 @@ public:
 
     string getLeastCommonLevel2(YRJObject * yrj, LONGS finalResultUID);
     
-    void calculate_accurcy(string file);
+    void calculate_accurcy(string file , unordered_map<string , long> finalResult);
     
     long getElementInTheResult(string element);
     
@@ -123,9 +126,23 @@ public:
     map<short, int> hits_kmer_with_differences_weighted(LONG kmer , int differences);
     
     void testingSpeciesLevelWithWeightedMethodology(YRJObject * yrj   , int differences);
-    void calculate_accurcy_matlab(string file);
+    void calculate_accurcy_matlab(string file , unordered_map<string , long> finalResult);
     
     void testKrakenOutput(); // this function to test kraken output accuracy
+    
+    
+    
+    void testKmerLevelLevel(YRJObject * yrj); // test rach kmer individually
+    
+    map<  short, short > getHitsandDifferencesKmer(LONG kmer);
+    
+    
+    string getLevel(long lcaUID , long inputUID); // get the level of LCA between two tax IDs
+    
+    
+    void writeTestKmerLevels();
+    
+    
 
 };
 

@@ -393,7 +393,7 @@ LONGS Tester::getGenusLevelUID(short shortName)
 }
 
 
-void Tester::calculate_accurcy_matlab(string file)
+void Tester::calculate_accurcy_matlab(string file , unordered_map<string , long> finalResult)
 {
     ofstream accurFile(file);
     
@@ -428,7 +428,10 @@ void Tester::calculate_accurcy_matlab(string file)
     accurFile << total - genusAccuracy  << endl;
     
 }
-void Tester::calculate_accurcy(string file)
+
+
+
+void Tester::calculate_accurcy(string file , unordered_map<string , long> finalResult)
 {
     ofstream output(file);
     
@@ -555,3 +558,155 @@ void Tester::testKrakenOutput()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void Tester::testKmerLevelLevel(YRJObject * yrj)
+{
+   
+    auto yrjUID = yrj->uid;
+    vector<vector<short> > hitsVectors(16);
+    
+    for(auto kmer : yrj->kmersVector)
+    {
+        auto hits = getHitsandDifferencesKmer(kmer);
+        
+        for(auto hit : hits)
+                hitsVectors[hit.second].emplace_back(hit.first);
+    
+        
+        
+        
+        // to test this kmer
+        
+        for (int i= 0  , n = hitsVectors.size() ; i < n  ; ++i)
+        {
+            auto lca = pruinedTree->getGlobalLCA(hitsVectors[i]);
+            
+            if(lca > -1)
+            {
+                auto lcaUID = pruinedTree->getTheUIDFromShort(lca);
+                
+                auto level = getLevel(yrjUID, lcaUID);
+                
+                
+                if(finalKmerResult[i].count(level))
+                    finalKmerResult[i][level]++;
+                else
+                    finalKmerResult[i][level] = 1;
+                
+            }
+        }
+    }
+
+    
+    
+
+}
+
+
+map<  short, short > Tester::getHitsandDifferencesKmer(LONG kmer)
+{
+    map<short, short> hits;
+    
+    
+        for(auto hash : hashes)
+        {
+            auto tempHits = getNumerOfDifferences(hash, kmer);
+            
+            for( auto hit : tempHits)
+            {
+                if(hits.count(hit.first))
+                    hits[hit.first] = min(hits[hit.first] , hit.second);
+                else
+                    hits[hit.first] = hit.second;
+            }
+            
+        }
+    
+    
+    return hits;
+
+}
+
+
+
+
+string Tester::getLevel(long lcaUID , long inputUID)
+{
+    
+    auto lcaNode = bigTree->getNodeFromIndex(bigTree->uid_to_index(lcaUID));
+    
+    auto inputNode = bigTree->getNodeFromIndex(bigTree->uid_to_index(inputUID));
+    
+    auto finalLCA =   bigTree->get_LCA_between_Two_Nodes(lcaNode, inputNode);
+    
+    
+    auto bigIndex = bigTree->uid_to_index(finalLCA);
+    
+    auto node = bigTree->getNodeFromIndex(bigIndex);
+    
+    return bigTree->getNextNotNoLevellevel(node);
+}
+
+
+
+
+
+
+void  Tester::writeTestKmerLevels()
+{
+    
+    
+    int i = 0;
+    for (auto finalMap : finalKmerResult)
+    {
+        string s;
+        stringstream ss(i++);
+        ss >> s;
+        calculate_accurcy(this->result + "_summery_" + s + ".out" , finalMap);
+        calculate_accurcy_matlab(this->result + "_summery_matlab_" + s + ".out" , finalMap);
+        
+        
+        string ranks[] = {"root" , "phylum" , "class" , "order" , "family" , "genus" , "species" , "subspecies" , "no" , notConsidered , notNeeded};
+        
+        
+        ofstream  *result = new ofstream(this->result + "_summery_" + s + ".out");
+        for(auto rank : ranks)
+        {
+            *result << rank  << "\t" << getElementInTheResult(rank) << endl;
+        }
+        
+        result->close();
+    }
+
+    
+    
+    
+}
