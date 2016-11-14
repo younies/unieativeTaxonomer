@@ -688,8 +688,14 @@ void  Tester::writeTestKmerLevels()
     for (auto finalMap : finalKmerResult)
     {
         string s;
-        s.push_back( (char)(i++ + '0'));
-        
+        if (i < 10)
+            s.push_back( (char)(i++ + '0'));
+        else
+        {
+            s.push_back('1');
+            s.push_back(i++%10 + '0');
+            
+        }
         
         calculate_accurcy(this->result + "_summery_" + s + ".out" , finalMap);
         calculate_accurcy_matlab(this->result + "_summery_matlab_" + s + ".out" , finalMap);
