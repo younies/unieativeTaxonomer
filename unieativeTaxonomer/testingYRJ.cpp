@@ -125,7 +125,7 @@ void Tester::testYRJvector(int deep){
     
     for(auto rank : ranks)
     {
-        *result << rank  << "\t" << getElementInTheResult(rank) << endl;
+        *result << rank  << "\t" << getElementInTheResult(rank , finalResult) << endl;
     }
     
     result->close();

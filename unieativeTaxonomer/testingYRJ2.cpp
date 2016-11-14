@@ -413,14 +413,14 @@ void Tester::calculate_accurcy_matlab(string file , unordered_map<string , long>
     double speciesAccuracy = 0.0;
     
     
-    speciesAccuracy += getElementInTheResult("species");
-    speciesAccuracy += getElementInTheResult("subspecies");
+    speciesAccuracy += getElementInTheResult("species" , finalResult);
+    speciesAccuracy += getElementInTheResult("subspecies" , finalResult);
     
     
     
     
     double genusAccuracy = speciesAccuracy ;
-    genusAccuracy +=getElementInTheResult ("genus");
+    genusAccuracy +=getElementInTheResult ("genus" , finalResult);
     
 
     accurFile << speciesAccuracy << endl;
@@ -453,17 +453,17 @@ void Tester::calculate_accurcy(string file , unordered_map<string , long> finalR
     double speciesAccuracy = 0.0;
     
     
-    speciesAccuracy += getElementInTheResult("species");
-    speciesAccuracy += getElementInTheResult("subspecies");
+    speciesAccuracy += getElementInTheResult("species", finalResult);
+    speciesAccuracy += getElementInTheResult("subspecies" , finalResult);
     
     
     
     
     double genusAccuracy = speciesAccuracy ;
-    genusAccuracy +=getElementInTheResult ("genus");
+    genusAccuracy +=getElementInTheResult ("genus" , finalResult);
     
     
-    double not_counted = getElementInTheResult(notConsidered) + getElementInTheResult(notNeeded);
+    double not_counted = getElementInTheResult(notConsidered , finalResult) + getElementInTheResult(notNeeded , finalResult);
     
     
     output << "species:\t" << speciesAccuracy/total << endl;
@@ -479,7 +479,7 @@ void Tester::calculate_accurcy(string file , unordered_map<string , long> finalR
 
 
 
-long Tester::getElementInTheResult(string element)
+long Tester::getElementInTheResult(string element , unordered_map<string , long> finalResult)
 {
     if(finalResult.count(element) )
         return finalResult[element] ;
@@ -716,7 +716,7 @@ void  Tester::writeTestKmerLevels()
         ofstream  *result = new ofstream(this->result + "_summery_" + s + ".out");
         for(auto rank : ranks)
         {
-            *result << rank  << "\t" << getElementInTheResult(rank) << endl;
+            *result << rank  << "\t" << getElementInTheResult(rank , finalMap) << endl;
         }
         
         result->close();

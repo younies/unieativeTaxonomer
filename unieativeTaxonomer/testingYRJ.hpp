@@ -115,7 +115,7 @@ public:
     
     void calculate_accurcy(string file , unordered_map<string , long> finalResult);
     
-    long getElementInTheResult(string element);
+    long getElementInTheResult(string element , unordered_map<string , long> finalResult);
     
     
     void testingSpeciesLevelWeightedNewMethodology(YRJObject * yrj   , int differences);
