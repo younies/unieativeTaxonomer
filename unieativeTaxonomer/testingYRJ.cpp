@@ -131,6 +131,9 @@ void Tester::testYRJvector(int deep){
     result->close();
     
     
+    
+    writeTestKmerLevels();
+    
     delete bigTree;
     delete pruinedTree;
     
