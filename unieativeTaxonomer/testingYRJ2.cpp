@@ -673,12 +673,12 @@ string Tester::getLevel(long lcaUID , long inputUID)
     auto finalLCA =   bigTree->get_LCA_between_Two_Nodes(lcaNode, inputNode);
     
     
-    cout << "4\n";
+    //cout << "4\n";
     
-    auto bigIndex = bigTree->uid_to_index(finalLCA);
+//auto bigIndex = bigTree->uid_to_index(finalLCA);
     
     cout << "5\n";
-    auto node = bigTree->getNodeFromIndex(bigIndex);
+    auto node = bigTree->getNodeFromIndex(finalLCA);
     
     cout << "6\n";
     return bigTree->getNextNotNoLevellevel(node);
