@@ -607,12 +607,14 @@ void Tester::testKmerLevelLevel(YRJObject * yrj)
         
         for (int i= 0  , n = hitsVectors.size() ; i < n  ; ++i)
         {
-            auto lca = pruinedTree->getGlobalLCA(hitsVectors[i]);
             
+            auto lca = pruinedTree->getGlobalLCA(hitsVectors[i]);
+            cout << lca << endl;
             if(lca > -1)
             {
                 auto lcaUID = pruinedTree->getTheUIDFromShort(lca);
-                
+                cout << lcaUID << endl;
+                cout << yrjUID << endl;
                 auto level = getLevel(yrjUID, lcaUID);
                 
                 
