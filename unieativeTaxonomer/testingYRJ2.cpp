@@ -662,18 +662,25 @@ map<  short, short > Tester::getHitsandDifferencesKmer(LONG kmer)
 
 string Tester::getLevel(long lcaUID , long inputUID)
 {
-    
+    cout << "1\n";
     auto lcaNode = bigTree->getNodeFromIndex(bigTree->uid_to_index(lcaUID));
     
+    cout << "2\n";
     auto inputNode = bigTree->getNodeFromIndex(bigTree->uid_to_index(inputUID));
     
+    
+    cout << "3\n";
     auto finalLCA =   bigTree->get_LCA_between_Two_Nodes(lcaNode, inputNode);
     
     
+    cout << "4\n";
+    
     auto bigIndex = bigTree->uid_to_index(finalLCA);
     
+    cout << "5\n";
     auto node = bigTree->getNodeFromIndex(bigIndex);
     
+    cout << "6\n";
     return bigTree->getNextNotNoLevellevel(node);
 }
 
