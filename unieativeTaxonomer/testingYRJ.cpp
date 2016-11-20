@@ -41,7 +41,6 @@ void Tester::testYRJvector(int deep){
     string s;
     s.push_back( (char)(deep + '0'));
     
-    ofstream * result = new ofstream(this->result + s + ".out" );
     
     
     this->countHashEffect.resize(11, 0);
@@ -117,20 +116,9 @@ void Tester::testYRJvector(int deep){
     //for kraken
     //testKrakenOutput();
     
-    calculate_accurcy(this->result + "_summery_" + s + ".out" , finalResult);
-    calculate_accurcy_matlab(this->result + "_summery_matlab_" + s + ".out" , finalResult);
+   
     
-    
-    string ranks[] = {"root" , "phylum" , "class" , "order" , "family" , "genus" , "species" , "subspecies" , "no" , notConsidered , notNeeded};
-    
-    for(auto rank : ranks)
-    {
-        *result << rank  << "\t" << getElementInTheResult(rank , finalResult) << endl;
-    }
-    
-    result->close();
-    
-    
+    writeTheFinalResultMap(s);
     
     writeTestKmerLevels();
     
@@ -143,7 +131,23 @@ void Tester::testYRJvector(int deep){
 
 
 
+void Tester::writeTheFinalResultMap(string s)
+{
+    ofstream * result = new ofstream(this->result + s + ".out" );
 
+    calculate_accurcy(this->result + "_summery_" + s + ".out" , finalResult);
+    calculate_accurcy_matlab(this->result + "_summery_matlab_" + s + ".out" , finalResult);
+    
+    
+    string ranks[] = {"root" , "phylum" , "class" , "order" , "family" , "genus" , "species" , "subspecies" , "no" , notConsidered , notNeeded};
+    
+    for(auto rank : ranks)
+    {
+        *result << rank  << "\t" << getElementInTheResult(rank , finalResult) << endl;
+    }
+    
+    result->close();
+}
 
 
 

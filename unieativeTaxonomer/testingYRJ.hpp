@@ -44,7 +44,7 @@ class Tester {
 
     const string result = "/export1/project/hondius/testingUnieative/finalResults/kmer_test_level_";
     
-    const string path_to_Kraken_test = "/export1/project/hondius/testingUnieative/finalResults/ids_for_kraken_HiSeq.txt";
+    const string path_to_Kraken_test = "/export1/project/hondius/testingUnieative/finalFinalResults/ids_for_kraken_HiSeq.txt";
     
     vector<YRJObject* > yrjVector;
     
@@ -139,7 +139,8 @@ public:
     
     string getLevel(long lcaUID , long inputUID); // get the level of LCA between two tax IDs
     
-    
+    void writeTheFinalResultMap(string s);
+
     void writeTestKmerLevels();
     
     

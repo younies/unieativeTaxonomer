@@ -422,10 +422,21 @@ void Tester::calculate_accurcy_matlab(string file , unordered_map<string , long>
     double genusAccuracy = speciesAccuracy ;
     genusAccuracy +=getElementInTheResult ("genus" , finalResult);
     
+    
+    
+    auto family = genusAccuracy +  getElementInTheResult ("family" , finalResult);
+    auto order = family +  getElementInTheResult ("order" , finalResult);
+    auto classAcc = order +  getElementInTheResult ("class" , finalResult);
+    auto phylum = classAcc +  getElementInTheResult ("phylum" , finalResult);
+    auto root = phylum +  getElementInTheResult ("root" , finalResult);
 
+    
     accurFile << speciesAccuracy << endl;
     accurFile << genusAccuracy - speciesAccuracy << endl;
-    accurFile << total - genusAccuracy  << endl;
+    accurFile << family - genusAccuracy  << endl;
+    accurFile << order - family   << endl;
+    accurFile <<  classAcc - order  << endl;
+    accurFile << root - classAcc  << endl;
     
 }
 
