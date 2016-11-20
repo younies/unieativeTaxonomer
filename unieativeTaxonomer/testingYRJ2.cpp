@@ -634,6 +634,7 @@ void Tester::testKmerLevelLevel(YRJObject * yrj)
                 else
                     finalKmerResult[i][level] = 1;
                 
+                break; // for the pure kmers
             }
         }
     }
