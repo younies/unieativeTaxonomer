@@ -49,6 +49,21 @@ void Tester::testYRJvector(int deep){
     
     
     this->finalKmerResult.resize(16);
+    max_min_final_results.resize(16);
+    
+    //{"root" , "phylum" , "class" , "order" , "family" , "genus" , "species" , "subspecies" , "no" , notConsidered , notNeeded};
+    
+    levelsValues["root"]    = 0;
+    levelsValues["phylum"]  = 1;
+    levelsValues["class"]   = 2;
+    levelsValues["order"]   = 3;
+    levelsValues["family"]  = 4;
+    levelsValues["genus"]   = 5;
+    levelsValues["species"] = 6;
+    levelsValues["subspecies"] = 7;
+    levelsValues["no"] = 8;
+    
+    
     
     /*
     vector<vector<string>> genomes;
@@ -108,7 +123,8 @@ void Tester::testYRJvector(int deep){
         //this->testingGenomeLevel(&yrj, deep);
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
         //testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
-        testKmerLevelLevel(&yrj);
+        //testKmerLevelLevel(&yrj);
+        testKmerLevelLevelMaxMin(&yrj);
         
     }
    
@@ -118,9 +134,26 @@ void Tester::testYRJvector(int deep){
     
    
     
-    writeTheFinalResultMap(s);
+    //writeTheFinalResultMap(s);
     
-    writeTestKmerLevels();
+    //writeTestKmerLevels();
+    
+    
+    for (int i = 0 ; i < max_min_final_results.size(); ++i)
+    {
+        
+        string max = "max_" + to_string(i) + ".result";
+        string min = "min_" + to_string(i) + ".result";
+        
+        
+        calculate_accurcy(this->result + "_summery_" + max , max_min_final_results[i].first);
+        calculate_accurcy_matlab(this->result + "_summery_matlab_" + max , max_min_final_results[i].first);
+        
+        calculate_accurcy(this->result + "_summery_" + min , max_min_final_results[i].second);
+        calculate_accurcy_matlab(this->result + "_summery_matlab_" + min , max_min_final_results[i].second);
+    }
+    
+    
     
     delete bigTree;
     delete pruinedTree;

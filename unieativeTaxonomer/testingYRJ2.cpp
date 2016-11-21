@@ -592,7 +592,36 @@ void Tester::testKrakenOutput()
 
 
 
-
+void Tester::testKmerLevelLevelMaxMin(YRJObject * yrj)
+{
+    auto yrjUID = yrj->uid;
+    vector<vector<short> > hitsVectors(16);
+    
+    for(auto kmer : yrj->kmersVector)
+    {
+        auto hits = getHitsandDifferencesKmer(kmer);
+        
+        for(auto hit : hits)
+            hitsVectors[hit.second].emplace_back(hit.first);
+        
+        // to test this kmer
+        
+        for (int i= 0  , n = (int)hitsVectors.size() ; i < n  ; ++i)
+        {
+            auto pairMaxMin =  getMaxMinLevels(yrj , hitsVectors[i]);
+            
+            if(max_min_final_results[i].first.count(pairMaxMin.first))
+                max_min_final_results[i].first[pairMaxMin.first]++;
+            else
+                max_min_final_results[i].first[pairMaxMin.first] = 1;
+            
+            if(max_min_final_results[i].second.count(pairMaxMin.second))
+                max_min_final_results[i].second[pairMaxMin.second]++;
+            else
+                max_min_final_results[i].second[pairMaxMin.second] = 1;
+        }
+    }
+}
 
 
 
@@ -739,3 +768,70 @@ void  Tester::writeTestKmerLevels()
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+pair<string, string> Tester::getMaxMinLevels(YRJObject * yrj , vector<short> hits)
+{
+    pair<string, string> max_min_ret;
+    
+    if(hits.size() == 0)
+        return max_min_ret;
+    
+    
+    set<string> results;
+    
+    for (auto hit : hits)
+    {
+        results.insert(getLeastCommonLevel(yrj , hit));
+    }
+    
+    
+    pair<int, int> max_min_values;
+    max_min_values.first = -1000000;
+    max_min_values.second = 1000000;
+    
+    
+    for(auto result : results)
+    {
+        if(levelsValues[result] > max_min_values.first)
+        {
+            
+            max_min_values.first = levelsValues[result];
+            max_min_ret.first = result;
+        }
+        
+        if(levelsValues[result] < max_min_values.second)
+        {
+            max_min_values.second = levelsValues[result];
+            max_min_ret.second = result;
+        }
+    }
+    
+    return max_min_ret;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

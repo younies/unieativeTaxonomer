@@ -42,7 +42,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/finalFinalResults/kmer_test_level_not_pure_";
+    const string result = "/export1/project/hondius/testingUnieative/finalFinalResults/kmer_test_level_not_pure_max_min_";
     
     const string path_to_Kraken_test = "/export1/project/hondius/testingUnieative/finalResults/ids_for_kraken_HiSeq.txt";
     
@@ -54,7 +54,12 @@ class Tester {
     
     vector<unordered_map<string , long> > finalKmerResult;
     
+    vector<pair<unordered_map<string , long> , unordered_map<string , long> >> max_min_final_results;
+    
     unordered_map<string , long> finalResult;
+    
+    
+    unordered_map<string , long> levelsValues;
     
     vector<Hash *> hashes;
     
@@ -143,6 +148,12 @@ public:
 
     void writeTestKmerLevels();
     
+    
+    pair<string, string> getMaxMinLevels(YRJObject * yrj ,vector<short> hits);// return the max level and the min level
+    
+    
+    void testKmerLevelLevelMaxMin(YRJObject * yrj);
+
     
 
 };
