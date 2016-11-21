@@ -439,6 +439,16 @@ void Tester::calculate_accurcy_matlab(string file , unordered_map<string , long>
     accurFile << phylum - classAcc  << endl;
     accurFile << root - phylum  << endl;
     
+    
+    accurFile.close();
+    
+    ofstream newFile(file + "garbage");
+    
+    for(auto ele: finalResult)
+        newFile << ele.first << "  " << ele.second << endl;
+    
+    newFile.close();
+    
 }
 
 
@@ -788,7 +798,8 @@ void  Tester::writeTestKmerLevels()
 pair<string, string> Tester::getMaxMinLevels(YRJObject * yrj , vector<short> hits)
 {
     pair<string, string> max_min_ret;
-    
+    max_min_ret.first = "";
+    max_min_ret.second = "";
     if(hits.size() == 0)
         return max_min_ret;
     
