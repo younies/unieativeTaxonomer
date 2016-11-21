@@ -619,6 +619,8 @@ void Tester::testKmerLevelLevelMaxMin(YRJObject * yrj)
                 max_min_final_results[i].second[pairMaxMin.second]++;
             else
                 max_min_final_results[i].second[pairMaxMin.second] = 1;
+            
+            if(hitsVectors[i].size() > 0) break; // this for purification
         }
     }
 }
