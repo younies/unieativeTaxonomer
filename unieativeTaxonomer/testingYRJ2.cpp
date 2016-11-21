@@ -436,7 +436,8 @@ void Tester::calculate_accurcy_matlab(string file , unordered_map<string , long>
     accurFile << family - genusAccuracy  << endl;
     accurFile << order - family   << endl;
     accurFile <<  classAcc - order  << endl;
-    accurFile << root - classAcc  << endl;
+    accurFile << phylum - classAcc  << endl;
+    accurFile << root - phylum  << endl;
     
 }
 
