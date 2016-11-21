@@ -431,18 +431,18 @@ void Tester::calculate_accurcy_matlab(string file , unordered_map<string , long>
     auto root = phylum +  getElementInTheResult ("root" , finalResult);
 
     
-    accurFile << speciesAccuracy << endl;
-    accurFile << genusAccuracy - speciesAccuracy << endl;
-    accurFile << family - genusAccuracy  << endl;
-    accurFile << order - family   << endl;
-    accurFile <<  classAcc - order  << endl;
-    accurFile << phylum - classAcc  << endl;
-    accurFile << root - phylum  << endl;
+    accurFile << speciesAccuracy << " , ";
+    accurFile << genusAccuracy - speciesAccuracy << " , ";
+    accurFile << family - genusAccuracy  << " , ";
+    accurFile << order - family   << " , ";
+    accurFile <<  classAcc - order  << " , ";
+    accurFile << phylum - classAcc  << " , ";
+    accurFile << root - phylum  << " ; \n";
     
     
     accurFile.close();
     
-    ofstream newFile(file + "garbage");
+    ofstream newFile(file + "garbage.out");
     
     for(auto ele: finalResult)
         newFile << ele.first << "  " << ele.second << endl;
