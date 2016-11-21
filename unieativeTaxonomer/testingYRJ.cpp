@@ -61,7 +61,7 @@ void Tester::testYRJvector(int deep){
     levelsValues["genus"]   = 5;
     levelsValues["species"] = 6;
     levelsValues["subspecies"] = 7;
-    levelsValues["no"] = 8;
+    //levelsValues["no"] = 8;
     
     
     
@@ -123,7 +123,7 @@ void Tester::testYRJvector(int deep){
         //this->testingGenomeLevel(&yrj, deep);
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
         //testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
-        //testKmerLevelLevel(&yrj);
+        testKmerLevelLevel(&yrj);
         testKmerLevelLevelMaxMin(&yrj);
         
     }
@@ -134,9 +134,9 @@ void Tester::testYRJvector(int deep){
     
    
     
-    //writeTheFinalResultMap(s);
+    writeTheFinalResultMap(s);
     
-    //writeTestKmerLevels();
+    writeTestKmerLevels();
     
     
     for (int i = 0 ; i < max_min_final_results.size(); ++i)

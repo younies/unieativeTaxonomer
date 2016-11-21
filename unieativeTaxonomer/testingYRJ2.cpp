@@ -595,10 +595,11 @@ void Tester::testKrakenOutput()
 void Tester::testKmerLevelLevelMaxMin(YRJObject * yrj)
 {
     auto yrjUID = yrj->uid;
-    vector<vector<short> > hitsVectors(16);
+    
     
     for(auto kmer : yrj->kmersVector)
     {
+        vector<vector<short> > hitsVectors(16);
         auto hits = getHitsandDifferencesKmer(kmer);
         
         for(auto hit : hits)
@@ -608,6 +609,7 @@ void Tester::testKmerLevelLevelMaxMin(YRJObject * yrj)
         
         for (int i= 0  , n = (int)hitsVectors.size() ; i < n  ; ++i)
         {
+            if(hitsVectors[i].size() == 0) continue;
             auto pairMaxMin =  getMaxMinLevels(yrj , hitsVectors[i]);
             
             if(max_min_final_results[i].first.count(pairMaxMin.first))
@@ -620,7 +622,7 @@ void Tester::testKmerLevelLevelMaxMin(YRJObject * yrj)
             else
                 max_min_final_results[i].second[pairMaxMin.second] = 1;
             
-            if(hitsVectors[i].size() > 0) break; // this for purification
+            //if(hitsVectors[i].size() > 0) break; // this for purification
         }
     }
 }
@@ -634,10 +636,11 @@ void Tester::testKmerLevelLevel(YRJObject * yrj)
 {
    
     auto yrjUID = yrj->uid;
-    vector<vector<short> > hitsVectors(16);
     
     for(auto kmer : yrj->kmersVector)
     {
+        vector<vector<short> > hitsVectors(16);
+
         auto hits = getHitsandDifferencesKmer(kmer);
         
         for(auto hit : hits)
@@ -799,8 +802,8 @@ pair<string, string> Tester::getMaxMinLevels(YRJObject * yrj , vector<short> hit
     
     
     pair<int, int> max_min_values;
-    max_min_values.first = -1000000;
-    max_min_values.second = 1000000;
+    max_min_values.first  = -1000000;
+    max_min_values.second =  1000000;
     
     
     for(auto result : results)
