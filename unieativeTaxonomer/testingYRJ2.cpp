@@ -449,6 +449,10 @@ void Tester::calculate_accurcy_matlab(string file , unordered_map<string , long>
     for(auto ele: finalResult)
         newFile << ele.first << "  " << ele.second << endl;
     
+   
+    newFile << "species : " << speciesAccuracy/total << endl;
+    newFile << "genus : " << genusAccuracy/total << endl;
+    
     newFile.close();
     
 }
