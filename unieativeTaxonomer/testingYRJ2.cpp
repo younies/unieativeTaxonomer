@@ -653,7 +653,7 @@ void Tester::testKmerLevelLevel(YRJObject * yrj)
     for(auto kmer : yrj->kmersVector)
     {
         vector<vector<short> > hitsVectors(16);
-
+        
         auto hits = getHitsandDifferencesKmer(kmer);
         
         for(auto hit : hits)
@@ -682,13 +682,11 @@ void Tester::testKmerLevelLevel(YRJObject * yrj)
                 else
                     finalKmerResult[i][level] = 1;
                 
-                //break; // for the pure kmers
+                kmers_block[i].emplace_back(kmer);
+                break; // for the pure kmers
             }
         }
     }
-
-    
-    
 
 }
 

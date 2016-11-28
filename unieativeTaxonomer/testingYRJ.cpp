@@ -155,6 +155,16 @@ void Tester::testYRJvector(int deep){
     }
     */
     
+    for(int k =0  ; k < kmers_block.size() ; ++k)
+    {
+        ofstream output(result + "_block_" + to_string(k) + ".kmer");
+        
+        for(auto kmer: kmers_block[k])
+            output << kmer << endl;
+        
+        output.close();
+    }
+    
     
     delete bigTree;
     delete pruinedTree;
