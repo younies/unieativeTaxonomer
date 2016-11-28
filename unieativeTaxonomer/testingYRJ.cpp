@@ -50,6 +50,7 @@ void Tester::testYRJvector(int deep){
     
     this->finalKmerResult.resize(16);
     max_min_final_results.resize(16);
+    kmers_block.resize(16);
     
     //{"root" , "phylum" , "class" , "order" , "family" , "genus" , "species" , "subspecies" , "no" , notConsidered , notNeeded};
     
@@ -124,7 +125,7 @@ void Tester::testYRJvector(int deep){
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
         //testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
         testKmerLevelLevel(&yrj);
-        testKmerLevelLevelMaxMin(&yrj);
+        //testKmerLevelLevelMaxMin(&yrj);
         
     }
    
@@ -138,7 +139,7 @@ void Tester::testYRJvector(int deep){
     
     writeTestKmerLevels();
     
-    
+    /*
     for (int i = 0 ; i < max_min_final_results.size(); ++i)
     {
         
@@ -152,7 +153,7 @@ void Tester::testYRJvector(int deep){
         calculate_accurcy(this->result + "_summery_" + min , max_min_final_results[i].second);
         calculate_accurcy_matlab(this->result + "_summery_matlab_" + min , max_min_final_results[i].second);
     }
-    
+    */
     
     
     delete bigTree;
