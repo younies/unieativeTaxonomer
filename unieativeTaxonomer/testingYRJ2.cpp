@@ -428,7 +428,8 @@ void Tester::calculate_accurcy_matlab(string file , unordered_map<string , long>
     auto order = family +  getElementInTheResult ("order" , finalResult);
     auto classAcc = order +  getElementInTheResult ("class" , finalResult);
     auto phylum = classAcc +  getElementInTheResult ("phylum" , finalResult);
-    auto root = phylum +  getElementInTheResult ("root" , finalResult);
+    auto superkingdom = phylum + getElementInTheResult("superkingdom", finalResult);
+    auto root = superkingdom +  getElementInTheResult ("root" , finalResult);
 
     
     accurFile << speciesAccuracy << " , ";
@@ -437,7 +438,8 @@ void Tester::calculate_accurcy_matlab(string file , unordered_map<string , long>
     accurFile << order - family   << " , ";
     accurFile <<  classAcc - order  << " , ";
     accurFile << phylum - classAcc  << " , ";
-    accurFile << root - phylum  << " ; \n";
+    accurFile << superkingdom - phylum << " , ";
+    accurFile << root - superkingdom  << " ; \n";
     
     
     accurFile.close();
@@ -493,9 +495,6 @@ void Tester::calculate_accurcy(string file , unordered_map<string , long> finalR
     output << "not used\t" << not_counted/(total + not_counted) << endl;
     
     output.close();
-    
-    
-    
     
 }
 
