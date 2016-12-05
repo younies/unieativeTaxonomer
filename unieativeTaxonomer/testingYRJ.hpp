@@ -29,6 +29,7 @@ class Tester {
 
     const string path_to_pruined_tree = "/export1/project/hondius/newKrakenResearch/finalNewTree.txt";
     const string hiSeqModified = "/export1/project/hondius/testingUnieative/accuracy/hiSeqModified.fa";
+    const string mi_SeqModified ="/export1/project/hondius/testingUnieative/accuracy/mi2.txt";
 
     const string notConsidered = "not_considered";
     const string notNeeded = "not_needed";
@@ -42,7 +43,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/newTest/kraken_not_pure/kmer_test_level_";
+    const string result = "/export1/project/hondius/testingUnieative/newTest/kraken_not_pure/mi_Seq_";
     
     const string path_to_Kraken_test = "/export1/project/hondius/testingUnieative/finalResults/ids_for_kraken_HiSeq.txt";
     

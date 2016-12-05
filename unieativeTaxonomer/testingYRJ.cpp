@@ -16,7 +16,7 @@ void Tester::testYRJvector(int deep){
     
     
     
-    ifstream hiseqNew(this->hiSeqModified);
+    ifstream hiseqNew(this->mi_SeqModified);
     
     
     
