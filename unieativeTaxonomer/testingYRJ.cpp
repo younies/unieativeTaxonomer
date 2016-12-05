@@ -121,9 +121,9 @@ void Tester::testYRJvector(int deep){
             continue;
         }
      //   cout << DNA << endl;
-        this->testingGenomeLevel(&yrj, deep);
+       // this->testingGenomeLevel(&yrj, deep);
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
-        //testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
+        testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
         //testKmerLevelLevel(&yrj);
         //testKmerLevelLevelMaxMin(&yrj);
         
@@ -379,7 +379,7 @@ map<short, int> Tester::hits_kmer_with_differences_weighted(LONG kmer , int diff
             
             auto weight = maxWeight - hit.second;
             
-            weight *= weight * weight * weight;
+            //weight *= weight * weight * weight;
             
             if (retMap.count(hit.first))
                 retMap[hit.first] = max(retMap[hit.first] , weight);
