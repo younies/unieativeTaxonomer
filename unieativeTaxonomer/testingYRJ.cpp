@@ -16,7 +16,7 @@ void Tester::testYRJvector(int deep){
     
     
     
-    ifstream hiseqNew(this->hiSeqModified);
+    ifstream hiseqNew(this->mi_SeqModified);
     
     
     
@@ -105,6 +105,8 @@ void Tester::testYRJvector(int deep){
     
     this->pruinedTree->bigTree = this->bigTree;
  
+    
+    ofstream out222(result + "bossgood.out");
     while (getline(hiseqNew, DNA))
     {
         long uid = stol(DNA);
@@ -118,6 +120,7 @@ void Tester::testYRJvector(int deep){
         if (bigTree->getGenusUID(uid) == -1)
         {
             cout << "not  a good level " << uid << endl;
+            out222 << uid << endl;
             continue;
         }
      //   cout << DNA << endl;
