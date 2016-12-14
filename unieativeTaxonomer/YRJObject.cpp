@@ -28,7 +28,7 @@ YRJObject::YRJObject(string path ,short index)
 YRJObject::~YRJObject()
 {
     this->kmersVector.clear();
-    cout << "YRJ object is destroyed\n";
+    //cout << "YRJ object is destroyed\n";
 }
 
 

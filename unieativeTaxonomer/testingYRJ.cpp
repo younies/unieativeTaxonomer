@@ -115,6 +115,9 @@ void Tester::testYRJvector(int deep){
         
         if(uid == 1675528)
             uid = 1280;
+        
+        if(uid !=   1868170) continue;
+            
         yrj.uid = uid;
       
         //if (bigTree->getGenusUID(uid) == -1)
