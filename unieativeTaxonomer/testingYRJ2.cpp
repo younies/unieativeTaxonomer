@@ -83,12 +83,12 @@ void Tester::testingGenomeLevel(YRJObject * yrj   , int differences)
     
     //to get kraken Final Taxonomy
     long sum = 0;
-    for(auto hit: hitNumbers)
-    {
-        sum += hit.second;
-    }
-    cout << sum << endl;
-    if(sum < 1)
+    //for(auto hit: hitNumbers)
+    //{
+      //  sum += hit.second;
+    //}
+  //  cout << sum << endl;
+    if(hitNumbers.size() < 1)
     {
         
         this->finalResult[this->notConsidered] ++;

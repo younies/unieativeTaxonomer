@@ -122,11 +122,11 @@ void Tester::testYRJvector(int deep){
         yrj.uid = uid;
       
         //if (bigTree->getGenusUID(uid) == -1)
-        {
+        //{
         //    cout << "not  a good level " << uid << endl;
          //   out222 << uid << endl;
           //  continue;
-        }
+        //}
      //   cout << DNA << endl;
         this->testingGenomeLevel(&yrj, deep);
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
@@ -140,7 +140,7 @@ void Tester::testYRJvector(int deep){
     //for kraken
     //testKrakenOutput();
     
-   
+   cout << "done !! done !! \n";
     
     writeTheFinalResultMap(s);
     
