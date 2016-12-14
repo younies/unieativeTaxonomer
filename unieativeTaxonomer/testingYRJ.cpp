@@ -115,7 +115,7 @@ void Tester::testYRJvector(int deep){
         if(uid == 1675528)
             uid = 1280;
         
-        if(uid !=   1868170) uid = 59201;
+        if(uid ==   1868170) uid = 59201;
         
         YRJObject yrj(DNA);
 
@@ -161,9 +161,7 @@ void Tester::testYRJvector(int deep){
         calculate_accurcy_matlab(this->result + "_summery_matlab_" + min , max_min_final_results[i].second);
     }
     */
-    
-    /*
-    for(int k =0  ; k < kmers_block.size() ; ++k)
+      for(int k =0  ; k < kmers_block.size() ; ++k)
     {
         ofstream output(result + "_block_" + to_string(k) + ".kmer");
         
@@ -172,7 +170,7 @@ void Tester::testYRJvector(int deep){
         
         output.close();
     }
-    */
+
     
     delete bigTree;
     delete pruinedTree;
