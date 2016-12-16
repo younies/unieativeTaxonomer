@@ -16,7 +16,7 @@ void Tester::testYRJvector(int deep){
     
     
     
-    ifstream hiseqNew(this->mi_SeqModified);
+    ifstream hiseqNew(this->hiSeqModified);
     
     
     
@@ -130,8 +130,8 @@ void Tester::testYRJvector(int deep){
      //   cout << DNA << endl;
        // this->testingGenomeLevel(&yrj, deep);
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
-       //testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
-        testKmerLevelLevel(&yrj);
+       testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
+       // testKmerLevelLevel(&yrj);
        // testKmerLevelLevelMaxMin(&yrj);
         
     }
