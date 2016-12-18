@@ -43,7 +43,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/newTest/new_kmer_test/test_weighted_hi_";
+    const string result = "/export1/project/hondius/testingUnieative/newNewTest/krakenPure/kraken_hi_";
     
     const string path_to_Kraken_test = "/export1/project/hondius/testingUnieative/finalResults/ids_for_kraken_HiSeq.txt";
     
@@ -97,7 +97,7 @@ public:
     void testingGenomeLevel( YRJObject * yrj  ,int differences);
     
     bool isKrakenCatch(YRJObject * yrj );// this function test if there is any hit at zero level?
-    
+    bool isKrakenCatch(YRJObject * yrj , int deep );
     
     map<short, int> getKrakenLCAs(YRJObject * yrj , int differences);
     

@@ -121,6 +121,10 @@ void Tester::testYRJvector(int deep){
 
         yrj.uid = uid;
       
+        
+        if(isKrakenCatch(&yrj , deep - 1))
+            continue;
+        
         //if (bigTree->getGenusUID(uid) == -1)
         //{
         //    cout << "not  a good level " << uid << endl;
@@ -128,9 +132,9 @@ void Tester::testYRJvector(int deep){
           //  continue;
         //}
      //   cout << DNA << endl;
-       // this->testingGenomeLevel(&yrj, deep);
+        this->testingGenomeLevel(&yrj, deep);
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
-       testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
+      // testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
        // testKmerLevelLevel(&yrj);
        // testKmerLevelLevelMaxMin(&yrj);
         

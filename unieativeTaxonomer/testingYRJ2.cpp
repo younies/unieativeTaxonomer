@@ -136,6 +136,23 @@ bool Tester::isKrakenCatch(YRJObject * yrj )
 
 }
 
+
+bool Tester::isKrakenCatch(YRJObject * yrj , int deep )
+{
+    if(deep < 0)
+        deep = 0;
+    //to find all the LCAs
+    for(auto kmer: yrj->kmersVector)
+    {
+        auto hits = this->hits_kmer_with_differences(kmer, deep);
+        
+        if(hits.size() != 0)
+            return true;
+    }
+    
+    return false;
+}
+
 map<short, int>  Tester::getKrakenLCAs(YRJObject * yrj , int differences)
 {
     map<short, int> hitNumbers;
