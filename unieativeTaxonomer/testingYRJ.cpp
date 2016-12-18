@@ -132,9 +132,9 @@ void Tester::testYRJvector(int deep){
           //  continue;
         //}
      //   cout << DNA << endl;
-        this->testingGenomeLevel(&yrj, deep);
+       // this->testingGenomeLevel(&yrj, deep);
         //testingGenomeLevelWithNewMethodology(&yrj, deep);
-      // testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
+       testingSpeciesLevelWithWeightedMethodology(&yrj, deep);
        // testKmerLevelLevel(&yrj);
        // testKmerLevelLevelMaxMin(&yrj);
         
