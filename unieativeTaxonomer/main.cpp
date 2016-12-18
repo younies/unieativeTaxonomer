@@ -46,8 +46,11 @@ int main(int argc, const char * argv[])
     patterns.emplace_back(pattern3);
     patterns.emplace_back(pattern4);
     patterns.emplace_back(pattern5);
+    patterns.emplace_back(pattern66);
     
-    //buildingHashDatabase(pattern11);
+    
+    
+    buildingHashDatabase(pattern66);
     
    //CalculateDifferencesDistributions(path_to_the_hashed_databases, patterns, path_to_the_yrj_databases, path_to_million_random, path_to_output);
     
@@ -66,7 +69,7 @@ int main(int argc, const char * argv[])
     
  //testing new investigation
     
-    for(int deep  = 0   ; deep < 7 ; deep++ )
+    for(int deep  = 0   ; deep < -1 ; deep++ )
     {
         //testing the tester
         Tester *tester = new Tester();
@@ -126,8 +129,8 @@ vector<short> getIndiciesesAtDifferences(vector<pair< short , short> > & shortWi
 void buildingHashDatabase(string pattern)
 {
     
-    YRJObject * randomMillionKmers = new YRJObject(path_to_million_random , -1);
-    randomMillionKmers->fillTheKmersVector();
+    //YRJObject * randomMillionKmers = new YRJObject(path_to_million_random , -1);
+    //randomMillionKmers->fillTheKmersVector();
     
     //creating a tree object
     Tree * tree = new Tree(path_to_the_tree);
