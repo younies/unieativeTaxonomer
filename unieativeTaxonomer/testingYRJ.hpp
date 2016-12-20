@@ -43,7 +43,7 @@ class Tester {
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
-    const string result = "/export1/project/hondius/testingUnieative/newNewTest/krakenPure/unieative_hi_morepure_";
+    const string result = "/export1/project/hondius/testingUnieative/newNewTest/krakenPure/kmer_distribution_mi_mi_";
     
     const string path_to_Kraken_test = "/export1/project/hondius/testingUnieative/finalResults/ids_for_kraken_HiSeq.txt";
     

@@ -46,11 +46,11 @@ int main(int argc, const char * argv[])
     patterns.emplace_back(pattern3);
     patterns.emplace_back(pattern4);
     patterns.emplace_back(pattern5);
-    patterns.emplace_back(pattern66);
+    //patterns.emplace_back(pattern66);
     
     
     
-    buildingHashDatabase(pattern66);
+    //buildingHashDatabase(pattern66);
     
    //CalculateDifferencesDistributions(path_to_the_hashed_databases, patterns, path_to_the_yrj_databases, path_to_million_random, path_to_output);
     
@@ -69,7 +69,7 @@ int main(int argc, const char * argv[])
     
  //testing new investigation
     
-    for(int deep  = 0   ; deep < -1 ; deep++ )
+    for(int deep  = 0   ; deep < 5 ; deep++ )
     {
         //testing the tester
         Tester *tester = new Tester();
