@@ -1,0 +1,10 @@
+CoreTaxonomer is a class that make the main function to build the hash representation in the Hard Drive:
+
+So, Core taxonomer take the following objects:
+    Hash object, which for specify which hash will be used.
+    Small Tree object to identify the short reads
+    YRJ vector for all the yrj files in the database.
+
+and the coreTaxonomer object read all the yrjs' kmers and attach them with the short UID (new uid that we gave them in the small tree under class Tree),
+ then hash all of them and then sort all of them to be written on the hard disk.
+    
