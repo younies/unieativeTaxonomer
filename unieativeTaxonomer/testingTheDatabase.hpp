@@ -16,6 +16,11 @@
 #include "CoreTaxonomer.hpp"
 #include "Tree.hpp"
 
+
+/*
+ This method is just for testing the core database and check the correctenes of 100,000 kmers
+ */
+
 void databaseTesting( string path_to_the_tree , string path_to_the_hashed_databases , string pattern , string path_to_the_yrj_databases , string path_to_million_random);
 
 bool testKmer( CoreTaxonomer * core ,  Hash * hash, LONG kmer);

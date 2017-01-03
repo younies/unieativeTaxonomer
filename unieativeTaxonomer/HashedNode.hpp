@@ -12,6 +12,20 @@
 #include "headers.h"
 //#include "Hash.hpp"
 
+
+
+/**
+ 
+ This .hpp file include all the abstract for three types:
+    1- HashedNode --> correspond to  a kmer after applying the hash
+    2- HashData --> correspond to a kmer DataPart in the CoreDatabase
+        -   SHortUID + Remaining Part
+    3- HashIndex --> corresponding to a kmer Index part in the CoreDatabase.
+        -   Index In The Data File + Size of Remaining Kmers
+ 
+ */
+
+
 //abstracting the new hashed kmer
 struct HashedNode{
     short index;

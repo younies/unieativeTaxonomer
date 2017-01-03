@@ -6,6 +6,15 @@
 //  Copyright © 2016 Younies Mahmoud. All rights reserved.
 //
 
+
+/**
+ - Hash class is reposible for all the operation including the hashing, from converting a kmer to two hash part and remaining part, writing a kmer, compare two remaining parts of a kmer and return the hashed kmer to the original one
+ 
+ - So, the Hash object needs to take only a string hash as a parameter (string of 16_'#' and 15_'-'  ), and the Hash class are going to do the rest.
+
+ 
+ */
+
 #ifndef Hash_hpp
 #define Hash_hpp
 

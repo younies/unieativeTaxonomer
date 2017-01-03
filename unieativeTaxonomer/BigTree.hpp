@@ -18,6 +18,23 @@
 
 
 
+
+/**
+ -BigTree is a class represent the full tree form the NCBI
+ 
+ -and it takes two files:
+    1- names.dmp
+    2- nodes.dmp
+ 
+ -but you should make some modification for each file:
+    for nodes.dmp, it should only has two columns: UID for child and UID for the parent.
+        And
+    for names.dmp, each row should be start eith the UID and followed by all the names for that UID.
+ 
+ and the class has many functionalities, such as find the LCA for some nodes identified by their UIDs, gives to you the parent of each node,
+ gives you the genus parent ... etc.
+ */
+
 class BigTree {
     
     //pathes to the node and names files
