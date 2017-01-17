@@ -48,7 +48,7 @@ vector<SHORT> mergeTwoWithoutRepetition(const vector<SHORT> & vec1 , const vecto
 void mergeTwoColumnsToColumnTwo(const vector< vector<SHORT> >&  vec1 , vector< vector<SHORT> >&  vec2);
 
 
-
+// write in the output file (path) how many kmers hit with 0 difference, 1 difference and so on.
 void CalculateDifferencesDistributions(  string path_to_the_hashed_databases , vector<string> patterns , string path_to_the_yrj_databases , string path_to_million_random , string path_to_the_output_file);
 
 

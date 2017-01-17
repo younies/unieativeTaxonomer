@@ -17,8 +17,16 @@
 #include "helpers.hpp"
 #include "CoreTaxonomer.hpp"
 
+/*
+ This calss has the most essential engines that use Kraken and other implementation to identify
+ the corresponding UID for an input short read and also to identify the result.
+ */
+
 class Tester {
 
+    //All the constants is pathes to required files in our program
+    //that are going to be readed from the hard drive
+    
     //constant we need in our program
     
     const string pathHiSeq = "/export1/project/hondius/testingUnieative/accuracy/HiSeq_accuracy.fa";
@@ -96,16 +104,21 @@ public:
     
     void testingGenomeLevel( YRJObject * yrj  ,int differences);
     
-    bool isKrakenCatch(YRJObject * yrj );// this function test if there is any hit at zero level?
+    // this function test if there is any hit at zero level?
+    bool isKrakenCatch(YRJObject * yrj );
+    // this function test if there is any hit at deep level?
     bool isKrakenCatch(YRJObject * yrj , int deep );
+    
     
     map<short, int> getKrakenLCAs(YRJObject * yrj , int differences);
     
     map<LONGS, int>  getUnieativeHitsSpecies(YRJObject * yrj , int differences );
 
-    
+    // this method used our new methodology to calcualte the corresponding UID (is not useful)
     void testingGenomeLevelWithNewMethodology( YRJObject * yrj  ,int differences);
 
+    
+    
     map<LONGS, int>  getUnieativeHitsGenus(YRJObject * yrj , int differences );
     
     
