@@ -9,6 +9,23 @@
 #include "testingYRJ.hpp"
 
 
+Tester::Tester(){
+    
+    this->pruinedTree = new Tree(this->path_to_pruined_tree);
+    
+    
+    this->bigTree = new BigTree(path_to_the_names_dmp_file, path_to_the_nodes_dmp_file);
+    
+
+    this->hashes.clear();
+    this->hashes.push_back(new Hash(rishil1, path_to_the_hashed_databases));
+    this->hashes.push_back(new Hash(rishil2, path_to_the_hashed_databases));
+    
+    
+
+    
+    
+}
 
 void Tester::testYRJvector(int deep){
     ifstream simBA5Stream(this->pathMiSeq);
@@ -20,6 +37,7 @@ void Tester::testYRJvector(int deep){
     
     
     
+    
     this->pruinedTree = new Tree(this->path_to_pruined_tree);
     
     
@@ -28,13 +46,18 @@ void Tester::testYRJvector(int deep){
     string header;
     string DNA;
     
-    this->hashes.resize(6);
+    /*this->hashes.resize(6);
     this->hashes[0] = new Hash(pattern1 , path_to_the_hashed_databases);
     this->hashes[1] = new Hash(pattern11 , path_to_the_hashed_databases);
     this->hashes[2] = new Hash(pattern2 , path_to_the_hashed_databases);
     this->hashes[3] = new Hash(pattern3 , path_to_the_hashed_databases);
     this->hashes[4] = new Hash(pattern4 , path_to_the_hashed_databases);
     this->hashes[5] = new Hash(pattern5 , path_to_the_hashed_databases);
+    */
+    
+    this->hashes.clear();
+    this->hashes.push_back(new Hash(rishil1, path_to_the_hashed_databases));
+    this->hashes.push_back(new Hash(rishil2, path_to_the_hashed_databases));
     
     
     
@@ -420,8 +443,6 @@ vector< short > Tester::hits_kmer_with_differences( LONG kmer , int diff)
     }
     
     vector<short> ret ;
-    
-    
     for(auto retElement : ret_set)
     {
         ret.emplace_back( retElement);

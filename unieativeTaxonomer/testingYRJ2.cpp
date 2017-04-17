@@ -797,20 +797,7 @@ void  Tester::writeTestKmerLevels()
         
         result->close();
     }
-
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -859,6 +846,54 @@ pair<string, string> Tester::getMaxMinLevels(YRJObject * yrj , vector<short> hit
 
 
 
+
+
+vector<pair<LONGS , LONGS> > Tester::getRishilInfoNeeded(LONG kmer){
+   
+    vector<pair<LONGS , LONGS >> ret;
+    
+    set<short> ret_set;
+    
+    for (auto hash : this->hashes)
+    {
+        //extract the hits from each hash
+        auto temp_hits = this->getNumerOfDifferences(hash, kmer);
+        
+        for (auto hit :  temp_hits)
+        {
+            if(hit.second == 0)
+                ret_set.insert(hit.first);
+        }
+    }
+    
+    
+    for(auto retElement : ret_set)
+    {
+        ret.emplace_back( make_pair( this->pruinedTree->getTheUIDFromShort( retElement) , 0  ));
+    }
+    
+    
+    ret_set.clear();
+    
+    for (auto hash : this->hashes)
+    {
+        //extract the hits from each hash
+        auto temp_hits = this->getNumerOfDifferences(hash, kmer);
+        
+        for (auto hit :  temp_hits)
+        {
+            if(hit.second == 1)
+                ret_set.insert(hit.first);
+        }
+    }
+    
+    for(auto retElement : ret_set)
+    {
+        ret.emplace_back( make_pair( this->pruinedTree->getTheUIDFromShort( retElement) , 1  ));
+    }
+
+    return ret;
+}
 
 
 

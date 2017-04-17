@@ -42,12 +42,20 @@ class Tester {
     const string notConsidered = "not_considered";
     const string notNeeded = "not_needed";
     //conf main
+    /* past patterns
     const string pattern1 =  "##-#--###---#-#-#-#-#--#-##--##";
     const string pattern11 = "#-#-##---#-#-#-#-#-#-##-#--##-#";
     const string pattern2 = "##-##-#-#---#-#-##--#--#-#-#-##";
     const string pattern3 = "#-#-----#-#--#--##-##-#-####-##";
     const string pattern4 = "#--###---#--##--#-#-###-#-##--#";
     const string pattern5 = "#-####-##----#-##---#-#-#--##-#";
+     */
+    
+    const string rishil1 =  "################---------------";
+    const string rishil2 =  "---------------################";
+
+    
+    
     const string path_to_the_names_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/names.txt";
     const string path_to_the_nodes_dmp_file = "/export1/project/hondius/newKrakenResearch/databases/nodes.txt";
 
@@ -82,7 +90,8 @@ class Tester {
 public:
     
     
-    
+    Tester();
+
     
     void testYRJvector(int deep);
     
@@ -169,8 +178,10 @@ public:
     
     
     void testKmerLevelLevelMaxMin(YRJObject * yrj);
-
     
+    
+
+    vector<pair<LONGS , LONGS>> getRishilInfoNeeded(LONG kmer);
 
 };
 
